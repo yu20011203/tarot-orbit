@@ -1,0 +1,5608 @@
+{
+  "generated_at": "2026-10-23T18:21:05+08:00",
+  "count": 78,
+  "items": [
+    {
+      "id": "major-00",
+      "name": "愚人",
+      "en": "The Fool",
+      "arcana": "大牌",
+      "suit": null,
+      "number": 0,
+      "rank": null,
+      "element": "风",
+      "correspondence": "风元素",
+      "secret_title": "以太之魂",
+      "hebrew_letter": "Aleph",
+      "path_number": 11,
+      "path_from": "Kether",
+      "path_to": "Chokhmah",
+      "wisdom": "闪烁",
+      "function": "无（母音）",
+      "direction": "上下维度",
+      "upright": [
+        "新的开始",
+        "冒险",
+        "自由",
+        "纯真",
+        "信任直觉"
+      ],
+      "reversed": [
+        "鲁莽",
+        "逃避责任",
+        "缺乏计划",
+        "幼稚",
+        "害怕未知"
+      ],
+      "essence": "以纯真之心踏入未知，潜力无限但也需要觉察风险。",
+      "symbols": [
+        "悬崖边缘与抬起的脚步：行动已经开始，但前路尚未被完全看清。",
+        "手中的白玫瑰与小包袱：纯真、轻装上路，也暗示经验尚未积累。",
+        "脚边的小白狗：本能与忠诚的陪伴，提醒人别失去身体直觉。",
+        "远处的雪山与朝阳：未知的挑战背后有新的可能性。"
+      ],
+      "lesson_id": "stage1-05",
+      "sources": [
+        {
+          "lesson_id": "stage1-05",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage3-09",
+          "label": "希伯来字母与路径",
+          "timestamp": "00:02:36"
+        },
+        {
+          "lesson_id": "stage4-01",
+          "label": "生命之树总表与路径",
+          "timestamp": "00:04:11"
+        }
+      ],
+      "related": [
+        {
+          "label": "下一张大牌",
+          "cards": [
+            "major-01"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/大牌/愚人.md"
+    },
+    {
+      "id": "major-01",
+      "name": "魔术师",
+      "en": "The Magician",
+      "arcana": "大牌",
+      "suit": null,
+      "number": 1,
+      "rank": null,
+      "element": "风",
+      "correspondence": "水星",
+      "secret_title": "力量的法师",
+      "hebrew_letter": "Beth",
+      "path_number": 12,
+      "path_from": "Kether",
+      "path_to": "Binah",
+      "wisdom": "透明",
+      "function": "生与死",
+      "direction": "上方",
+      "upright": [
+        "创造力",
+        "行动",
+        "沟通",
+        "资源整合",
+        "显化"
+      ],
+      "reversed": [
+        "操纵",
+        "空谈",
+        "能力未用",
+        "欺骗",
+        "缺乏专注"
+      ],
+      "essence": "把想法转化为现实的主动力量，关键在于专注与诚意。",
+      "symbols": [
+        "桌上摆着权杖、圣杯、宝剑与星币：四元素资源都已具备，关键在整合。",
+        "高举权杖、另一手指向天地：把上方意图引到地面，是“显化”的动作。",
+        "头顶的无限符号与腰间蛇带：循环、专注与持续创造。",
+        "红白百合：欲望与纯洁并存，提醒动机要诚实。"
+      ],
+      "lesson_id": "stage1-06",
+      "sources": [
+        {
+          "lesson_id": "stage1-06",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage3-09",
+          "label": "希伯来字母与路径",
+          "timestamp": "00:04:10"
+        },
+        {
+          "lesson_id": "stage4-02",
+          "label": "生命之树总表与路径",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同属自我与社会建立组",
+          "cards": [
+            "major-02",
+            "major-03",
+            "major-04",
+            "major-05",
+            "major-06",
+            "major-07"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/大牌/魔术师.md"
+    },
+    {
+      "id": "major-02",
+      "name": "女祭司",
+      "en": "The High Priestess",
+      "arcana": "大牌",
+      "suit": null,
+      "number": 2,
+      "rank": null,
+      "element": "水",
+      "correspondence": "月亮",
+      "secret_title": "银星之女祭司",
+      "hebrew_letter": "Gimel",
+      "path_number": 13,
+      "path_from": "Kether",
+      "path_to": "Tiphereth",
+      "wisdom": "联合",
+      "function": "和平与战争",
+      "direction": "下方",
+      "upright": [
+        "直觉",
+        "潜意识",
+        "秘密",
+        "静观",
+        "内在智慧"
+      ],
+      "reversed": [
+        "忽视直觉",
+        "信息隐瞒",
+        "情绪压抑",
+        "迷失",
+        "表面化"
+      ],
+      "essence": "答案不在喧闹处，而在静默与内在感受之中。",
+      "symbols": [
+        "黑白两根柱子：二元对立之间的门槛，需要先停在心里而非急着选边。",
+        "刻有石榴的帷幕：潜意识、丰饶与未被揭开的秘密。",
+        "膝上的卷轴与半遮的文字：知识存在，但只在准备好时显露。",
+        "背后的水面与月牙冠：直觉、梦境与阴性能量的领域。"
+      ],
+      "lesson_id": "stage1-07",
+      "sources": [
+        {
+          "lesson_id": "stage1-07",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage3-10",
+          "label": "希伯来字母与路径",
+          "timestamp": "00:05:04"
+        },
+        {
+          "lesson_id": "stage4-02",
+          "label": "生命之树总表与路径",
+          "timestamp": "00:04:43"
+        }
+      ],
+      "related": [
+        {
+          "label": "同属自我与社会建立组",
+          "cards": [
+            "major-01",
+            "major-03",
+            "major-04",
+            "major-05",
+            "major-06",
+            "major-07"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/大牌/女祭司.md"
+    },
+    {
+      "id": "major-03",
+      "name": "女皇",
+      "en": "The Empress",
+      "arcana": "大牌",
+      "suit": null,
+      "number": 3,
+      "rank": null,
+      "element": "土",
+      "correspondence": "金星",
+      "secret_title": "强者之女",
+      "hebrew_letter": "Daleth",
+      "path_number": 14,
+      "path_from": "Chokhmah",
+      "path_to": "Binah",
+      "wisdom": "启发",
+      "function": "聪明与愚蠢",
+      "direction": "东方",
+      "upright": [
+        "丰盛",
+        "滋养",
+        "母性",
+        "感官",
+        "创造"
+      ],
+      "reversed": [
+        "依赖",
+        "过度付出",
+        "创造力受阻",
+        "溺爱",
+        "忽视自我"
+      ],
+      "essence": "以滋养与接纳让事物自然生长，享受身体与感官的丰盛。",
+      "symbols": [
+        "麦田、瀑布与丰饶的自然：生命力需要被滋养，也会自然结果。",
+        "镶有维纳斯符号的盾牌：爱、美与吸引力是这张牌的核心。",
+        "星辰冠冕与石榴纹长袍：丰盛、母性与创造力的成熟形态。",
+        "舒适的宝座：享受成果不是罪，但过度保护会让生长停滞。"
+      ],
+      "lesson_id": "stage1-08",
+      "sources": [
+        {
+          "lesson_id": "stage1-08",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage3-10",
+          "label": "希伯来字母与路径",
+          "timestamp": "00:16:32"
+        },
+        {
+          "lesson_id": "stage4-02",
+          "label": "生命之树总表与路径",
+          "timestamp": "00:08:08"
+        }
+      ],
+      "related": [
+        {
+          "label": "同属自我与社会建立组",
+          "cards": [
+            "major-01",
+            "major-02",
+            "major-04",
+            "major-05",
+            "major-06",
+            "major-07"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/大牌/女皇.md"
+    },
+    {
+      "id": "major-04",
+      "name": "皇帝",
+      "en": "The Emperor",
+      "arcana": "大牌",
+      "suit": null,
+      "number": 4,
+      "rank": null,
+      "element": "火",
+      "correspondence": "白羊座",
+      "secret_title": "晨星之子",
+      "hebrew_letter": "Heh",
+      "path_number": 15,
+      "path_from": "Chokhmah",
+      "path_to": "Tiphereth",
+      "wisdom": "建构",
+      "function": "视觉",
+      "direction": "东北",
+      "upright": [
+        "秩序",
+        "权威",
+        "结构",
+        "责任",
+        "保护"
+      ],
+      "reversed": [
+        "专制",
+        "控制",
+        "僵化",
+        "缺乏纪律",
+        "权力斗争"
+      ],
+      "essence": "用规则、边界与责任为世界建立可依靠的框架。",
+      "symbols": [
+        "方形石座与公羊头：秩序、边界、领导与白羊座的开创性。",
+        "权杖与宝球：权力必须同时具备方向感与现实责任。",
+        "红色长袍与铠甲：行动力、保护欲，也可能是防御过强。",
+        "背后的荒山：权威是在资源有限、需要决断的环境中形成的。"
+      ],
+      "lesson_id": "stage1-08",
+      "sources": [
+        {
+          "lesson_id": "stage1-08",
+          "label": "课程精讲",
+          "timestamp": "00:01:32"
+        },
+        {
+          "lesson_id": "stage3-11",
+          "label": "希伯来字母与路径",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-02",
+          "label": "生命之树总表与路径",
+          "timestamp": "00:12:42"
+        }
+      ],
+      "related": [
+        {
+          "label": "同属自我与社会建立组",
+          "cards": [
+            "major-01",
+            "major-02",
+            "major-03",
+            "major-05",
+            "major-06",
+            "major-07"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/大牌/皇帝.md"
+    },
+    {
+      "id": "major-05",
+      "name": "教皇",
+      "en": "The Hierophant",
+      "arcana": "大牌",
+      "suit": null,
+      "number": 5,
+      "rank": null,
+      "element": "土",
+      "correspondence": "金牛座",
+      "secret_title": "永恒的法师",
+      "hebrew_letter": "Vav",
+      "path_number": 16,
+      "path_from": "Chokhmah",
+      "path_to": "Chesed",
+      "wisdom": "永恒",
+      "function": "听觉",
+      "direction": "东南",
+      "upright": [
+        "传统",
+        "信仰",
+        "教导",
+        "规范",
+        "群体"
+      ],
+      "reversed": [
+        "教条",
+        "叛逆",
+        "质疑权威",
+        "脱离传统",
+        "形式主义"
+      ],
+      "essence": "通过传统、师承与共同信念把个人经验接入更大的秩序。",
+      "symbols": [
+        "三重冠冕与举手祝福：传统、师承与制度化的精神权威。",
+        "交叉的钥匙：通往知识与秘密的许可，也代表解释权。",
+        "两名侍者：知识需要被传递，权威也依赖群体承认。",
+        "两根柱子与仪式空间：共同信念把个人经验放进可共享的秩序。"
+      ],
+      "lesson_id": "stage1-09",
+      "sources": [
+        {
+          "lesson_id": "stage1-09",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage3-11",
+          "label": "希伯来字母与路径",
+          "timestamp": "00:12:01"
+        },
+        {
+          "lesson_id": "stage4-03",
+          "label": "生命之树总表与路径",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同属自我与社会建立组",
+          "cards": [
+            "major-01",
+            "major-02",
+            "major-03",
+            "major-04",
+            "major-06",
+            "major-07"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/大牌/教皇.md"
+    },
+    {
+      "id": "major-06",
+      "name": "恋人",
+      "en": "The Lovers",
+      "arcana": "大牌",
+      "suit": null,
+      "number": 6,
+      "rank": null,
+      "element": "风",
+      "correspondence": "双子座",
+      "secret_title": "神圣声音之子",
+      "hebrew_letter": "Zain",
+      "path_number": 17,
+      "path_from": "Binah",
+      "path_to": "Tiphereth",
+      "wisdom": "区分",
+      "function": "嗅觉",
+      "direction": "东上",
+      "upright": [
+        "爱",
+        "结合",
+        "选择",
+        "价值观一致",
+        "吸引力"
+      ],
+      "reversed": [
+        "失衡",
+        "诱惑",
+        "价值冲突",
+        "逃避选择",
+        "关系破裂"
+      ],
+      "essence": "关系是一面镜子，照见欲望、价值观与必须做出的选择。",
+      "symbols": [
+        "天空中的天使：更高视角的祝福，也象征关系中的第三方见证。",
+        "裸身的男女：坦诚、真实欲望与没有伪装的相遇。",
+        "生命树与知识树：纯真、诱惑与选择同时出现。",
+        "背后的山：关系不只是私事，也会影响人生方向与价值承诺。"
+      ],
+      "lesson_id": "stage1-10",
+      "sources": [
+        {
+          "lesson_id": "stage1-10",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage3-12",
+          "label": "希伯来字母与路径",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-03",
+          "label": "生命之树总表与路径",
+          "timestamp": "00:04:24"
+        }
+      ],
+      "related": [
+        {
+          "label": "同属自我与社会建立组",
+          "cards": [
+            "major-01",
+            "major-02",
+            "major-03",
+            "major-04",
+            "major-05",
+            "major-07"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/大牌/恋人.md"
+    },
+    {
+      "id": "major-07",
+      "name": "战车",
+      "en": "The Chariot",
+      "arcana": "大牌",
+      "suit": null,
+      "number": 7,
+      "rank": null,
+      "element": "水",
+      "correspondence": "巨蟹座",
+      "secret_title": "胜利之主",
+      "hebrew_letter": "Cheth",
+      "path_number": 18,
+      "path_from": "Binah",
+      "path_to": "Geburah",
+      "wisdom": "影响力之屋",
+      "function": "言语",
+      "direction": "东下",
+      "upright": [
+        "意志",
+        "胜利",
+        "方向",
+        "控制",
+        "前行"
+      ],
+      "reversed": [
+        "失控",
+        "方向不明",
+        "内在冲突",
+        "放弃",
+        "鲁莽"
+      ],
+      "essence": "以坚定的意志驾驭相互拉扯的力量，朝目标推进。",
+      "symbols": [
+        "黑白两只斯芬克斯：相反本能被同一意志驾驭。",
+        "星空华盖与蟹壳护甲：保护、方向感与情感驱动下的坚持。",
+        "城墙内的城市：离开安全区，向外部世界推进。",
+        "手中无缰绳：真正的控制来自内在意志，而不是外在强制。"
+      ],
+      "lesson_id": "stage1-11",
+      "sources": [
+        {
+          "lesson_id": "stage1-11",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage3-12",
+          "label": "希伯来字母与路径",
+          "timestamp": "00:12:59"
+        },
+        {
+          "lesson_id": "stage4-04",
+          "label": "生命之树总表与路径",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同属自我与社会建立组",
+          "cards": [
+            "major-01",
+            "major-02",
+            "major-03",
+            "major-04",
+            "major-05",
+            "major-06"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/大牌/战车.md"
+    },
+    {
+      "id": "major-08",
+      "name": "力量",
+      "en": "Strength",
+      "arcana": "大牌",
+      "suit": null,
+      "number": 8,
+      "rank": null,
+      "element": "火",
+      "correspondence": "狮子座",
+      "secret_title": "光剑之女",
+      "hebrew_letter": "Teth",
+      "path_number": 19,
+      "path_from": "Chesed",
+      "path_to": "Geburah",
+      "wisdom": "精神活动的秘密",
+      "function": "味觉",
+      "direction": "北上",
+      "upright": [
+        "勇气",
+        "耐心",
+        "温柔的力量",
+        "自信",
+        "驯服本能"
+      ],
+      "reversed": [
+        "自我怀疑",
+        "失控",
+        "软弱",
+        "压抑",
+        "逞强"
+      ],
+      "essence": "真正的力量不是压制，而是以温柔与耐心驯服内在野性。",
+      "symbols": [
+        "女子轻抚狮口：温柔比压制更能驯服本能。",
+        "头顶无限符号：力量是可持续的循环，不是一次爆发。",
+        "白色长袍与花环：纯净意图与自然的连接。",
+        "狮子的野性：欲望、愤怒与生命力本身并不邪恶，关键是关系。"
+      ],
+      "lesson_id": "stage1-12",
+      "sources": [
+        {
+          "lesson_id": "stage1-12",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage3-13",
+          "label": "希伯来字母与路径",
+          "timestamp": "00:02:17"
+        },
+        {
+          "lesson_id": "stage4-04",
+          "label": "生命之树总表与路径",
+          "timestamp": "00:07:44"
+        }
+      ],
+      "related": [
+        {
+          "label": "同属灵性与内在转化组",
+          "cards": [
+            "major-09",
+            "major-10",
+            "major-11",
+            "major-12",
+            "major-13",
+            "major-14"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/大牌/力量.md"
+    },
+    {
+      "id": "major-09",
+      "name": "隐士",
+      "en": "The Hermit",
+      "arcana": "大牌",
+      "suit": null,
+      "number": 9,
+      "rank": null,
+      "element": "土",
+      "correspondence": "处女座",
+      "secret_title": "永恒的先知",
+      "hebrew_letter": "Yod",
+      "path_number": 20,
+      "path_from": "Chesed",
+      "path_to": "Tiphereth",
+      "wisdom": "意志",
+      "function": "触觉/性",
+      "direction": "北下",
+      "upright": [
+        "独处",
+        "内省",
+        "寻找真理",
+        "指引",
+        "退出喧嚣"
+      ],
+      "reversed": [
+        "孤立",
+        "逃避",
+        "固执",
+        "迷失",
+        "过度封闭"
+      ],
+      "essence": "暂时离开人群，在孤独中寻找属于自己的光。",
+      "symbols": [
+        "提灯中的六角星：在黑暗中只照亮下一步，而非整条路。",
+        "长杖与灰色斗篷：独立、经验与主动退出喧嚣。",
+        "雪山之巅：真理需要孤独与长期攀登。",
+        "背对观众的姿态：这段路只能自己走，不能靠人群认可。"
+      ],
+      "lesson_id": "stage1-13",
+      "sources": [
+        {
+          "lesson_id": "stage1-13",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage3-13",
+          "label": "希伯来字母与路径",
+          "timestamp": "00:19:24"
+        },
+        {
+          "lesson_id": "stage4-05",
+          "label": "生命之树总表与路径",
+          "timestamp": "00:00:37"
+        }
+      ],
+      "related": [
+        {
+          "label": "同属灵性与内在转化组",
+          "cards": [
+            "major-08",
+            "major-10",
+            "major-11",
+            "major-12",
+            "major-13",
+            "major-14"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/大牌/隐士.md"
+    },
+    {
+      "id": "major-10",
+      "name": "命运之轮",
+      "en": "Wheel of Fortune",
+      "arcana": "大牌",
+      "suit": null,
+      "number": 10,
+      "rank": null,
+      "element": "火",
+      "correspondence": "木星",
+      "secret_title": "生命力之主",
+      "hebrew_letter": "Kaph",
+      "path_number": 21,
+      "path_from": "Chesed",
+      "path_to": "Netzach",
+      "wisdom": "调和",
+      "function": "富贵与贫穷",
+      "direction": "西方",
+      "upright": [
+        "周期",
+        "转机",
+        "命运",
+        "变化",
+        "时机"
+      ],
+      "reversed": [
+        "恶性循环",
+        "抗拒变化",
+        "时机未到",
+        "失控",
+        "停滞"
+      ],
+      "essence": "人生如轮，际遇流转；顺势而为比执着控制更重要。",
+      "symbols": [
+        "轮盘与字母：命运有周期，位置会变化，但轮子本身不停。",
+        "蛇、阿努比斯与斯芬克斯：下降、上升与保持平衡的三种力量。",
+        "四角的四活物：四元素与四福音书式的稳定框架。",
+        "云中的轮盘：个人无法完全控制时机，只能选择如何回应。"
+      ],
+      "lesson_id": "stage1-14",
+      "sources": [
+        {
+          "lesson_id": "stage1-14",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage3-14",
+          "label": "希伯来字母与路径",
+          "timestamp": "00:04:08"
+        },
+        {
+          "lesson_id": "stage4-05",
+          "label": "生命之树总表与路径",
+          "timestamp": "00:00:05"
+        }
+      ],
+      "related": [
+        {
+          "label": "同属灵性与内在转化组",
+          "cards": [
+            "major-08",
+            "major-09",
+            "major-11",
+            "major-12",
+            "major-13",
+            "major-14"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/大牌/命运之轮.md"
+    },
+    {
+      "id": "major-11",
+      "name": "正义",
+      "en": "Justice",
+      "arcana": "大牌",
+      "suit": null,
+      "number": 11,
+      "rank": null,
+      "element": "风",
+      "correspondence": "天秤座",
+      "secret_title": "真理之主之女",
+      "hebrew_letter": "Lamed",
+      "path_number": 22,
+      "path_from": "Geburah",
+      "path_to": "Tiphereth",
+      "wisdom": "信念",
+      "function": "工作",
+      "direction": "西北",
+      "upright": [
+        "公平",
+        "平衡",
+        "因果",
+        "真相",
+        "责任"
+      ],
+      "reversed": [
+        "不公",
+        "偏见",
+        "逃避责任",
+        "失衡",
+        "欺骗"
+      ],
+      "essence": "每个选择都有代价，真相与责任让天平重新平衡。",
+      "symbols": [
+        "天平：权衡证据、代价与责任，不能只看愿望。",
+        "直立的宝剑：判断必须清晰，也可能带来切割与不可逆。",
+        "红袍与王冠：公正不是冷漠，而是承担裁决后果。",
+        "帷幕后的空间：真相需要被揭开，但裁决者也要看见全局。"
+      ],
+      "lesson_id": "stage1-15",
+      "sources": [
+        {
+          "lesson_id": "stage1-15",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage3-14",
+          "label": "希伯来字母与路径",
+          "timestamp": "00:12:43"
+        },
+        {
+          "lesson_id": "stage4-06",
+          "label": "生命之树总表与路径",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同属灵性与内在转化组",
+          "cards": [
+            "major-08",
+            "major-09",
+            "major-10",
+            "major-12",
+            "major-13",
+            "major-14"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/大牌/正义.md"
+    },
+    {
+      "id": "major-12",
+      "name": "吊人",
+      "en": "The Hanged Man",
+      "arcana": "大牌",
+      "suit": null,
+      "number": 12,
+      "rank": null,
+      "element": "水",
+      "correspondence": "水元素",
+      "secret_title": "强大水之魂",
+      "hebrew_letter": "Mem",
+      "path_number": 23,
+      "path_from": "Geburah",
+      "path_to": "Hod",
+      "wisdom": "稳定",
+      "function": "无（母音）",
+      "direction": "东西维度",
+      "upright": [
+        "暂停",
+        "牺牲",
+        "换位思考",
+        "臣服",
+        "等待"
+      ],
+      "reversed": [
+        "无谓牺牲",
+        "拖延",
+        "固执",
+        "不愿放手",
+        "停滞"
+      ],
+      "essence": "倒吊的视角带来顿悟；放下控制，等待时机成熟。",
+      "symbols": [
+        "倒吊在 T 形生命之树（绞架）上：主动暂停，让旧视角失效。",
+        "头后的光环：牺牲带来洞见，但未必是世俗意义上的成功。",
+        "交叉的腿与平静表情：身体受限，意识却可以自由。",
+        "双手背在身后：放下控制，接受暂时不能推动的事实。"
+      ],
+      "lesson_id": "stage1-16",
+      "sources": [
+        {
+          "lesson_id": "stage1-16",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage3-15",
+          "label": "希伯来字母与路径",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-06",
+          "label": "生命之树总表与路径",
+          "timestamp": "00:03:18"
+        }
+      ],
+      "related": [
+        {
+          "label": "同属灵性与内在转化组",
+          "cards": [
+            "major-08",
+            "major-09",
+            "major-10",
+            "major-11",
+            "major-13",
+            "major-14"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/大牌/吊人.md"
+    },
+    {
+      "id": "major-13",
+      "name": "死神",
+      "en": "Death",
+      "arcana": "大牌",
+      "suit": null,
+      "number": 13,
+      "rank": null,
+      "element": "水",
+      "correspondence": "天蝎座",
+      "secret_title": "伟大转换之子",
+      "hebrew_letter": "Nun",
+      "path_number": 24,
+      "path_from": "Tiphereth",
+      "path_to": "Netzach",
+      "wisdom": "想象",
+      "function": "移动",
+      "direction": "西南",
+      "upright": [
+        "结束",
+        "转化",
+        "放手",
+        "重生",
+        "断舍离"
+      ],
+      "reversed": [
+        "抗拒改变",
+        "拖延",
+        "停滞",
+        "旧模式纠缠",
+        "恐惧结束"
+      ],
+      "essence": "结束不是毁灭，而是为新的生命腾出空间。",
+      "symbols": [
+        "白马与黑甲骷髅：结束以不可阻挡的速度到来。",
+        "黑旗上的白玫瑰：死亡并非纯粹恐怖，也包含净化与美。",
+        "倒下的国王与升起的太阳：旧权力结束，新周期在地平线出现。",
+        "两座塔之间的道路：转化之后仍要继续前行。"
+      ],
+      "lesson_id": "stage1-17",
+      "sources": [
+        {
+          "lesson_id": "stage1-17",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage3-15",
+          "label": "希伯来字母与路径",
+          "timestamp": "00:12:54"
+        },
+        {
+          "lesson_id": "stage4-07",
+          "label": "生命之树总表与路径",
+          "timestamp": "00:07:32"
+        }
+      ],
+      "related": [
+        {
+          "label": "同属灵性与内在转化组",
+          "cards": [
+            "major-08",
+            "major-09",
+            "major-10",
+            "major-11",
+            "major-12",
+            "major-14"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/大牌/死神.md"
+    },
+    {
+      "id": "major-14",
+      "name": "节制",
+      "en": "Temperance",
+      "arcana": "大牌",
+      "suit": null,
+      "number": 14,
+      "rank": null,
+      "element": "火",
+      "correspondence": "射手座",
+      "secret_title": "调节者之女",
+      "hebrew_letter": "Samekh",
+      "path_number": 25,
+      "path_from": "Tiphereth",
+      "path_to": "Yesod",
+      "wisdom": "尝试",
+      "function": "愤怒",
+      "direction": "西上",
+      "upright": [
+        "平衡",
+        "调和",
+        "耐心",
+        "中道",
+        "疗愈"
+      ],
+      "reversed": [
+        "失衡",
+        "极端",
+        "急躁",
+        "冲突",
+        "过度"
+      ],
+      "essence": "把对立元素调和成新的整体，在耐心中完成疗愈。",
+      "symbols": [
+        "一只脚在水中、一只脚在岸上：情感与现实的持续调和。",
+        "两只杯子之间流动的水：把不同元素混合成新的整体。",
+        "鸢尾花与三角形：疗愈、节制与精神秩序。",
+        "通往远方的道路：平衡不是静止，而是可持续地走。"
+      ],
+      "lesson_id": "stage1-18",
+      "sources": [
+        {
+          "lesson_id": "stage1-18",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage3-16",
+          "label": "希伯来字母与路径",
+          "timestamp": "00:03:12"
+        },
+        {
+          "lesson_id": "stage4-07",
+          "label": "生命之树总表与路径",
+          "timestamp": "00:04:23"
+        }
+      ],
+      "related": [
+        {
+          "label": "同属灵性与内在转化组",
+          "cards": [
+            "major-08",
+            "major-09",
+            "major-10",
+            "major-11",
+            "major-12",
+            "major-13"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/大牌/节制.md"
+    },
+    {
+      "id": "major-15",
+      "name": "恶魔",
+      "en": "The Devil",
+      "arcana": "大牌",
+      "suit": null,
+      "number": 15,
+      "rank": null,
+      "element": "土",
+      "correspondence": "摩羯座",
+      "secret_title": "物质大门之主",
+      "hebrew_letter": "Ayin",
+      "path_number": 26,
+      "path_from": "Tiphereth",
+      "path_to": "Hod",
+      "wisdom": "更新",
+      "function": "笑",
+      "direction": "西下",
+      "upright": [
+        "欲望",
+        "束缚",
+        "执念",
+        "阴影",
+        "物质诱惑"
+      ],
+      "reversed": [
+        "解脱",
+        "觉察",
+        "打破束缚",
+        "面对阴影",
+        "诱惑减弱"
+      ],
+      "essence": "看清欲望与恐惧如何把人锁住，觉察本身就是解锁的开始。",
+      "symbols": [
+        "倒五角星与羊角：物质欲望、本能与价值倒置。",
+        "火炬：被偷来的火，象征力量被用于控制与诱惑。",
+        "松垮的锁链：束缚常是可解开的，只是当事人尚未觉察。",
+        "葡萄与火焰尾巴：感官享乐与野心都可能成为锁链。"
+      ],
+      "lesson_id": "stage1-19",
+      "sources": [
+        {
+          "lesson_id": "stage1-19",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage3-16",
+          "label": "希伯来字母与路径",
+          "timestamp": "00:12:21"
+        },
+        {
+          "lesson_id": "stage4-08",
+          "label": "生命之树总表与路径",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同属觉醒与整合组",
+          "cards": [
+            "major-16",
+            "major-17",
+            "major-18",
+            "major-19",
+            "major-20",
+            "major-21"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/大牌/恶魔.md"
+    },
+    {
+      "id": "major-16",
+      "name": "高塔",
+      "en": "The Tower",
+      "arcana": "大牌",
+      "suit": null,
+      "number": 16,
+      "rank": null,
+      "element": "火",
+      "correspondence": "火星",
+      "secret_title": "有力持者之主",
+      "hebrew_letter": "Peh",
+      "path_number": 27,
+      "path_from": "Netzach",
+      "path_to": "Hod",
+      "wisdom": "兴奋",
+      "function": "恩赐与愤怒",
+      "direction": "北方",
+      "upright": [
+        "突变",
+        "崩塌",
+        "觉醒",
+        "真相揭露",
+        "清理"
+      ],
+      "reversed": [
+        "避免灾难",
+        "延迟改变",
+        "内在崩塌",
+        "恐惧",
+        "勉强维持"
+      ],
+      "essence": "建立在虚假基础上的结构必然崩塌，废墟中才有真实。",
+      "symbols": [
+        "闪电击中高塔：旧结构在一瞬间失去合法性。",
+        "坠落的王冠与人物：被摧毁的不只是建筑，还有身份与安全感。",
+        "塔顶的火与烟：危机中同时有破坏与清理。",
+        "建在岩石上的塔：即使基础看似坚固，错误结构仍会崩塌。"
+      ],
+      "lesson_id": "stage1-20",
+      "sources": [
+        {
+          "lesson_id": "stage1-20",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage3-17",
+          "label": "希伯来字母与路径",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-08",
+          "label": "生命之树总表与路径",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同属觉醒与整合组",
+          "cards": [
+            "major-15",
+            "major-17",
+            "major-18",
+            "major-19",
+            "major-20",
+            "major-21"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/大牌/高塔.md"
+    },
+    {
+      "id": "major-17",
+      "name": "星星",
+      "en": "The Star",
+      "arcana": "大牌",
+      "suit": null,
+      "number": 17,
+      "rank": null,
+      "element": "风",
+      "correspondence": "水瓶座",
+      "secret_title": "天空之女",
+      "hebrew_letter": "Tzaddi",
+      "path_number": 28,
+      "path_from": "Netzach",
+      "path_to": "Yesod",
+      "wisdom": "自然",
+      "function": "想象力",
+      "direction": "南上",
+      "upright": [
+        "希望",
+        "疗愈",
+        "灵感",
+        "信念",
+        "宁静"
+      ],
+      "reversed": [
+        "失望",
+        "失去信心",
+        "灵感枯竭",
+        "悲观",
+        "疗愈受阻"
+      ],
+      "essence": "在创伤之后重新仰望星空，以希望与真诚恢复生命力。",
+      "symbols": [
+        "裸身女子将水倒入池与土地：疗愈同时滋养情感与现实。",
+        "八颗小星与一颗大星：希望、指引与群体中的个体位置。",
+        "朱鹮与水池：自然节律、净化与重新连接。",
+        "夜空之后的黎明：创伤没有被抹去，但生命力正在回来。"
+      ],
+      "lesson_id": "stage1-21",
+      "sources": [
+        {
+          "lesson_id": "stage1-21",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage3-17",
+          "label": "希伯来字母与路径",
+          "timestamp": "00:13:05"
+        },
+        {
+          "lesson_id": "stage4-09",
+          "label": "生命之树总表与路径",
+          "timestamp": "00:01:29"
+        }
+      ],
+      "related": [
+        {
+          "label": "同属觉醒与整合组",
+          "cards": [
+            "major-15",
+            "major-16",
+            "major-18",
+            "major-19",
+            "major-20",
+            "major-21"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/大牌/星星.md"
+    },
+    {
+      "id": "major-18",
+      "name": "月亮",
+      "en": "The Moon",
+      "arcana": "大牌",
+      "suit": null,
+      "number": 18,
+      "rank": null,
+      "element": "水",
+      "correspondence": "双鱼座",
+      "secret_title": "潮起潮落之女",
+      "hebrew_letter": "Qoph",
+      "path_number": 29,
+      "path_from": "Netzach",
+      "path_to": "Malkuth",
+      "wisdom": "物质",
+      "function": "睡眠",
+      "direction": "南下",
+      "upright": [
+        "潜意识",
+        "幻象",
+        "恐惧",
+        "直觉",
+        "不确定"
+      ],
+      "reversed": [
+        "迷雾散去",
+        "真相浮现",
+        "克服恐惧",
+        "释放焦虑",
+        "看清"
+      ],
+      "essence": "穿越潜意识与幻象的迷雾，辨认恐惧与直觉的声音。",
+      "symbols": [
+        "带脸的月亮与双重光线：直觉与幻象同时发光。",
+        "狗与狼：被驯化的恐惧与野性的恐惧，都在夜里被放大。",
+        "龙虾从水中爬出：潜意识内容开始浮上表面。",
+        "两塔之间的蜿蜒小路：前路不明，只能靠感觉一步步辨认。"
+      ],
+      "lesson_id": "stage1-22",
+      "sources": [
+        {
+          "lesson_id": "stage1-22",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage3-18",
+          "label": "希伯来字母与路径",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-09",
+          "label": "生命之树总表与路径",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同属觉醒与整合组",
+          "cards": [
+            "major-15",
+            "major-16",
+            "major-17",
+            "major-19",
+            "major-20",
+            "major-21"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/大牌/月亮.md"
+    },
+    {
+      "id": "major-19",
+      "name": "太阳",
+      "en": "The Sun",
+      "arcana": "大牌",
+      "suit": null,
+      "number": 19,
+      "rank": null,
+      "element": "火",
+      "correspondence": "太阳",
+      "secret_title": "世界火之主",
+      "hebrew_letter": "Resh",
+      "path_number": 30,
+      "path_from": "Hod",
+      "path_to": "Yesod",
+      "wisdom": "集合",
+      "function": "孕育与不孕",
+      "direction": "南方",
+      "upright": [
+        "成功",
+        "喜悦",
+        "活力",
+        "清晰",
+        "自信"
+      ],
+      "reversed": [
+        "暂时受阻",
+        "过度乐观",
+        "虚荣",
+        "延迟成功",
+        "缺乏活力"
+      ],
+      "essence": "如孩童般坦然地发光，成功与喜悦来自真实的自我表达。",
+      "symbols": [
+        "带脸的大太阳：清晰、生命力与被看见的喜悦。",
+        "白马上的孩子：成功之后仍保留单纯与玩心。",
+        "向日葵与红旗：成长、热情与公开的宣告。",
+        "背后的墙：从受保护的花园走向更大的世界。"
+      ],
+      "lesson_id": "stage1-23",
+      "sources": [
+        {
+          "lesson_id": "stage1-23",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage3-18",
+          "label": "希伯来字母与路径",
+          "timestamp": "00:04:59"
+        },
+        {
+          "lesson_id": "stage4-10",
+          "label": "生命之树总表与路径",
+          "timestamp": "00:04:24"
+        }
+      ],
+      "related": [
+        {
+          "label": "同属觉醒与整合组",
+          "cards": [
+            "major-15",
+            "major-16",
+            "major-17",
+            "major-18",
+            "major-20",
+            "major-21"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/大牌/太阳.md"
+    },
+    {
+      "id": "major-20",
+      "name": "审判",
+      "en": "Judgement",
+      "arcana": "大牌",
+      "suit": null,
+      "number": 20,
+      "rank": null,
+      "element": "火",
+      "correspondence": "火元素",
+      "secret_title": "永恒火之魂",
+      "hebrew_letter": "Shin",
+      "path_number": 31,
+      "path_from": "Hod",
+      "path_to": "Malkuth",
+      "wisdom": "永久",
+      "function": "无（母音）",
+      "direction": "南北维度",
+      "upright": [
+        "觉醒",
+        "召唤",
+        "重生",
+        "清算",
+        "宽恕"
+      ],
+      "reversed": [
+        "自我怀疑",
+        "逃避召唤",
+        "旧事未了",
+        "批判",
+        "拒绝改变"
+      ],
+      "essence": "听见内心的召唤，回顾过去、宽恕自己，然后真正重生。",
+      "symbols": [
+        "天使吹号：召唤、觉醒与不可忽视的内在声音。",
+        "十字旗帜：价值与信念的公开表明。",
+        "从棺中起身的男女与孩子：不同生命阶段一起回应召唤。",
+        "远处山海：过去已被越过，但记忆仍构成背景。"
+      ],
+      "lesson_id": "stage1-24",
+      "sources": [
+        {
+          "lesson_id": "stage1-24",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage3-19",
+          "label": "希伯来字母与路径",
+          "timestamp": "00:05:29"
+        },
+        {
+          "lesson_id": "stage4-10",
+          "label": "生命之树总表与路径",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同属觉醒与整合组",
+          "cards": [
+            "major-15",
+            "major-16",
+            "major-17",
+            "major-18",
+            "major-19",
+            "major-21"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/大牌/审判.md"
+    },
+    {
+      "id": "major-21",
+      "name": "世界",
+      "en": "The World",
+      "arcana": "大牌",
+      "suit": null,
+      "number": 21,
+      "rank": null,
+      "element": "土",
+      "correspondence": "土星",
+      "secret_title": "夜晚的伟人",
+      "hebrew_letter": "Tav",
+      "path_number": 32,
+      "path_from": "Yesod",
+      "path_to": "Malkuth",
+      "wisdom": "执行",
+      "function": "权力与奴役",
+      "direction": "中心",
+      "upright": [
+        "完成",
+        "整合",
+        "圆满",
+        "成就",
+        "新阶段"
+      ],
+      "reversed": [
+        "未完成",
+        "收尾困难",
+        "停滞",
+        "缺乏闭环",
+        "害怕结束"
+      ],
+      "essence": "一个周期完成，所有经验被整合，准备进入下一段旅程。",
+      "symbols": [
+        "月桂花环：完成、荣誉与一个周期的闭环。",
+        "舞者交叉的双腿与两根权杖：在二元之间保持动态平衡。",
+        "四角的四活物：四元素、四牌组与四重世界的整合。",
+        "紫色飘带：完成不是终点，而是进入下一层创造。"
+      ],
+      "lesson_id": "stage1-25",
+      "sources": [
+        {
+          "lesson_id": "stage1-25",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage3-19",
+          "label": "希伯来字母与路径",
+          "timestamp": "00:08:29"
+        },
+        {
+          "lesson_id": "stage4-10",
+          "label": "生命之树总表与路径",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同属觉醒与整合组",
+          "cards": [
+            "major-15",
+            "major-16",
+            "major-17",
+            "major-18",
+            "major-19",
+            "major-20"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/大牌/世界.md"
+    },
+    {
+      "id": "权杖-01",
+      "name": "权杖一",
+      "en": "Ace of Wands",
+      "arcana": "小牌",
+      "suit": "权杖",
+      "number": 1,
+      "rank": "Ace",
+      "element": "火",
+      "correspondence": "火元素本源；不分星座十度",
+      "secret_title": "元素之根",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "灵感迸发",
+        "新项目",
+        "行动力",
+        "热情",
+        "潜能"
+      ],
+      "reversed": [
+        "延迟",
+        "动力不足",
+        "计划受阻",
+        "热情消退",
+        "错失机会"
+      ],
+      "essence": "火元素纯粹的创造冲动，是新的行动火花。",
+      "symbols": [
+        "云中伸出的手握住发芽的权杖：火元素的种子被直接交付。",
+        "嫩叶与新芽：潜能刚刚启动，还没有进入复杂现实。",
+        "远处的城堡：机会指向一个可抵达但尚未到达的目标。",
+        "晴朗天空：行动的窗口已经打开。"
+      ],
+      "lesson_id": "stage2-06",
+      "sources": [
+        {
+          "lesson_id": "stage2-06",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-12",
+          "label": "四张 Ace 与元素之根",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 1 的其他花色",
+          "cards": [
+            "圣杯-01",
+            "宝剑-01",
+            "星币-01"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "权杖-02"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/权杖/权杖一.md"
+    },
+    {
+      "id": "权杖-02",
+      "name": "权杖二",
+      "en": "Two of Wands",
+      "arcana": "小牌",
+      "suit": "权杖",
+      "number": 2,
+      "rank": "Two",
+      "element": "火",
+      "correspondence": "白羊座 0°—10°；火星主管",
+      "secret_title": "掌控",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "规划",
+        "远见",
+        "选择方向",
+        "掌控未来",
+        "拓展"
+      ],
+      "reversed": [
+        "害怕未知",
+        "计划不周",
+        "优柔寡断",
+        "局限",
+        "失去方向"
+      ],
+      "essence": "站在已有成果上眺望更远，为未来做出选择。",
+      "symbols": [
+        "站在城墙上的男子：已经拥有一定基础，开始向外看。",
+        "一手握住权杖、一手托着地球：选择范围扩大，责任也随之增加。",
+        "另一根权杖固定在墙上：过去成果仍在，但不能只靠它。",
+        "海与远岸：未来需要跨出熟悉领域。"
+      ],
+      "lesson_id": "stage2-07",
+      "sources": [
+        {
+          "lesson_id": "stage2-07",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-13",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 2 的其他花色",
+          "cards": [
+            "圣杯-02",
+            "宝剑-02",
+            "星币-02"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "权杖-01",
+            "权杖-03"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/权杖/权杖二.md"
+    },
+    {
+      "id": "权杖-03",
+      "name": "权杖三",
+      "en": "Three of Wands",
+      "arcana": "小牌",
+      "suit": "权杖",
+      "number": 3,
+      "rank": "Three",
+      "element": "火",
+      "correspondence": "白羊座 10°—20°；太阳主管",
+      "secret_title": "建立的力量",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "扩张",
+        "远景实现",
+        "等待成果",
+        "远行",
+        "贸易"
+      ],
+      "reversed": [
+        "延迟",
+        "短视",
+        "受阻",
+        "合作不顺",
+        "计划落空"
+      ],
+      "essence": "种子已经种下，眼光放远，等待成果抵达。",
+      "symbols": [
+        "背对观者的男子站在高处：视野已经打开，行动开始向外延伸。",
+        "三根权杖与远方的船：计划进入执行，成果正在路上。",
+        "海面与商船：贸易、远行、跨界合作与等待回报。",
+        "橙色天空：乐观与扩张，但还不能把期待当成结果。"
+      ],
+      "lesson_id": "stage2-07",
+      "sources": [
+        {
+          "lesson_id": "stage2-07",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-13",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:02:40"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 3 的其他花色",
+          "cards": [
+            "圣杯-03",
+            "宝剑-03",
+            "星币-03"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "权杖-02",
+            "权杖-04"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/权杖/权杖三.md"
+    },
+    {
+      "id": "权杖-04",
+      "name": "权杖四",
+      "en": "Four of Wands",
+      "arcana": "小牌",
+      "suit": "权杖",
+      "number": 4,
+      "rank": "Four",
+      "element": "火",
+      "correspondence": "白羊座 20°—30°；金星主管",
+      "secret_title": "完美的工作",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "庆祝",
+        "稳定",
+        "归属",
+        "里程碑",
+        "和谐"
+      ],
+      "reversed": [
+        "不安定",
+        "庆祝延迟",
+        "家庭摩擦",
+        "基础不稳",
+        "过渡期"
+      ],
+      "essence": "阶段性完成带来的喜悦与归属感。",
+      "symbols": [
+        "四根权杖搭成花环拱门：阶段性完成与欢迎仪式。",
+        "两名举花者与远处城堡：共同体、归属与庆祝。",
+        "花环与绿色地面：稳定不是终点，而是下一段成长前的扎根。",
+        "明亮的背景：安全感来自共同建立的成果。"
+      ],
+      "lesson_id": "stage2-07",
+      "sources": [
+        {
+          "lesson_id": "stage2-07",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-13",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:05:22"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 4 的其他花色",
+          "cards": [
+            "圣杯-04",
+            "宝剑-04",
+            "星币-04"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "权杖-03",
+            "权杖-05"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/权杖/权杖四.md"
+    },
+    {
+      "id": "权杖-05",
+      "name": "权杖五",
+      "en": "Five of Wands",
+      "arcana": "小牌",
+      "suit": "权杖",
+      "number": 5,
+      "rank": "Five",
+      "element": "火",
+      "correspondence": "狮子座 0°—10°；土星主管",
+      "secret_title": "冲突",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "竞争",
+        "冲突",
+        "摩擦",
+        "锻炼",
+        "混战"
+      ],
+      "reversed": [
+        "回避冲突",
+        "内部矛盾",
+        "竞争结束",
+        "和解",
+        "消耗"
+      ],
+      "essence": "多方力量碰撞，在竞争中磨炼自己。",
+      "symbols": [
+        "五个年轻人挥动权杖：竞争、练习与位置争夺。",
+        "没有真正流血的冲突：很多争执更像混乱的磨合。",
+        "高低不平的地面：规则不清时，冲突容易变成消耗。",
+        "各自不同的动作：没有统一阵线，也没有明确敌人。"
+      ],
+      "lesson_id": "stage2-08",
+      "sources": [
+        {
+          "lesson_id": "stage2-08",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-13",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:07:08"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 5 的其他花色",
+          "cards": [
+            "圣杯-05",
+            "宝剑-05",
+            "星币-05"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "权杖-04",
+            "权杖-06"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/权杖/权杖五.md"
+    },
+    {
+      "id": "权杖-06",
+      "name": "权杖六",
+      "en": "Six of Wands",
+      "arcana": "小牌",
+      "suit": "权杖",
+      "number": 6,
+      "rank": "Six",
+      "element": "火",
+      "correspondence": "狮子座 10°—20°；木星主管",
+      "secret_title": "胜利",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "胜利",
+        "认可",
+        "成就",
+        "自信",
+        "公众成功"
+      ],
+      "reversed": [
+        "缺乏认可",
+        "骄傲",
+        "失败",
+        "延迟",
+        "自我怀疑"
+      ],
+      "essence": "努力被看见，享受胜利并承担责任。",
+      "symbols": [
+        "骑白马、戴桂冠的胜者：努力被看见，公开获得认可。",
+        "马上的花环权杖：胜利需要被展示，也需要承担榜样角色。",
+        "周围人群与队伍：成就不是孤立发生，声誉会被他人放大。",
+        "白色马匹：胜利之后仍要保持方向与体面。"
+      ],
+      "lesson_id": "stage2-08",
+      "sources": [
+        {
+          "lesson_id": "stage2-08",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-13",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:11:12"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 6 的其他花色",
+          "cards": [
+            "圣杯-06",
+            "宝剑-06",
+            "星币-06"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "权杖-05",
+            "权杖-07"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/权杖/权杖六.md"
+    },
+    {
+      "id": "权杖-07",
+      "name": "权杖七",
+      "en": "Seven of Wands",
+      "arcana": "小牌",
+      "suit": "权杖",
+      "number": 7,
+      "rank": "Seven",
+      "element": "火",
+      "correspondence": "狮子座 20°—30°；火星主管",
+      "secret_title": "勇猛",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "防御",
+        "坚持",
+        "守住立场",
+        "挑战",
+        "勇气"
+      ],
+      "reversed": [
+        "放弃",
+        "被压垮",
+        "防守过度",
+        "疲于应付",
+        "失去优势"
+      ],
+      "essence": "站在高处守住成果，坚持自己的立场。",
+      "symbols": [
+        "站在高处的男子抵御下方六根权杖：占据优势，但防守压力很大。",
+        "两只不同的鞋：位置并不稳，需要用非常规方式坚持。",
+        "举起的权杖：守住立场，而不是主动扩大战场。",
+        "下方未露脸的力量：挑战者众多，真正的威胁是长期消耗。"
+      ],
+      "lesson_id": "stage2-08",
+      "sources": [
+        {
+          "lesson_id": "stage2-08",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-13",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 7 的其他花色",
+          "cards": [
+            "圣杯-07",
+            "宝剑-07",
+            "星币-07"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "权杖-06",
+            "权杖-08"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/权杖/权杖七.md"
+    },
+    {
+      "id": "权杖-08",
+      "name": "权杖八",
+      "en": "Eight of Wands",
+      "arcana": "小牌",
+      "suit": "权杖",
+      "number": 8,
+      "rank": "Eight",
+      "element": "火",
+      "correspondence": "射手座 0°—10°；水星主管",
+      "secret_title": "敏捷",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "迅速",
+        "进展",
+        "消息",
+        "行动",
+        "旅行"
+      ],
+      "reversed": [
+        "延迟",
+        "混乱",
+        "方向错误",
+        "急躁",
+        "消息受阻"
+      ],
+      "essence": "能量快速流动，事情进入加速阶段。",
+      "symbols": [
+        "八根权杖斜穿天空：事情突然加速，消息与行动同时到来。",
+        "没有人物出现：这一阶段更像外部节奏推动，个人只需回应。",
+        "河流与绿地：变化穿过现实生活，不必把它神秘化。",
+        "整齐的飞行方向：能量集中时效率高，方向错时也会很快偏离。"
+      ],
+      "lesson_id": "stage2-09",
+      "sources": [
+        {
+          "lesson_id": "stage2-09",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-13",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 8 的其他花色",
+          "cards": [
+            "圣杯-08",
+            "宝剑-08",
+            "星币-08"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "权杖-07",
+            "权杖-09"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/权杖/权杖八.md"
+    },
+    {
+      "id": "权杖-09",
+      "name": "权杖九",
+      "en": "Nine of Wands",
+      "arcana": "小牌",
+      "suit": "权杖",
+      "number": 9,
+      "rank": "Nine",
+      "element": "火",
+      "correspondence": "射手座 10°—20°；月亮主管",
+      "secret_title": "强大的力量",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "坚持",
+        "韧性",
+        "最后防线",
+        "疲惫但未放弃"
+      ],
+      "reversed": [
+        "耗尽",
+        "偏执",
+        "放弃",
+        "过度防御",
+        "身心俱疲"
+      ],
+      "essence": "接近终点仍带伤坚守，考验的是韧性。",
+      "symbols": [
+        "头部缠绷带的男子靠在权杖上：已经受伤，却仍守在最后一道线。",
+        "身后八根权杖像栅栏：过去的战斗形成防御，也形成孤立。",
+        "警惕的眼神：经验让人谨慎，也可能让人过度戒备。",
+        "疲惫但未倒下：韧性是资源，但硬撑不是无限期的策略。"
+      ],
+      "lesson_id": "stage2-09",
+      "sources": [
+        {
+          "lesson_id": "stage2-09",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-13",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 9 的其他花色",
+          "cards": [
+            "圣杯-09",
+            "宝剑-09",
+            "星币-09"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "权杖-08",
+            "权杖-10"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/权杖/权杖九.md"
+    },
+    {
+      "id": "权杖-10",
+      "name": "权杖十",
+      "en": "Ten of Wands",
+      "arcana": "小牌",
+      "suit": "权杖",
+      "number": 10,
+      "rank": "Ten",
+      "element": "火",
+      "correspondence": "射手座 20°—30°；土星主管",
+      "secret_title": "压迫",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "负担",
+        "责任",
+        "过度承诺",
+        "重压",
+        "完成前的考验"
+      ],
+      "reversed": [
+        "放下负担",
+        "分担责任",
+        "逃避",
+        "崩溃",
+        "解脱"
+      ],
+      "essence": "承担太多而步履沉重，需要学会分配与放下。",
+      "symbols": [
+        "弯腰抱着十根权杖的人：责任超过个人负荷。",
+        "前方城镇很近：目标并非遥不可及，问题在于如何抵达。",
+        "权杖遮住视线：负担太多时，人会看不见真正重要的方向。",
+        "没有其他人分担：需要重新谈判责任，而不是继续独自硬扛。"
+      ],
+      "lesson_id": "stage2-09",
+      "sources": [
+        {
+          "lesson_id": "stage2-09",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-14",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 10 的其他花色",
+          "cards": [
+            "圣杯-10",
+            "宝剑-10",
+            "星币-10"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "权杖-09"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/权杖/权杖十.md"
+    },
+    {
+      "id": "权杖-page",
+      "name": "权杖侍从",
+      "en": "Page of Wands",
+      "arcana": "宫廷牌",
+      "suit": "权杖",
+      "number": null,
+      "rank": "侍从",
+      "element": "火",
+      "correspondence": "无固定星座",
+      "secret_title": "闪耀火焰的公主：火圣殿的玫瑰",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "学习",
+        "消息",
+        "好奇",
+        "新开始",
+        "行动"
+      ],
+      "reversed": [
+        "幼稚",
+        "拖延",
+        "坏消息",
+        "缺乏方向"
+      ],
+      "essence": "火的学徒：站在开阔沙漠与金字塔形山丘前，举杖察看新芽，像在测试一个行动念头能否落地。优势是好奇、敢于试第一步；阴影是只想刺激、不愿持续，或把热情误当成能力。",
+      "symbols": [
+        "站在开阔地里的年轻人，双手握杖凝视顶端：好奇、热情与尚未定型的行动力。",
+        "火蜥蜴纹样的衣袍：火元素的年轻形态，冲动与创造力并存。",
+        "荒漠背景：资源不多，反而促使他靠热情探索。",
+        "目光向上：容易被新想法点燃，也需要学会把火落到地面。"
+      ],
+      "lesson_id": "stage1-32",
+      "sources": [
+        {
+          "lesson_id": "stage1-32",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage3-21",
+          "label": "人物牌秘传标题与星座区间",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-19",
+          "label": "宫廷牌进阶",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同为侍从的其他花色",
+          "cards": [
+            "圣杯-page",
+            "宝剑-page",
+            "星币-page"
+          ]
+        },
+        {
+          "label": "同花色的人物成熟度",
+          "cards": [
+            "权杖-knight"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/权杖/权杖侍从.md"
+    },
+    {
+      "id": "权杖-knight",
+      "name": "权杖骑士",
+      "en": "Knight of Wands",
+      "arcana": "宫廷牌",
+      "suit": "权杖",
+      "number": null,
+      "rank": "骑士",
+      "element": "火",
+      "correspondence": "天蝎座 20°—30° / 射手座 0°—20°",
+      "secret_title": "火与光之主：火魂之王",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "行动",
+        "追求",
+        "冒险",
+        "推进",
+        "行动"
+      ],
+      "reversed": [
+        "鲁莽",
+        "冲动",
+        "半途而废",
+        "方向不稳"
+      ],
+      "essence": "火的追求者：红羽、金披风与腾跃的黑马，把权杖举向前方，像一场带着表演性的出征。优势是勇气、行动力与感染力；阴影是冲动、爱面子、承诺快而收尾慢。",
+      "symbols": [
+        "骑着前蹄腾空的马，权杖高举：行动迅速、敢于冒险。",
+        "沙漠与热风：环境支持冲刺，却不提供长期补给。",
+        "盔甲上的火纹：热情被武装成行动力。",
+        "马匹并不安稳：速度带来机会，也带来方向失控的风险。"
+      ],
+      "lesson_id": "stage1-32",
+      "sources": [
+        {
+          "lesson_id": "stage1-32",
+          "label": "课程精讲",
+          "timestamp": "00:05:33"
+        },
+        {
+          "lesson_id": "stage3-21",
+          "label": "人物牌秘传标题与星座区间",
+          "timestamp": "00:00:49"
+        },
+        {
+          "lesson_id": "stage4-20",
+          "label": "宫廷牌进阶",
+          "timestamp": "00:08:41"
+        }
+      ],
+      "related": [
+        {
+          "label": "同为骑士的其他花色",
+          "cards": [
+            "圣杯-knight",
+            "宝剑-knight",
+            "星币-knight"
+          ]
+        },
+        {
+          "label": "同花色的人物成熟度",
+          "cards": [
+            "权杖-page",
+            "权杖-queen"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/权杖/权杖骑士.md"
+    },
+    {
+      "id": "权杖-queen",
+      "name": "权杖皇后",
+      "en": "Queen of Wands",
+      "arcana": "宫廷牌",
+      "suit": "权杖",
+      "number": null,
+      "rank": "皇后",
+      "element": "火",
+      "correspondence": "双鱼座 20°—30° / 白羊座 0°—20°",
+      "secret_title": "火之王座的女皇",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "成熟",
+        "滋养",
+        "内在掌握",
+        "包容",
+        "行动"
+      ],
+      "reversed": [
+        "情绪化",
+        "控制",
+        "过度付出",
+        "自我怀疑"
+      ],
+      "essence": "火的掌权者：狮子与向日葵容易让人误读成狮子座，课程按白羊座理解；黑猫或黑豹被驯服在脚边，胸针也指向豹。优势是热情、坦率、能鼓舞他人；阴影是嫉妒、支配欲，或用强势掩盖不安。",
+      "symbols": [
+        "端坐王座、手持权杖：成熟的火元素领导力。",
+        "脚边黑猫：独立、敏锐与不被驯服的直觉。",
+        "向日葵与狮子装饰：阳光、自信与生命力。",
+        "坐姿开放：她不是靠压制他人领导，而是用自己的热度感染人。"
+      ],
+      "lesson_id": "stage1-32",
+      "sources": [
+        {
+          "lesson_id": "stage1-32",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage3-21",
+          "label": "人物牌秘传标题与星座区间",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-20",
+          "label": "宫廷牌进阶",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同为皇后的其他花色",
+          "cards": [
+            "圣杯-queen",
+            "宝剑-queen",
+            "星币-queen"
+          ]
+        },
+        {
+          "label": "同花色的人物成熟度",
+          "cards": [
+            "权杖-knight",
+            "权杖-king"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/权杖/权杖皇后.md"
+    },
+    {
+      "id": "权杖-king",
+      "name": "权杖国王",
+      "en": "King of Wands",
+      "arcana": "宫廷牌",
+      "suit": "权杖",
+      "number": null,
+      "rank": "国王",
+      "element": "火",
+      "correspondence": "巨蟹座 20°—30° / 狮子座 0°—20°",
+      "secret_title": "火战车的王子",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "掌控",
+        "领导",
+        "成就",
+        "稳定",
+        "行动"
+      ],
+      "reversed": [
+        "专横",
+        "固执",
+        "权力滥用",
+        "失控"
+      ],
+      "essence": "火的统治者：宝座两侧狮子、衣袍与地面出现蜥蜴或蝶螈，狮子座与火元素同时出现。优势是远见、决断、能把团队带向目标；阴影是傲慢、暴躁，把领导变成命令。",
+      "symbols": [
+        "王座上的国王与蜥蜴纹饰：把火元素转化为制度与远见。",
+        "直立权杖：决策、号召与承担风险的能力。",
+        "狮子与火焰：王者气场来自生命力，而非头衔。",
+        "目光向前：关注扩张与未来，但容易忽略他人的承受力。"
+      ],
+      "lesson_id": "stage1-32",
+      "sources": [
+        {
+          "lesson_id": "stage1-32",
+          "label": "课程精讲",
+          "timestamp": "00:14:40"
+        },
+        {
+          "lesson_id": "stage3-21",
+          "label": "人物牌秘传标题与星座区间",
+          "timestamp": "00:00:49"
+        },
+        {
+          "lesson_id": "stage4-20",
+          "label": "宫廷牌进阶",
+          "timestamp": "00:01:43"
+        }
+      ],
+      "related": [
+        {
+          "label": "同为国王的其他花色",
+          "cards": [
+            "圣杯-king",
+            "宝剑-king",
+            "星币-king"
+          ]
+        },
+        {
+          "label": "同花色的人物成熟度",
+          "cards": [
+            "权杖-queen"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/权杖/权杖国王.md"
+    },
+    {
+      "id": "圣杯-01",
+      "name": "圣杯一",
+      "en": "Ace of Cups",
+      "arcana": "小牌",
+      "suit": "圣杯",
+      "number": 1,
+      "rank": "Ace",
+      "element": "水",
+      "correspondence": "水元素本源；不分星座十度",
+      "secret_title": "元素之根",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "新感情",
+        "爱",
+        "直觉",
+        "疗愈",
+        "情感开启"
+      ],
+      "reversed": [
+        "情感封闭",
+        "失望",
+        "压抑",
+        "关系受阻",
+        "自我怀疑"
+      ],
+      "essence": "情感之泉涌现，爱与被爱的能力被唤醒。",
+      "symbols": [
+        "云中手托圣杯，杯中涌出五道水流：情感与直觉的源头开启。",
+        "白鸽衔着圣饼：祝福、和解与精神性的爱。",
+        "水面莲花：情感在混沌中保持清醒与纯洁。",
+        "溢出的水：感受太满时需要容器，也需要流动。"
+      ],
+      "lesson_id": "stage2-10",
+      "sources": [
+        {
+          "lesson_id": "stage2-10",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-12",
+          "label": "四张 Ace 与元素之根",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 1 的其他花色",
+          "cards": [
+            "权杖-01",
+            "宝剑-01",
+            "星币-01"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "圣杯-02"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/圣杯/圣杯一.md"
+    },
+    {
+      "id": "圣杯-02",
+      "name": "圣杯二",
+      "en": "Two of Cups",
+      "arcana": "小牌",
+      "suit": "圣杯",
+      "number": 2,
+      "rank": "Two",
+      "element": "水",
+      "correspondence": "巨蟹座 0°—10°；金星主管",
+      "secret_title": "爱",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "结合",
+        "盟约",
+        "互相吸引",
+        "伙伴",
+        "和解"
+      ],
+      "reversed": [
+        "关系失衡",
+        "分离",
+        "信任破裂",
+        "沟通不良",
+        "价值冲突"
+      ],
+      "essence": "两个人在平等与真诚中建立联结。",
+      "symbols": [
+        "男女相对交换杯子：平等、互惠与关系中的承诺。",
+        "上方的双蛇杖：沟通、疗愈与双方意志的协调。",
+        "狮首与翅膀：欲望与精神并不冲突，可以共同服务关系。",
+        "背后的家：稳定关系需要日常生活的承载。"
+      ],
+      "lesson_id": "stage2-11",
+      "sources": [
+        {
+          "lesson_id": "stage2-11",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-14",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:03:23"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 2 的其他花色",
+          "cards": [
+            "权杖-02",
+            "宝剑-02",
+            "星币-02"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "圣杯-01",
+            "圣杯-03"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/圣杯/圣杯二.md"
+    },
+    {
+      "id": "圣杯-03",
+      "name": "圣杯三",
+      "en": "Three of Cups",
+      "arcana": "小牌",
+      "suit": "圣杯",
+      "number": 3,
+      "rank": "Three",
+      "element": "水",
+      "correspondence": "巨蟹座 10°—20°；水星主管",
+      "secret_title": "富足",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "友谊",
+        "庆祝",
+        "社群",
+        "分享",
+        "喜悦"
+      ],
+      "reversed": [
+        "孤立",
+        "朋友圈冲突",
+        "过度社交",
+        "嫉妒",
+        "三角关系"
+      ],
+      "essence": "情感在群体中流动，友谊与分享带来喜悦。",
+      "symbols": [
+        "三位女子举杯共舞：友谊、庆祝与共同分享。",
+        "地上的丰收果实：情感丰盛也会转化为现实滋养。",
+        "彼此相连的姿态：快乐来自群体，而不是孤立占有。",
+        "圆形舞阵：关系网络既提供支持，也要求边界感。"
+      ],
+      "lesson_id": "stage2-11",
+      "sources": [
+        {
+          "lesson_id": "stage2-11",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-14",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:08:42"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 3 的其他花色",
+          "cards": [
+            "权杖-03",
+            "宝剑-03",
+            "星币-03"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "圣杯-02",
+            "圣杯-04"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/圣杯/圣杯三.md"
+    },
+    {
+      "id": "圣杯-04",
+      "name": "圣杯四",
+      "en": "Four of Cups",
+      "arcana": "小牌",
+      "suit": "圣杯",
+      "number": 4,
+      "rank": "Four",
+      "element": "水",
+      "correspondence": "巨蟹座 20°—30°；月亮主管",
+      "secret_title": "混合的愉悦",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "倦怠",
+        "冷漠",
+        "重新评估",
+        "错过机会",
+        "内省"
+      ],
+      "reversed": [
+        "走出倦怠",
+        "新机会",
+        "觉察",
+        "重新投入",
+        "接受"
+      ],
+      "essence": "对现有的一切感到乏味，需要重新看见被忽略的礼物。",
+      "symbols": [
+        "树下抱臂而坐的人：对现有选择倦怠，暂时看不见新机会。",
+        "面前三只杯子与云中递来的第四只：机会已出现，但接收者没有抬头。",
+        "绿树与安静环境：外在并不匮乏，问题在内在感受。",
+        "交叉的双腿：防御与自我封闭让新经验进不来。"
+      ],
+      "lesson_id": "stage2-11",
+      "sources": [
+        {
+          "lesson_id": "stage2-11",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-14",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:09:59"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 4 的其他花色",
+          "cards": [
+            "权杖-04",
+            "宝剑-04",
+            "星币-04"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "圣杯-03",
+            "圣杯-05"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/圣杯/圣杯四.md"
+    },
+    {
+      "id": "圣杯-05",
+      "name": "圣杯五",
+      "en": "Five of Cups",
+      "arcana": "小牌",
+      "suit": "圣杯",
+      "number": 5,
+      "rank": "Five",
+      "element": "水",
+      "correspondence": "天蝎座 0°—10°；火星主管",
+      "secret_title": "失去快乐",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "失落",
+        "遗憾",
+        "悲伤",
+        "执着过去",
+        "视角局限"
+      ],
+      "reversed": [
+        "接受",
+        "疗愈",
+        "放下",
+        "看到剩余",
+        "走出悲伤"
+      ],
+      "essence": "聚焦失去会错过仍在的爱，悲伤需要被看见。",
+      "symbols": [
+        "披黑斗篷的人低头看三只倒下的杯子：注意力被失去占据。",
+        "身后两只仍然直立的杯子：支持还在，只是尚未被看见。",
+        "河流与桥：悲伤需要过渡，前方仍有路。",
+        "远处城堡：失去之后，生活结构还在，需要重新连接。"
+      ],
+      "lesson_id": "stage2-12",
+      "sources": [
+        {
+          "lesson_id": "stage2-12",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-14",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:12:18"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 5 的其他花色",
+          "cards": [
+            "权杖-05",
+            "宝剑-05",
+            "星币-05"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "圣杯-04",
+            "圣杯-06"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/圣杯/圣杯五.md"
+    },
+    {
+      "id": "圣杯-06",
+      "name": "圣杯六",
+      "en": "Six of Cups",
+      "arcana": "小牌",
+      "suit": "圣杯",
+      "number": 6,
+      "rank": "Six",
+      "element": "水",
+      "correspondence": "天蝎座 10°—20°；太阳主管",
+      "secret_title": "愉悦",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "怀旧",
+        "童年",
+        "纯真",
+        "旧友",
+        "礼物"
+      ],
+      "reversed": [
+        "困在过去",
+        "不成熟",
+        "理想化",
+        "旧关系结束",
+        "向前看"
+      ],
+      "essence": "温柔的回忆与纯真的给予，也可能让人停留在过去。",
+      "symbols": [
+        "孩子们在庭院交换装满花的杯子：纯真、怀旧与善意的给予。",
+        "老房子与旧庭院：过去的安全感被理想化。",
+        "六只杯子：记忆被保存，但不能替代当下关系。",
+        "温暖色调：怀旧有疗愈作用，也可能让人停在从前。"
+      ],
+      "lesson_id": "stage2-12",
+      "sources": [
+        {
+          "lesson_id": "stage2-12",
+          "label": "课程精讲",
+          "timestamp": "00:17:50"
+        },
+        {
+          "lesson_id": "stage4-14",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:17:42"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 6 的其他花色",
+          "cards": [
+            "权杖-06",
+            "宝剑-06",
+            "星币-06"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "圣杯-05",
+            "圣杯-07"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/圣杯/圣杯六.md"
+    },
+    {
+      "id": "圣杯-07",
+      "name": "圣杯七",
+      "en": "Seven of Cups",
+      "arcana": "小牌",
+      "suit": "圣杯",
+      "number": 7,
+      "rank": "Seven",
+      "element": "水",
+      "correspondence": "天蝎座 20°—30°；金星主管",
+      "secret_title": "幻想的成功",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "幻想",
+        "选择过多",
+        "白日梦",
+        "投射",
+        "迷惑"
+      ],
+      "reversed": [
+        "看清现实",
+        "做出选择",
+        "幻灭",
+        "专注",
+        "清醒"
+      ],
+      "essence": "愿望投射成许多幻象，需要分辨真实与想象。",
+      "symbols": [
+        "云中七只杯子，各装不同幻象：愿望投射出多种可能。",
+        "城堡、珠宝、桂冠、龙与蛇：成功、欲望、恐惧与诱惑同时出现。",
+        "黑色剪影：面对太多想象时，主体反而失去轮廓。",
+        "发光的云：幻想很迷人，但需要回到现实检验。"
+      ],
+      "lesson_id": "stage2-12",
+      "sources": [
+        {
+          "lesson_id": "stage2-12",
+          "label": "课程精讲",
+          "timestamp": "00:25:24"
+        },
+        {
+          "lesson_id": "stage4-15",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 7 的其他花色",
+          "cards": [
+            "权杖-07",
+            "宝剑-07",
+            "星币-07"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "圣杯-06",
+            "圣杯-08"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/圣杯/圣杯七.md"
+    },
+    {
+      "id": "圣杯-08",
+      "name": "圣杯八",
+      "en": "Eight of Cups",
+      "arcana": "小牌",
+      "suit": "圣杯",
+      "number": 8,
+      "rank": "Eight",
+      "element": "水",
+      "correspondence": "双鱼座 0°—10°；土星主管",
+      "secret_title": "放弃的成功",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "离开",
+        "追寻意义",
+        "放下",
+        "情感转折",
+        "寻找自我"
+      ],
+      "reversed": [
+        "害怕离开",
+        "滞留",
+        "回头",
+        "犹豫",
+        "逃避"
+      ],
+      "essence": "当现有的一切不再满足灵魂，离开也是一种忠诚。",
+      "symbols": [
+        "穿红衣的人背对八只杯子走向远方：主动离开不再满足的处境。",
+        "月亮与水面：离开发生在情绪与潜意识的深处。",
+        "留下的杯子排列整齐：不是没有成果，而是成果已不足以回答意义问题。",
+        "孤身行走：有些选择必须独自完成。"
+      ],
+      "lesson_id": "stage2-13",
+      "sources": [
+        {
+          "lesson_id": "stage2-13",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-15",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 8 的其他花色",
+          "cards": [
+            "权杖-08",
+            "宝剑-08",
+            "星币-08"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "圣杯-07",
+            "圣杯-09"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/圣杯/圣杯八.md"
+    },
+    {
+      "id": "圣杯-09",
+      "name": "圣杯九",
+      "en": "Nine of Cups",
+      "arcana": "小牌",
+      "suit": "圣杯",
+      "number": 9,
+      "rank": "Nine",
+      "element": "水",
+      "correspondence": "双鱼座 10°—20°；木星主管",
+      "secret_title": "物质的快乐",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "满足",
+        "愿望达成",
+        "享受",
+        "感恩",
+        "情感丰盈"
+      ],
+      "reversed": [
+        "不满足",
+        "贪欲",
+        "虚假快乐",
+        "愿望落空",
+        "空虚"
+      ],
+      "essence": "愿望实现后的满足，也提醒幸福不只来自拥有。",
+      "symbols": [
+        "男子双臂交叉坐在九只杯子前：愿望满足后的自我肯定。",
+        "红色帷幕与稳固座位：享受成果、舒适与情感丰盛。",
+        "九杯成弧：丰盛围绕，但也可能形成自我封闭的小世界。",
+        "满足的表情：真正的感恩与自满之间只有一线之隔。"
+      ],
+      "lesson_id": "stage2-13",
+      "sources": [
+        {
+          "lesson_id": "stage2-13",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-15",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 9 的其他花色",
+          "cards": [
+            "权杖-09",
+            "宝剑-09",
+            "星币-09"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "圣杯-08",
+            "圣杯-10"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/圣杯/圣杯九.md"
+    },
+    {
+      "id": "圣杯-10",
+      "name": "圣杯十",
+      "en": "Ten of Cups",
+      "arcana": "小牌",
+      "suit": "圣杯",
+      "number": 10,
+      "rank": "Ten",
+      "element": "水",
+      "correspondence": "双鱼座 20°—30°；火星主管",
+      "secret_title": "完美的成功",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "家庭圆满",
+        "幸福",
+        "归属",
+        "和谐",
+        "情感完成"
+      ],
+      "reversed": [
+        "家庭冲突",
+        "理想破灭",
+        "关系紧张",
+        "不和谐",
+        "分离"
+      ],
+      "essence": "情感在家庭与共同体中达到圆满。",
+      "symbols": [
+        "一家人在彩虹下拥抱：情感共同体的圆满。",
+        "十只杯子组成彩虹：幸福不是单点，而是关系网络的整合。",
+        "房屋与河流：稳定生活与情感流动需要同时存在。",
+        "远处天空：圆满是阶段性的，不是永远无风无雨。"
+      ],
+      "lesson_id": "stage2-13",
+      "sources": [
+        {
+          "lesson_id": "stage2-13",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-15",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:13:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 10 的其他花色",
+          "cards": [
+            "权杖-10",
+            "宝剑-10",
+            "星币-10"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "圣杯-09"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/圣杯/圣杯十.md"
+    },
+    {
+      "id": "圣杯-page",
+      "name": "圣杯侍从",
+      "en": "Page of Cups",
+      "arcana": "宫廷牌",
+      "suit": "圣杯",
+      "number": null,
+      "rank": "侍从",
+      "element": "水",
+      "correspondence": "无固定星座",
+      "secret_title": "水的公主：洪水圣殿的莲花",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "学习",
+        "消息",
+        "好奇",
+        "新开始",
+        "情感"
+      ],
+      "reversed": [
+        "幼稚",
+        "拖延",
+        "坏消息",
+        "缺乏方向"
+      ],
+      "essence": "水的信使：从杯中看见鱼，站在海陆交界，周围波浪提醒情感仍有未成形的部分。优势是想象力、善意与感受力；阴影是沉溺幻想、容易被甜言蜜语带走，或把暧昧当成承诺。",
+      "symbols": [
+        "年轻人物凝视杯中跳出的鱼：情感与直觉带来意外的消息。",
+        "海与莲花：想象力、敏感与尚未成熟的爱。",
+        "鱼象征潜意识的内容：灵感会以出乎意料的方式出现。",
+        "开放的姿态：愿意感受，但还需要学习保护自己的边界。"
+      ],
+      "lesson_id": "stage1-32",
+      "sources": [
+        {
+          "lesson_id": "stage1-32",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage3-21",
+          "label": "人物牌秘传标题与星座区间",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-19",
+          "label": "宫廷牌进阶",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同为侍从的其他花色",
+          "cards": [
+            "权杖-page",
+            "宝剑-page",
+            "星币-page"
+          ]
+        },
+        {
+          "label": "同花色的人物成熟度",
+          "cards": [
+            "圣杯-knight"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/圣杯/圣杯侍从.md"
+    },
+    {
+      "id": "圣杯-knight",
+      "name": "圣杯骑士",
+      "en": "Knight of Cups",
+      "arcana": "宫廷牌",
+      "suit": "圣杯",
+      "number": null,
+      "rank": "骑士",
+      "element": "水",
+      "correspondence": "水瓶座 20°—30° / 双鱼座 0°—20°",
+      "secret_title": "水和微波之主：大海主人之王",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "行动",
+        "追求",
+        "冒险",
+        "推进",
+        "情感"
+      ],
+      "reversed": [
+        "鲁莽",
+        "冲动",
+        "半途而废",
+        "方向不稳"
+      ],
+      "essence": "水的追求者：白马缓行，杯与鱼纹把情感、想象和讯息连在一起。优势是温柔、浪漫、愿意为信念付出；阴影是理想化对方、逃避现实条件，或把自己的投射当成爱的证据。",
+      "symbols": [
+        "骑士骑白马缓行，举杯致意：以温和、浪漫的方式追求。",
+        "溪流与缓慢步伐：情感需要时间，不适合强迫推进。",
+        "杯中的邀请：表达爱意、道歉或提出和解。",
+        "盔甲与柔软内心：外在行动未必完全成熟，但诚意是真实的。"
+      ],
+      "lesson_id": "stage1-32",
+      "sources": [
+        {
+          "lesson_id": "stage1-32",
+          "label": "课程精讲",
+          "timestamp": "00:00:53"
+        },
+        {
+          "lesson_id": "stage3-21",
+          "label": "人物牌秘传标题与星座区间",
+          "timestamp": "00:03:27"
+        },
+        {
+          "lesson_id": "stage4-20",
+          "label": "宫廷牌进阶",
+          "timestamp": "00:09:22"
+        }
+      ],
+      "related": [
+        {
+          "label": "同为骑士的其他花色",
+          "cards": [
+            "权杖-knight",
+            "宝剑-knight",
+            "星币-knight"
+          ]
+        },
+        {
+          "label": "同花色的人物成熟度",
+          "cards": [
+            "圣杯-page",
+            "圣杯-queen"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/圣杯/圣杯骑士.md"
+    },
+    {
+      "id": "圣杯-queen",
+      "name": "圣杯皇后",
+      "en": "Queen of Cups",
+      "arcana": "宫廷牌",
+      "suit": "圣杯",
+      "number": null,
+      "rank": "皇后",
+      "element": "水",
+      "correspondence": "双子座 20°—30° / 巨蟹座 0°—20°",
+      "secret_title": "水之王座的女皇",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "成熟",
+        "滋养",
+        "内在掌握",
+        "包容",
+        "情感"
+      ],
+      "reversed": [
+        "情绪化",
+        "控制",
+        "过度付出",
+        "自我怀疑"
+      ],
+      "essence": "水的容器：贝壳形宝座与胸前贝壳纹把巨蟹座、保护与容纳联系起来。优势是共情、直觉、能承接他人情绪；阴影是界线模糊、过度照顾、把别人的情绪当成自己的责任。",
+      "symbols": [
+        "坐在海边王座上的皇后：情感成熟、共情与直觉领导力。",
+        "精美圣杯与专注目光：她能把感受转化为理解他人的能力。",
+        "水边环境：与潜意识保持连接，也需要防止被情绪淹没。",
+        "开放而稳定的坐姿：真正的共情不是失去自己。"
+      ],
+      "lesson_id": "stage1-32",
+      "sources": [
+        {
+          "lesson_id": "stage1-32",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage3-21",
+          "label": "人物牌秘传标题与星座区间",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-20",
+          "label": "宫廷牌进阶",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同为皇后的其他花色",
+          "cards": [
+            "权杖-queen",
+            "宝剑-queen",
+            "星币-queen"
+          ]
+        },
+        {
+          "label": "同花色的人物成熟度",
+          "cards": [
+            "圣杯-knight",
+            "圣杯-king"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/圣杯/圣杯皇后.md"
+    },
+    {
+      "id": "圣杯-king",
+      "name": "圣杯国王",
+      "en": "King of Cups",
+      "arcana": "宫廷牌",
+      "suit": "圣杯",
+      "number": null,
+      "rank": "国王",
+      "element": "水",
+      "correspondence": "天秤座 20°—30° / 天蝎座 0°—20°",
+      "secret_title": "水战车的王子",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "掌控",
+        "领导",
+        "成就",
+        "稳定",
+        "情感"
+      ],
+      "reversed": [
+        "专横",
+        "固执",
+        "权力滥用",
+        "失控"
+      ],
+      "essence": "水的统治者：鱼形吊坠、莲花与船形宝座，把情绪、信念与承载放在一起。优势是情绪成熟、能安抚局面、在复杂关系中保持善意；阴影是情感操控、表面温和却回避真实边界。",
+      "symbols": [
+        "海上王座与鱼形装饰：情感领域的成熟掌控。",
+        "手持圣杯而非武器：以理解、谈判与包容处理冲突。",
+        "平静海面：情绪稳定不是没有感受，而是能容纳感受。",
+        "王座漂浮在水上：情感领导力必须与现实责任同时存在。"
+      ],
+      "lesson_id": "stage1-32",
+      "sources": [
+        {
+          "lesson_id": "stage1-32",
+          "label": "课程精讲",
+          "timestamp": "00:15:56"
+        },
+        {
+          "lesson_id": "stage3-21",
+          "label": "人物牌秘传标题与星座区间",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-20",
+          "label": "宫廷牌进阶",
+          "timestamp": "00:01:24"
+        }
+      ],
+      "related": [
+        {
+          "label": "同为国王的其他花色",
+          "cards": [
+            "权杖-king",
+            "宝剑-king",
+            "星币-king"
+          ]
+        },
+        {
+          "label": "同花色的人物成熟度",
+          "cards": [
+            "圣杯-queen"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/圣杯/圣杯国王.md"
+    },
+    {
+      "id": "宝剑-01",
+      "name": "宝剑一",
+      "en": "Ace of Swords",
+      "arcana": "小牌",
+      "suit": "宝剑",
+      "number": 1,
+      "rank": "Ace",
+      "element": "风",
+      "correspondence": "风元素本源；不分星座十度",
+      "secret_title": "元素之根",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "清晰",
+        "真相",
+        "突破",
+        "新想法",
+        "决断"
+      ],
+      "reversed": [
+        "混乱",
+        "误解",
+        "判断失误",
+        "沟通受阻",
+        "真相被掩"
+      ],
+      "essence": "思想如剑劈开迷雾，带来清晰的判断。",
+      "symbols": [
+        "云中手握直剑，剑尖挑起王冠：思想突破带来新的判断权。",
+        "橄榄枝与棕榈枝：清晰的真相既能伤人也可能带来和平。",
+        "灰色山峰：理性之路冷静、孤立，要求承担后果。",
+        "剑锋向上：语言与逻辑可以切开迷雾，也可以成为武器。"
+      ],
+      "lesson_id": "stage2-03",
+      "sources": [
+        {
+          "lesson_id": "stage2-03",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-12",
+          "label": "四张 Ace 与元素之根",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 1 的其他花色",
+          "cards": [
+            "权杖-01",
+            "圣杯-01",
+            "星币-01"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "宝剑-02"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/宝剑/宝剑一.md"
+    },
+    {
+      "id": "宝剑-02",
+      "name": "宝剑二",
+      "en": "Two of Swords",
+      "arcana": "小牌",
+      "suit": "宝剑",
+      "number": 2,
+      "rank": "Two",
+      "element": "风",
+      "correspondence": "天秤座 0°—10°；月亮主管",
+      "secret_title": "获得和平",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "僵局",
+        "回避选择",
+        "平衡",
+        "内心冲突",
+        "暂时停战"
+      ],
+      "reversed": [
+        "打破僵局",
+        "被迫选择",
+        "信息揭露",
+        "焦虑",
+        "失衡"
+      ],
+      "essence": "在两种力量之间维持脆弱平衡，逃避并不能解决。",
+      "symbols": [
+        "蒙眼女子双手交叉持剑：暂时拒绝看见冲突全貌。",
+        "背后的海与岛屿：情绪并未消失，只是被压到背景。",
+        "月牙与平静姿态：靠意志维持表面平衡。",
+        "交叉的剑：防御姿态保护自己，也阻止信息进入。"
+      ],
+      "lesson_id": "stage2-03",
+      "sources": [
+        {
+          "lesson_id": "stage2-03",
+          "label": "课程精讲",
+          "timestamp": "00:15:01"
+        },
+        {
+          "lesson_id": "stage4-16",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 2 的其他花色",
+          "cards": [
+            "权杖-02",
+            "圣杯-02",
+            "星币-02"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "宝剑-01",
+            "宝剑-03"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/宝剑/宝剑二.md"
+    },
+    {
+      "id": "宝剑-03",
+      "name": "宝剑三",
+      "en": "Three of Swords",
+      "arcana": "小牌",
+      "suit": "宝剑",
+      "number": 3,
+      "rank": "Three",
+      "element": "风",
+      "correspondence": "天秤座 10°—20°；土星主管",
+      "secret_title": "悲伤",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "心痛",
+        "分离",
+        "悲伤",
+        "背叛",
+        "痛苦真相"
+      ],
+      "reversed": [
+        "疗愈",
+        "释怀",
+        "走出伤痛",
+        "和解",
+        "压抑"
+      ],
+      "essence": "真相带来刺痛，但也让伤口有机会被清理。",
+      "symbols": [
+        "三把剑刺穿红心：分离、背叛与语言造成的真实痛感。",
+        "乌云与雨：悲伤需要被允许流动，压抑会让伤口更久。",
+        "红心居中：痛苦不是抽象概念，而是情感核心受伤。",
+        "背景空无：在刺痛中，人容易只看见伤口，看不见支持。"
+      ],
+      "lesson_id": "stage2-03",
+      "sources": [
+        {
+          "lesson_id": "stage2-03",
+          "label": "课程精讲",
+          "timestamp": "00:26:08"
+        },
+        {
+          "lesson_id": "stage4-16",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:03:13"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 3 的其他花色",
+          "cards": [
+            "权杖-03",
+            "圣杯-03",
+            "星币-03"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "宝剑-02",
+            "宝剑-04"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/宝剑/宝剑三.md"
+    },
+    {
+      "id": "宝剑-04",
+      "name": "宝剑四",
+      "en": "Four of Swords",
+      "arcana": "小牌",
+      "suit": "宝剑",
+      "number": 4,
+      "rank": "Four",
+      "element": "风",
+      "correspondence": "天秤座 20°—30°；木星主管",
+      "secret_title": "从冲突中休息",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "休息",
+        "恢复",
+        "暂停",
+        "冥想",
+        "退隐"
+      ],
+      "reversed": [
+        "被迫休息",
+        "倦怠",
+        "焦虑",
+        "无法平静",
+        "重新出发"
+      ],
+      "essence": "暂停不是退缩，而是让心智恢复的必要空间。",
+      "symbols": [
+        "骑士雕像与三把墙上的剑：暂停战斗，进入恢复期。",
+        "一把剑放在身侧：警觉仍在，但没有立即威胁。",
+        "彩色玻璃与安静空间：休息需要被保护的环境。",
+        "躺卧姿态：恢复不是懒惰，而是心智重新整队。"
+      ],
+      "lesson_id": "stage2-04",
+      "sources": [
+        {
+          "lesson_id": "stage2-04",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-16",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:07:02"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 4 的其他花色",
+          "cards": [
+            "权杖-04",
+            "圣杯-04",
+            "星币-04"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "宝剑-03",
+            "宝剑-05"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/宝剑/宝剑四.md"
+    },
+    {
+      "id": "宝剑-05",
+      "name": "宝剑五",
+      "en": "Five of Swords",
+      "arcana": "小牌",
+      "suit": "宝剑",
+      "number": 5,
+      "rank": "Five",
+      "element": "风",
+      "correspondence": "水瓶座 0°—10°；金星主管",
+      "secret_title": "击败",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "冲突",
+        "胜利代价",
+        "争执",
+        "傲慢",
+        "失落"
+      ],
+      "reversed": [
+        "和解",
+        "放下争执",
+        "承认错误",
+        "冲突结束",
+        "报复"
+      ],
+      "essence": "赢了争论却可能输掉关系，需要看见胜利的代价。",
+      "symbols": [
+        "男子抱着三把剑看两人离去：赢了争夺，却可能失去关系。",
+        "地上两把剑：冲突的代价被留在身后。",
+        "灰云与凌乱背景：胜利并不光荣，气氛是冷的。",
+        "回头张望：他意识到代价，但尚未决定是否修复。"
+      ],
+      "lesson_id": "stage2-04",
+      "sources": [
+        {
+          "lesson_id": "stage2-04",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-16",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:09:41"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 5 的其他花色",
+          "cards": [
+            "权杖-05",
+            "圣杯-05",
+            "星币-05"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "宝剑-04",
+            "宝剑-06"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/宝剑/宝剑五.md"
+    },
+    {
+      "id": "宝剑-06",
+      "name": "宝剑六",
+      "en": "Six of Swords",
+      "arcana": "小牌",
+      "suit": "宝剑",
+      "number": 6,
+      "rank": "Six",
+      "element": "风",
+      "correspondence": "水瓶座 10°—20°；水星主管",
+      "secret_title": "挣得的成功",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "过渡",
+        "疗愈",
+        "离开困境",
+        "旅程",
+        "平静"
+      ],
+      "reversed": [
+        "滞留",
+        "无法放下",
+        "旧问题复发",
+        "行程延误",
+        "抗拒改变"
+      ],
+      "essence": "带着伤痕驶向更平静的水域，过渡需要时间。",
+      "symbols": [
+        "船夫载着披斗篷的人与孩子渡水：从动荡走向较平静的岸。",
+        "六把剑插在船中：问题没有被丢下，而是被带着过渡。",
+        "前水后浪：离开困境需要时间，不能期待瞬间痊愈。",
+        "船头方向明确：疗愈来自有意识的迁移，而非单纯逃避。"
+      ],
+      "lesson_id": "stage2-04",
+      "sources": [
+        {
+          "lesson_id": "stage2-04",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-16",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:11:40"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 6 的其他花色",
+          "cards": [
+            "权杖-06",
+            "圣杯-06",
+            "星币-06"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "宝剑-05",
+            "宝剑-07"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/宝剑/宝剑六.md"
+    },
+    {
+      "id": "宝剑-07",
+      "name": "宝剑七",
+      "en": "Seven of Swords",
+      "arcana": "小牌",
+      "suit": "宝剑",
+      "number": 7,
+      "rank": "Seven",
+      "element": "风",
+      "correspondence": "水瓶座 20°—30°；月亮主管",
+      "secret_title": "不稳定的成果",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "策略",
+        "隐瞒",
+        "欺骗",
+        "独立行动",
+        "取巧"
+      ],
+      "reversed": [
+        "真相揭露",
+        "坦白",
+        "计划失败",
+        "良心不安",
+        "归还"
+      ],
+      "essence": "用策略解决问题，但诚实与责任不能被绕过。",
+      "symbols": [
+        "男子踮脚带走五把剑，留下两把：策略、隐瞒与取巧。",
+        "远处营帐：他正在从群体中悄悄撤离。",
+        "回头张望：知道行为有风险，良心并未完全安静。",
+        "手中的剑并不轻：靠欺骗获得的优势会带来持续防备。"
+      ],
+      "lesson_id": "stage2-05",
+      "sources": [
+        {
+          "lesson_id": "stage2-05",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-16",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 7 的其他花色",
+          "cards": [
+            "权杖-07",
+            "圣杯-07",
+            "星币-07"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "宝剑-06",
+            "宝剑-08"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/宝剑/宝剑七.md"
+    },
+    {
+      "id": "宝剑-08",
+      "name": "宝剑八",
+      "en": "Eight of Swords",
+      "arcana": "小牌",
+      "suit": "宝剑",
+      "number": 8,
+      "rank": "Eight",
+      "element": "风",
+      "correspondence": "双子座 0°—10°；木星主管",
+      "secret_title": "削弱的力量",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "束缚",
+        "自我限制",
+        "恐惧",
+        "无力感",
+        "困境"
+      ],
+      "reversed": [
+        "解脱",
+        "看清选择",
+        "打破限制",
+        "自救",
+        "新视角"
+      ],
+      "essence": "束缚往往来自信念而非现实，看见出口才能走出去。",
+      "symbols": [
+        "蒙眼女子被八把剑围住：限制感很强，但绑缚并不严密。",
+        "泥泞地面与远处城堡：她其实可以走向出口。",
+        "蒙眼：真正的牢笼是尚未验证的信念与恐惧。",
+        "双剑在侧：选择仍在，只是需要先摘下眼罩。"
+      ],
+      "lesson_id": "stage2-05",
+      "sources": [
+        {
+          "lesson_id": "stage2-05",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-17",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 8 的其他花色",
+          "cards": [
+            "权杖-08",
+            "圣杯-08",
+            "星币-08"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "宝剑-07",
+            "宝剑-09"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/宝剑/宝剑八.md"
+    },
+    {
+      "id": "宝剑-09",
+      "name": "宝剑九",
+      "en": "Nine of Swords",
+      "arcana": "小牌",
+      "suit": "宝剑",
+      "number": 9,
+      "rank": "Nine",
+      "element": "风",
+      "correspondence": "双子座 10°—20°；火星主管",
+      "secret_title": "绝望和残酷",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "焦虑",
+        "噩梦",
+        "担忧",
+        "内疚",
+        "精神压力"
+      ],
+      "reversed": [
+        "释怀",
+        "寻求帮助",
+        "走出焦虑",
+        "真相",
+        "恢复"
+      ],
+      "essence": "深夜的焦虑被放大，需要把恐惧带到光下。",
+      "symbols": [
+        "深夜坐起、双手捂脸的人：焦虑、失眠与反复思维。",
+        "墙上九把剑：担忧被排列成完整的故事，却未必是事实。",
+        "床单上的玫瑰与星象纹：痛苦中也保留着美与秩序感。",
+        "黑暗背景：夜间会放大恐惧，白天需要重新核对信息。"
+      ],
+      "lesson_id": "stage2-05",
+      "sources": [
+        {
+          "lesson_id": "stage2-05",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-17",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:03:20"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 9 的其他花色",
+          "cards": [
+            "权杖-09",
+            "圣杯-09",
+            "星币-09"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "宝剑-08",
+            "宝剑-10"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/宝剑/宝剑九.md"
+    },
+    {
+      "id": "宝剑-10",
+      "name": "宝剑十",
+      "en": "Ten of Swords",
+      "arcana": "小牌",
+      "suit": "宝剑",
+      "number": 10,
+      "rank": "Ten",
+      "element": "风",
+      "correspondence": "双子座 20°—30°；太阳主管",
+      "secret_title": "毁灭",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "终结",
+        "谷底",
+        "背叛",
+        "结束",
+        "彻底了断"
+      ],
+      "reversed": [
+        "触底反弹",
+        "幸存",
+        "拒绝结束",
+        "延迟终结",
+        "恢复"
+      ],
+      "essence": "故事走到尽头，接受结束才能开始修复。",
+      "symbols": [
+        "伏在地上、背上插十把剑的人：一个周期彻底结束。",
+        "黑云与远处金色黎明：谷底之后仍有新的光线。",
+        "红披风：即使失去行动能力，生命尊严仍在。",
+        "十把剑已到极限：继续补刀没有意义，接下来是存活与修复。"
+      ],
+      "lesson_id": "stage2-05",
+      "sources": [
+        {
+          "lesson_id": "stage2-05",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-17",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 10 的其他花色",
+          "cards": [
+            "权杖-10",
+            "圣杯-10",
+            "星币-10"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "宝剑-09"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/宝剑/宝剑十.md"
+    },
+    {
+      "id": "宝剑-page",
+      "name": "宝剑侍从",
+      "en": "Page of Swords",
+      "arcana": "宫廷牌",
+      "suit": "宝剑",
+      "number": null,
+      "rank": "侍从",
+      "element": "风",
+      "correspondence": "无固定星座",
+      "secret_title": "疾风的公主：风圣殿的莲花",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "学习",
+        "消息",
+        "好奇",
+        "新开始",
+        "思想"
+      ],
+      "reversed": [
+        "幼稚",
+        "拖延",
+        "坏消息",
+        "缺乏方向"
+      ],
+      "essence": "风的观察者：在云层与飞鸟间举剑，头发和树都被风吹动，象征信息、警觉与快速判断。优势是好奇、反应快、愿意核实；阴影是焦虑、传话、用锋利语言证明自己聪明。",
+      "symbols": [
+        "站在风中举剑的少年：好奇、警觉与快速吸收信息。",
+        "云与飞鸟：思维活跃，消息来得快。",
+        "握剑姿势尚不稳定：表达直接，容易伤人或被利用。",
+        "高地视野：学习观察全局，而不是只会反应。"
+      ],
+      "lesson_id": "stage1-32",
+      "sources": [
+        {
+          "lesson_id": "stage1-32",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage3-21",
+          "label": "人物牌秘传标题与星座区间",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-19",
+          "label": "宫廷牌进阶",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同为侍从的其他花色",
+          "cards": [
+            "权杖-page",
+            "圣杯-page",
+            "星币-page"
+          ]
+        },
+        {
+          "label": "同花色的人物成熟度",
+          "cards": [
+            "宝剑-knight"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/宝剑/宝剑侍从.md"
+    },
+    {
+      "id": "宝剑-knight",
+      "name": "宝剑骑士",
+      "en": "Knight of Swords",
+      "arcana": "宫廷牌",
+      "suit": "宝剑",
+      "number": null,
+      "rank": "骑士",
+      "element": "风",
+      "correspondence": "金牛座 20°—30° / 双子座 0°—20°",
+      "secret_title": "风和微风之主：风魂之王",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "行动",
+        "追求",
+        "冒险",
+        "推进",
+        "思想"
+      ],
+      "reversed": [
+        "鲁莽",
+        "冲动",
+        "半途而废",
+        "方向不稳"
+      ],
+      "essence": "风的突击者：马匹全速冲刺，披风与云一起翻卷，剑先于思考抵达。优势是果断、速度、敢于把话说清；阴影是鲁莽、争胜、语言伤人，事后才发现没有确认事实。",
+      "symbols": [
+        "骑士策马冲锋，剑高举：速度、决断与强烈的言语行动。",
+        "风中树木与飞云：环境被思想与冲突推动。",
+        "马匹全速前进：冲劲很强，但刹车与转向能力不足。",
+        "剑指前方：适合突破僵局，不适合处理需要细腻共情的场面。"
+      ],
+      "lesson_id": "stage1-32",
+      "sources": [
+        {
+          "lesson_id": "stage1-32",
+          "label": "课程精讲",
+          "timestamp": "00:07:51"
+        },
+        {
+          "lesson_id": "stage3-21",
+          "label": "人物牌秘传标题与星座区间",
+          "timestamp": "00:03:55"
+        },
+        {
+          "lesson_id": "stage4-20",
+          "label": "宫廷牌进阶",
+          "timestamp": "00:11:02"
+        }
+      ],
+      "related": [
+        {
+          "label": "同为骑士的其他花色",
+          "cards": [
+            "权杖-knight",
+            "圣杯-knight",
+            "星币-knight"
+          ]
+        },
+        {
+          "label": "同花色的人物成熟度",
+          "cards": [
+            "宝剑-page",
+            "宝剑-queen"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/宝剑/宝剑骑士.md"
+    },
+    {
+      "id": "宝剑-queen",
+      "name": "宝剑皇后",
+      "en": "Queen of Swords",
+      "arcana": "宫廷牌",
+      "suit": "宝剑",
+      "number": null,
+      "rank": "皇后",
+      "element": "风",
+      "correspondence": "处女座 20°—30° / 天秤座 0°—20°",
+      "secret_title": "风之王座的女皇",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "成熟",
+        "滋养",
+        "内在掌握",
+        "包容",
+        "思想"
+      ],
+      "reversed": [
+        "情绪化",
+        "控制",
+        "过度付出",
+        "自我怀疑"
+      ],
+      "essence": "风的裁决者：右手执剑，左手抬起如持天秤，宝座上方有带翼天使头，强调判断必须兼顾原则与慈悲。优势是清醒、独立、表达准确；阴影是冷硬、挑剔、用理性切断真实感受。",
+      "symbols": [
+        "端坐王座、举剑并伸出手：以理性、边界与经验判断。",
+        "蝴蝶与云纹：思维转化、沟通与看穿表象。",
+        "剑保持直立：她不急着攻击，但要求事实清楚。",
+        "严肃目光：清醒有时显得冷，但并非没有同理心。"
+      ],
+      "lesson_id": "stage1-32",
+      "sources": [
+        {
+          "lesson_id": "stage1-32",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage3-21",
+          "label": "人物牌秘传标题与星座区间",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-20",
+          "label": "宫廷牌进阶",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同为皇后的其他花色",
+          "cards": [
+            "权杖-queen",
+            "圣杯-queen",
+            "星币-queen"
+          ]
+        },
+        {
+          "label": "同花色的人物成熟度",
+          "cards": [
+            "宝剑-knight",
+            "宝剑-king"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/宝剑/宝剑皇后.md"
+    },
+    {
+      "id": "宝剑-king",
+      "name": "宝剑国王",
+      "en": "King of Swords",
+      "arcana": "宫廷牌",
+      "suit": "宝剑",
+      "number": null,
+      "rank": "国王",
+      "element": "风",
+      "correspondence": "摩羯座 20°—30° / 水瓶座 0°—20°",
+      "secret_title": "风战车的王子",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "掌控",
+        "领导",
+        "成就",
+        "稳定",
+        "思想"
+      ],
+      "reversed": [
+        "专横",
+        "固执",
+        "权力滥用",
+        "失控"
+      ],
+      "essence": "风的统治者：蝴蝶与双鸟构成水瓶座与风元素的线索，剑竖直如法律。优势是逻辑、原则、能在混乱中建立规则；阴影是冷酷、独断，用正确压过人的感受。",
+      "symbols": [
+        "国王正面端坐、宝剑直立：理性权威与最终裁决。",
+        "蝴蝶与云：语言、法律、知识与制度的力量。",
+        "王座上的几何纹样：原则、秩序与可复述的逻辑。",
+        "目光锐利：适合做判断，但容易把情感当成干扰。"
+      ],
+      "lesson_id": "stage1-32",
+      "sources": [
+        {
+          "lesson_id": "stage1-32",
+          "label": "课程精讲",
+          "timestamp": "00:17:03"
+        },
+        {
+          "lesson_id": "stage3-21",
+          "label": "人物牌秘传标题与星座区间",
+          "timestamp": "00:04:00"
+        },
+        {
+          "lesson_id": "stage4-20",
+          "label": "宫廷牌进阶",
+          "timestamp": "00:04:37"
+        }
+      ],
+      "related": [
+        {
+          "label": "同为国王的其他花色",
+          "cards": [
+            "权杖-king",
+            "圣杯-king",
+            "星币-king"
+          ]
+        },
+        {
+          "label": "同花色的人物成熟度",
+          "cards": [
+            "宝剑-queen"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/宝剑/宝剑国王.md"
+    },
+    {
+      "id": "星币-01",
+      "name": "星币一",
+      "en": "Ace of Pentacles",
+      "arcana": "小牌",
+      "suit": "星币",
+      "number": 1,
+      "rank": "Ace",
+      "element": "土",
+      "correspondence": "土元素本源；不分星座十度",
+      "secret_title": "元素之根",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "物质机会",
+        "种子",
+        "财富",
+        "健康",
+        "踏实开始"
+      ],
+      "reversed": [
+        "机会流失",
+        "财务受阻",
+        "计划延迟",
+        "贪心",
+        "基础不稳"
+      ],
+      "essence": "一颗落在现实土壤里的种子，需要耐心培育。",
+      "symbols": [
+        "云中手托一枚星币：物质机会像种子一样被交到手中。",
+        "花园、拱门与远山：需要在现实土壤中培育，而非停留在想象。",
+        "星币上的五角星：土元素、身体、资源与可验证的成果。",
+        "开阔小径：机会真实存在，但必须走出第一步。"
+      ],
+      "lesson_id": "stage2-14",
+      "sources": [
+        {
+          "lesson_id": "stage2-14",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-12",
+          "label": "四张 Ace 与元素之根",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 1 的其他花色",
+          "cards": [
+            "权杖-01",
+            "圣杯-01",
+            "宝剑-01"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "星币-02"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/星币/星币一.md"
+    },
+    {
+      "id": "星币-02",
+      "name": "星币二",
+      "en": "Two of Pentacles",
+      "arcana": "小牌",
+      "suit": "星币",
+      "number": 2,
+      "rank": "Two",
+      "element": "土",
+      "correspondence": "摩羯座 0°—10°；木星主管",
+      "secret_title": "和谐的变化",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "平衡",
+        "灵活",
+        "兼顾",
+        "时间管理",
+        "适应"
+      ],
+      "reversed": [
+        "失衡",
+        "财务混乱",
+        "分身乏术",
+        "优先顺序不清",
+        "超支"
+      ],
+      "essence": "在多项责任之间保持弹性与平衡。",
+      "symbols": [
+        "男子双手抛接两枚星币，身后两枚相连：在多项责任之间保持节奏。",
+        "无限符号：平衡不是静止，而是持续调整。",
+        "背景海浪与船只：外部环境起伏，内心要维持重心。",
+        "轻松的站姿：灵活应对，别把短期波动当成失败。"
+      ],
+      "lesson_id": "stage2-15",
+      "sources": [
+        {
+          "lesson_id": "stage2-15",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-17",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:11:50"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 2 的其他花色",
+          "cards": [
+            "权杖-02",
+            "圣杯-02",
+            "宝剑-02"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "星币-01",
+            "星币-03"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/星币/星币二.md"
+    },
+    {
+      "id": "星币-03",
+      "name": "星币三",
+      "en": "Three of Pentacles",
+      "arcana": "小牌",
+      "suit": "星币",
+      "number": 3,
+      "rank": "Three",
+      "element": "土",
+      "correspondence": "摩羯座 10°—20°；火星主管",
+      "secret_title": "物质的工作",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "协作",
+        "技艺",
+        "初步成果",
+        "团队",
+        "专业"
+      ],
+      "reversed": [
+        "合作不顺",
+        "质量不佳",
+        "缺乏规划",
+        "被忽视",
+        "返工"
+      ],
+      "essence": "专业能力在协作与打磨中成形。",
+      "symbols": [
+        "工匠在教堂中与两人讨论图纸：专业、协作与质量控制。",
+        "三枚星币嵌在拱门上：阶段性成果需要被检验。",
+        "石匠工具与蓝图：技能不是天赋神话，而是可训练的手艺。",
+        "共同工作的场景：好的成果来自不同角色的配合。"
+      ],
+      "lesson_id": "stage2-15",
+      "sources": [
+        {
+          "lesson_id": "stage2-15",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-17",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 3 的其他花色",
+          "cards": [
+            "权杖-03",
+            "圣杯-03",
+            "宝剑-03"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "星币-02",
+            "星币-04"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/星币/星币三.md"
+    },
+    {
+      "id": "星币-04",
+      "name": "星币四",
+      "en": "Four of Pentacles",
+      "arcana": "小牌",
+      "suit": "星币",
+      "number": 4,
+      "rank": "Four",
+      "element": "土",
+      "correspondence": "摩羯座 20°—30°；太阳主管",
+      "secret_title": "大地的力量",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "保守",
+        "控制",
+        "稳定",
+        "储蓄",
+        "占有"
+      ],
+      "reversed": [
+        "放手",
+        "过度控制",
+        "贪婪",
+        "财务风险",
+        "开放"
+      ],
+      "essence": "紧握资源带来安全感，也可能变成封闭与控制。",
+      "symbols": [
+        "坐着紧抱一枚星币的人：安全感与占有欲同时上升。",
+        "头顶、脚下与怀中的星币：把资源守在身边，形成封闭系统。",
+        "身后的城市：他拥有社会资源，却选择退到自己的边界内。",
+        "僵直姿态：过度防守会让财富与关系都失去流动性。"
+      ],
+      "lesson_id": "stage2-15",
+      "sources": [
+        {
+          "lesson_id": "stage2-15",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-18",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 4 的其他花色",
+          "cards": [
+            "权杖-04",
+            "圣杯-04",
+            "宝剑-04"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "星币-03",
+            "星币-05"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/星币/星币四.md"
+    },
+    {
+      "id": "星币-05",
+      "name": "星币五",
+      "en": "Five of Pentacles",
+      "arcana": "小牌",
+      "suit": "星币",
+      "number": 5,
+      "rank": "Five",
+      "element": "土",
+      "correspondence": "金牛座 0°—10°；水星主管",
+      "secret_title": "物质的困难",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "匮乏",
+        "贫困",
+        "孤立",
+        "健康问题",
+        "被排除"
+      ],
+      "reversed": [
+        "走出困境",
+        "接受帮助",
+        "恢复",
+        "财务改善",
+        "希望"
+      ],
+      "essence": "物质或情感上的匮乏，提醒人看见可用的支持。",
+      "symbols": [
+        "雪地中两名贫困者经过教堂彩窗：匮乏与制度性支持同时存在。",
+        "拄拐与破损衣物：困难已经影响身体与行动能力。",
+        "温暖的窗内光：帮助可能就在附近，但需要愿意抬头看见。",
+        "寒冷环境：物质困境往往伴随羞耻与孤立。"
+      ],
+      "lesson_id": "stage2-16",
+      "sources": [
+        {
+          "lesson_id": "stage2-16",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-18",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 5 的其他花色",
+          "cards": [
+            "权杖-05",
+            "圣杯-05",
+            "宝剑-05"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "星币-04",
+            "星币-06"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/星币/星币五.md"
+    },
+    {
+      "id": "星币-06",
+      "name": "星币六",
+      "en": "Six of Pentacles",
+      "arcana": "小牌",
+      "suit": "星币",
+      "number": 6,
+      "rank": "Six",
+      "element": "土",
+      "correspondence": "金牛座 10°—20°；月亮主管",
+      "secret_title": "物质的成功",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "给予",
+        "接受",
+        "慷慨",
+        "平衡",
+        "资助"
+      ],
+      "reversed": [
+        "依附",
+        "施舍关系",
+        "不公平",
+        "债务",
+        "吝啬"
+      ],
+      "essence": "给予与接受需要平衡，慷慨不应附带控制。",
+      "symbols": [
+        "商人手持天平，向跪者分发钱币：给予、接受与权力差。",
+        "天平：慷慨必须与公平、边界和可持续性一起衡量。",
+        "两个接受者：资源分配会改变关系位置。",
+        "站立与跪姿：帮助若缺乏尊重，容易变成控制。"
+      ],
+      "lesson_id": "stage2-16",
+      "sources": [
+        {
+          "lesson_id": "stage2-16",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-18",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 6 的其他花色",
+          "cards": [
+            "权杖-06",
+            "圣杯-06",
+            "宝剑-06"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "星币-05",
+            "星币-07"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/星币/星币六.md"
+    },
+    {
+      "id": "星币-07",
+      "name": "星币七",
+      "en": "Seven of Pentacles",
+      "arcana": "小牌",
+      "suit": "星币",
+      "number": 7,
+      "rank": "Seven",
+      "element": "土",
+      "correspondence": "金牛座 20°—30°；土星主管",
+      "secret_title": "未实现的成功",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "耐心",
+        "评估",
+        "长期投资",
+        "等待收获",
+        "坚持"
+      ],
+      "reversed": [
+        "急躁",
+        "投资失利",
+        "方向错误",
+        "放弃",
+        "回报延迟"
+      ],
+      "essence": "播下的种子需要时间，耐心评估而非频繁更换。",
+      "symbols": [
+        "农夫倚着锄头看藤蔓上的七枚星币：投入之后的等待与评估。",
+        "成熟与未熟的果实：成果需要时间，不能靠焦虑催熟。",
+        "土地与藤架：长期投资需要合适结构与耐心。",
+        "暂停劳动的姿态：评估方向比盲目加码更重要。"
+      ],
+      "lesson_id": "stage2-16",
+      "sources": [
+        {
+          "lesson_id": "stage2-16",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-18",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:11:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 7 的其他花色",
+          "cards": [
+            "权杖-07",
+            "圣杯-07",
+            "宝剑-07"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "星币-06",
+            "星币-08"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/星币/星币七.md"
+    },
+    {
+      "id": "星币-08",
+      "name": "星币八",
+      "en": "Eight of Pentacles",
+      "arcana": "小牌",
+      "suit": "星币",
+      "number": 8,
+      "rank": "Eight",
+      "element": "土",
+      "correspondence": "处女座 0°—10°；太阳主管",
+      "secret_title": "谨慎",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "专注",
+        "精进",
+        "学习",
+        "工匠精神",
+        "重复练习"
+      ],
+      "reversed": [
+        "敷衍",
+        "缺乏专注",
+        "完美主义",
+        "技能停滞",
+        "厌倦"
+      ],
+      "essence": "通过专注与重复，把技能打磨成真正的能力。",
+      "symbols": [
+        "工匠专心凿刻星币：重复练习、技艺精进与专注。",
+        "已完成的八枚星币挂在架上：进步可以被记录。",
+        "远离城镇的工作台：真正的能力常在安静、持续的练习中形成。",
+        "锤子与刻刀：精确来自一次次可修正的动作。"
+      ],
+      "lesson_id": "stage2-17",
+      "sources": [
+        {
+          "lesson_id": "stage2-17",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-18",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 8 的其他花色",
+          "cards": [
+            "权杖-08",
+            "圣杯-08",
+            "宝剑-08"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "星币-07",
+            "星币-09"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/星币/星币八.md"
+    },
+    {
+      "id": "星币-09",
+      "name": "星币九",
+      "en": "Nine of Pentacles",
+      "arcana": "小牌",
+      "suit": "星币",
+      "number": 9,
+      "rank": "Nine",
+      "element": "土",
+      "correspondence": "处女座 10°—20°；金星主管",
+      "secret_title": "物质财富",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "独立",
+        "丰盛",
+        "自给自足",
+        "享受成果",
+        "优雅"
+      ],
+      "reversed": [
+        "依赖",
+        "财务不稳",
+        "虚荣",
+        "过度工作",
+        "失去独立"
+      ],
+      "essence": "靠自己的能力获得丰盛，并懂得享受成果。",
+      "symbols": [
+        "女子在葡萄园中独立站立：经济独立与自我供养。",
+        "手背上的猎鹰：训练有素的资源与受控的欲望。",
+        "九枚星币与丰盛衣饰：成果可见，但不是炫耀。",
+        "蜗牛与花园：富足也包括慢下来享受生活。"
+      ],
+      "lesson_id": "stage2-17",
+      "sources": [
+        {
+          "lesson_id": "stage2-17",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-18",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 9 的其他花色",
+          "cards": [
+            "权杖-09",
+            "圣杯-09",
+            "宝剑-09"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "星币-08",
+            "星币-10"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/星币/星币九.md"
+    },
+    {
+      "id": "星币-10",
+      "name": "星币十",
+      "en": "Ten of Pentacles",
+      "arcana": "小牌",
+      "suit": "星币",
+      "number": 10,
+      "rank": "Ten",
+      "element": "土",
+      "correspondence": "处女座 20°—30°；水星主管",
+      "secret_title": "财富",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "传承",
+        "家族财富",
+        "长期稳定",
+        "圆满",
+        "根基"
+      ],
+      "reversed": [
+        "家族纠纷",
+        "财务失败",
+        "短视",
+        "传统束缚",
+        "不稳定"
+      ],
+      "essence": "财富与价值在家族和世代之间传承。",
+      "symbols": [
+        "老人、家人与狗在拱门下：财富进入家族与代际结构。",
+        "十枚星币按生命之树排列：物质成果与象征秩序相互嵌套。",
+        "城堡与庄园：稳定来自长期积累与制度保障。",
+        "几代人同框：财富不仅是数字，也包含传承、责任与规则。"
+      ],
+      "lesson_id": "stage2-17",
+      "sources": [
+        {
+          "lesson_id": "stage2-17",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-18",
+          "label": "小牌十度与秘传标题",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同数字 10 的其他花色",
+          "cards": [
+            "权杖-10",
+            "圣杯-10",
+            "宝剑-10"
+          ]
+        },
+        {
+          "label": "同花色的前后阶段",
+          "cards": [
+            "星币-09"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/星币/星币十.md"
+    },
+    {
+      "id": "星币-page",
+      "name": "星币侍从",
+      "en": "Page of Pentacles",
+      "arcana": "宫廷牌",
+      "suit": "星币",
+      "number": null,
+      "rank": "侍从",
+      "element": "土",
+      "correspondence": "无固定星座",
+      "secret_title": "回音山谷的公主：土圣殿的玫瑰",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "学习",
+        "消息",
+        "好奇",
+        "新开始",
+        "物质"
+      ],
+      "reversed": [
+        "幼稚",
+        "拖延",
+        "坏消息",
+        "缺乏方向"
+      ],
+      "essence": "土的学徒：站在绿色谷地，远处有山，手中托着星币，像在观察一颗种子如何变成可用的资源。优势是务实、肯练基本功、尊重身体与时间；阴影是拖延、只看眼前利益，或把学习停在收集资料。",
+      "symbols": [
+        "年轻人站在田野里专注看星币：学习、务实与新的物质计划。",
+        "翻耕的土地：愿意从基础工作开始。",
+        "远处的树与开阔天空：成长需要时间，但方向清楚。",
+        "双手托举星币：把机会当作需要认真对待的承诺。"
+      ],
+      "lesson_id": "stage1-32",
+      "sources": [
+        {
+          "lesson_id": "stage1-32",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage3-21",
+          "label": "人物牌秘传标题与星座区间",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-19",
+          "label": "宫廷牌进阶",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同为侍从的其他花色",
+          "cards": [
+            "权杖-page",
+            "圣杯-page",
+            "宝剑-page"
+          ]
+        },
+        {
+          "label": "同花色的人物成熟度",
+          "cards": [
+            "星币-knight"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/星币/星币侍从.md"
+    },
+    {
+      "id": "星币-knight",
+      "name": "星币骑士",
+      "en": "Knight of Pentacles",
+      "arcana": "宫廷牌",
+      "suit": "星币",
+      "number": null,
+      "rank": "骑士",
+      "element": "土",
+      "correspondence": "狮子座 20°—30° / 处女座 0°—20°",
+      "secret_title": "荒野和田地之主：土魂之王",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "行动",
+        "追求",
+        "冒险",
+        "推进",
+        "物质"
+      ],
+      "reversed": [
+        "鲁莽",
+        "冲动",
+        "半途而废",
+        "方向不稳"
+      ],
+      "essence": "土的耕耘者：重甲、慢马、翻耕过的棕色土地，动作不快却不轻易停。优势是可靠、耐心、能把长期任务做完；阴影是僵化、过度谨慎，或把忙碌当成唯一的价值。",
+      "symbols": [
+        "骑士骑深色马停在田间，手托星币：稳步推进、可靠与耐心。",
+        "马匹不动：速度不是优势，持续才是。",
+        "翻耕的土地与农舍：工作与生活在现实节奏中结合。",
+        "盔甲上的绿色纹样：土元素的保护性与生长性。"
+      ],
+      "lesson_id": "stage1-32",
+      "sources": [
+        {
+          "lesson_id": "stage1-32",
+          "label": "课程精讲",
+          "timestamp": "00:29:00"
+        },
+        {
+          "lesson_id": "stage3-21",
+          "label": "人物牌秘传标题与星座区间",
+          "timestamp": "00:04:00"
+        },
+        {
+          "lesson_id": "stage4-20",
+          "label": "宫廷牌进阶",
+          "timestamp": "00:12:20"
+        }
+      ],
+      "related": [
+        {
+          "label": "同为骑士的其他花色",
+          "cards": [
+            "权杖-knight",
+            "圣杯-knight",
+            "宝剑-knight"
+          ]
+        },
+        {
+          "label": "同花色的人物成熟度",
+          "cards": [
+            "星币-page",
+            "星币-queen"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/星币/星币骑士.md"
+    },
+    {
+      "id": "星币-queen",
+      "name": "星币皇后",
+      "en": "Queen of Pentacles",
+      "arcana": "宫廷牌",
+      "suit": "星币",
+      "number": null,
+      "rank": "皇后",
+      "element": "土",
+      "correspondence": "射手座 20°—30° / 摩羯座 0°—20°",
+      "secret_title": "土之王座的女皇",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "成熟",
+        "滋养",
+        "内在掌握",
+        "包容",
+        "物质"
+      ],
+      "reversed": [
+        "情绪化",
+        "控制",
+        "过度付出",
+        "自我怀疑"
+      ],
+      "essence": "土的滋养者：山羊头与潘神纹样指向摩羯座，绿色外衣与花冠强调生长。优势是务实照顾、资源管理、能把爱变成可持续的安排；阴影是控制、物质焦虑，或用付出换取忠诚。",
+      "symbols": [
+        "坐在花园中的皇后，膝上托着星币：滋养、务实与照顾他人。",
+        "玫瑰、兔子与山羊：自然丰饶、生育力与温柔的管理。",
+        "王座雕饰：舒适与资源是服务生活的基础。",
+        "目光向下：关注具体需要，而不是抽象口号。"
+      ],
+      "lesson_id": "stage1-32",
+      "sources": [
+        {
+          "lesson_id": "stage1-32",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage3-21",
+          "label": "人物牌秘传标题与星座区间",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage4-20",
+          "label": "宫廷牌进阶",
+          "timestamp": "00:00:00"
+        }
+      ],
+      "related": [
+        {
+          "label": "同为皇后的其他花色",
+          "cards": [
+            "权杖-queen",
+            "圣杯-queen",
+            "宝剑-queen"
+          ]
+        },
+        {
+          "label": "同花色的人物成熟度",
+          "cards": [
+            "星币-knight",
+            "星币-king"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/星币/星币皇后.md"
+    },
+    {
+      "id": "星币-king",
+      "name": "星币国王",
+      "en": "King of Pentacles",
+      "arcana": "宫廷牌",
+      "suit": "星币",
+      "number": null,
+      "rank": "国王",
+      "element": "土",
+      "correspondence": "白羊座 20°—30° / 金牛座 0°—20°",
+      "secret_title": "土战车的王子",
+      "hebrew_letter": null,
+      "path_number": null,
+      "path_from": null,
+      "path_to": null,
+      "wisdom": null,
+      "function": null,
+      "direction": null,
+      "upright": [
+        "掌控",
+        "领导",
+        "成就",
+        "稳定",
+        "物质"
+      ],
+      "reversed": [
+        "专横",
+        "固执",
+        "权力滥用",
+        "失控"
+      ],
+      "essence": "土的统治者：公牛头与脚踏公牛指向金牛座，葡萄与丰饶纹样强调物质成果。优势是稳健、守信、善于经营长期资源；阴影是贪婪、固守、把拥有等同于安全。",
+      "symbols": [
+        "国王坐在葡萄园王座，手托星币与权杖：物质世界的成熟领导。",
+        "公牛与藤蔓：稳定、生产力与长期经营。",
+        "城堡与耕地：财富必须落到土地、制度与团队。",
+        "宽松坐姿：真正的富足可以从容，不必时刻证明。"
+      ],
+      "lesson_id": "stage1-32",
+      "sources": [
+        {
+          "lesson_id": "stage1-32",
+          "label": "课程精讲",
+          "timestamp": "00:00:00"
+        },
+        {
+          "lesson_id": "stage3-21",
+          "label": "人物牌秘传标题与星座区间",
+          "timestamp": "00:04:00"
+        },
+        {
+          "lesson_id": "stage4-20",
+          "label": "宫廷牌进阶",
+          "timestamp": "00:01:20"
+        }
+      ],
+      "related": [
+        {
+          "label": "同为国王的其他花色",
+          "cards": [
+            "权杖-king",
+            "圣杯-king",
+            "宝剑-king"
+          ]
+        },
+        {
+          "label": "同花色的人物成熟度",
+          "cards": [
+            "星币-queen"
+          ]
+        }
+      ],
+      "path": "knowledge/cards/星币/星币国王.md"
+    }
+  ]
+}

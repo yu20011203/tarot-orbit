@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#04030a" />
+  <title>星轨历史 · 命运之扉</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23070b1b'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-size='38' fill='%23e8c77e'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="history/style.css?v=3" />
+</head>
+<body>
+  <div id="scene"></div>
+  <div class="aurora"></div>
+  <div class="vignette"></div>
+  <div class="grain"></div>
+
+  <header class="topbar">
+    <a class="brand brand-link" href="index.html" title="回到命运之扉">
+      <div class="brand-mark">
+        <span class="star">✦</span>
+        <span class="ring"></span>
+      </div>
+      <div class="brand-text">
+        <h1>命运之扉</h1>
+        <p>星轨历史 · TAROT ORBIT</p>
+      </div>
+    </a>
+
+    <div class="searchbar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+        <circle cx="11" cy="11" r="6.5"></circle>
+        <path d="M16 16l4.5 4.5"></path>
+      </svg>
+      <input id="searchInput" type="text" placeholder="搜索问题、牌名或牌阵..." autocomplete="off" />
+      <kbd>Ctrl K</kbd>
+    </div>
+
+    <div class="top-right">
+      <span class="now-date" id="nowDate"></span>
+      <a class="back-home" href="index.html">
+        <span>←</span>
+        <span>回到命运之扉</span>
+      </a>
+    </div>
+  </header>
+
+  <aside class="history-panel" id="historyPanel">
+    <div class="panel-head">
+      <div class="panel-title"><span class="dot"></span>历史记录</div>
+      <button class="ghost-btn" id="allBtn" type="button">
+        全部
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M6 9l6 6 6-6"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="history-list" id="historyList"></div>
+    <div class="panel-foot">
+      <span id="recordCount">0 次占卜</span>
+      <span class="sep">·</span>
+      <span>本机自动保存 · 最多 24 条</span>
+    </div>
+  </aside>
+
+  <section class="detail-panel" id="detailPanel">
+    <div class="detail-head">
+      <div class="detail-date">
+        <span class="pulse-dot"></span>
+        <span id="detailDate"></span>
+      </div>
+      <button class="icon-btn" id="resetViewBtn" type="button" title="重置星轨视角">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+          <path d="M4.8 9.2A8 8 0 1 1 4 14"></path>
+          <path d="M4.8 4.8v4.4h4.4"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="detail-spread" id="detailSpread"></div>
+    <h2 class="detail-question" id="detailQuestion"></h2>
+    <div class="section-label">抽取的塔罗牌</div>
+    <div class="detail-cards" id="detailCards"></div>
+    <div class="divider"></div>
+    <div class="section-label">简短解析</div>
+    <p class="reading" id="detailReading"></p>
+    <button class="gold-btn" id="fullReadingBtn" type="button">
+      <span>查看完整解析</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M5 12h13M13 6l6 6-6 6"></path>
+      </svg>
+    </button>
+    <div class="detail-foot">命运之扉 · 星轨会记得每一次提问</div>
+  </section>
+
+  <section class="empty-hero" id="emptyHero" aria-hidden="true">
+    <div class="empty-sigil">✦</div>
+    <div class="empty-kicker">YOUR FIRST READING AWAITS</div>
+    <h2>星轨还是一片空白</h2>
+    <p>完成一次抽牌后，问题、牌阵与完整解读会在这里被安静地保存下来。</p>
+    <a class="gold-btn empty-cta" href="index.html">去抽第一组牌 <span>→</span></a>
+  </section>
+
+  <div class="hint">
+    <span>拖动旋转</span><i></i>
+    <span>滚轮缩放</span><i></i>
+    <span>点击星轨上的牌回看记录</span>
+  </div>
+
+  <button class="sync-toast" id="syncToast" type="button" hidden>
+    <span>✦</span>
+    <span>历史记录已更新</span>
+    <b>刷新星轨</b>
+  </button>
+
+  <div class="modal" id="readingModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalQuestion">
+      <button class="modal-close" data-close aria-label="关闭">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M6 6l12 12M18 6L6 18"></path>
+        </svg>
+      </button>
+      <div class="modal-eyebrow" id="modalDate"></div>
+      <div class="modal-spread" id="modalSpread"></div>
+      <h2 id="modalQuestion"></h2>
+      <div class="modal-cards" id="modalCards"></div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-sign">命运之扉 · 星轨会记得每一次提问</div>
+    </div>
+  </div>
+
+  <div class="loading" id="loading">
+    <div class="loading-orbit"><i></i><i></i><i></i><span>✦</span></div>
+    <p>正在连接塔罗宇宙…</p>
+  </div>
+
+  <script src="history-store.js?v=3"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./vendor/three.module.js",
+        "three/addons/": "./vendor/addons/"
+      }
+    }
+  </script>
+  <script type="module" src="history/app.js?v=3"></script>
+</body>
+</html>

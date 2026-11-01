@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: tarot-orbit
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python server.py --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.8
+      - key: TAROT_KB_ROOT
+        value: ./tarot-knowledge-base
+      - key: TAROT_API_BASE
+        sync: false
+      - key: TAROT_API_KEY
+        sync: false
+      - key: TAROT_MODEL
+        sync: false
+

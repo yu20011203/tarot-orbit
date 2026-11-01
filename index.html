@@ -1,0 +1,3411 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#03050f">
+<title>命运之扉 · 塔罗抽牌</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23070b1b'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-size='38' fill='%23e8c77e'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#03050f;
+    --ink:#eee9dc;
+    --muted:#969dbd;
+    --muted-2:#6f7899;
+    --gold:#e8c77e;
+    --gold-2:#f6e3b3;
+    --gold-dim:rgba(232,199,126,.48);
+    --violet:#c79bff;
+    --violet-soft:rgba(179,126,255,.55);
+    --card-w:clamp(112px, min(13.5vw, 21vh), 190px);
+    --card-h:calc(var(--card-w) * 1.7333);
+    --ring-radius:calc(var(--card-w) * 1.90);
+    --ease:cubic-bezier(.2,.8,.2,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  [hidden]{display:none!important;}
+  html,body{height:100%;overflow:hidden;background:var(--bg);}
+  body{
+    font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong",Georgia,serif;
+    color:var(--ink);
+    user-select:none;
+    -webkit-user-select:none;
+    position:relative;
+  }
+  button{font-family:inherit;}
+  img{pointer-events:none;}
+
+  /* ---------- 背景 ---------- */
+  #stars{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;}
+  .nebula{
+    position:fixed;inset:0;z-index:1;pointer-events:none;
+    background:
+      radial-gradient(ellipse 62% 54% at 50% 12%, rgba(28,48,124,.26) 0%, rgba(9,15,42,0) 68%),
+      radial-gradient(ellipse 52% 44% at 76% 84%, rgba(90,43,130,.15) 0%, rgba(9,15,42,0) 70%),
+      radial-gradient(ellipse 50% 40% at 18% 64%, rgba(22,54,108,.12) 0%, rgba(9,15,42,0) 70%),
+      linear-gradient(180deg,#02040c 0%,#050a1d 52%,#03050f 100%);
+    transition:opacity 1.2s ease;
+  }
+  body[data-screen="draw"] .nebula{
+    background:
+      radial-gradient(ellipse 58% 50% at 50% 26%, rgba(35,49,122,.30) 0%, rgba(9,15,42,0) 68%),
+      radial-gradient(ellipse 54% 46% at 54% 88%, rgba(100,44,144,.20) 0%, rgba(9,15,42,0) 72%),
+      radial-gradient(ellipse 48% 42% at 12% 78%, rgba(27,45,100,.16) 0%, rgba(9,15,42,0) 70%),
+      linear-gradient(180deg,#02040c 0%,#050917 55%,#02040c 100%);
+  }
+  body[data-screen="result"] .nebula{
+    background:
+      radial-gradient(ellipse 50% 40% at 50% 28%, rgba(27,42,104,.20) 0%, rgba(9,15,42,0) 70%),
+      radial-gradient(ellipse 40% 40% at 50% 72%, rgba(75,48,112,.10) 0%, rgba(9,15,42,0) 72%),
+      linear-gradient(180deg,#02040c 0%,#040816 52%,#02040a 100%);
+  }
+  .grain{
+    position:fixed;inset:0;z-index:2;pointer-events:none;opacity:.20;mix-blend-mode:soft-light;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.86' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
+  }
+  .vignette{
+    position:fixed;inset:0;z-index:3;pointer-events:none;
+    background:radial-gradient(ellipse at 50% 46%, transparent 30%, rgba(0,0,0,.34) 72%, rgba(0,0,0,.70) 100%);
+  }
+
+  /* ---------- 屏幕切换 ---------- */
+  .screen{
+    position:fixed;inset:0;z-index:10;
+    opacity:0;visibility:hidden;pointer-events:none;
+    transition:opacity 1s ease, visibility 1s;
+  }
+  .screen.active{opacity:1;visibility:visible;pointer-events:auto;}
+  .screen.fade-quick{transition:opacity .45s ease, visibility .45s;}
+  .screen:not(.active),.screen:not(.active) *{animation-play-state:paused!important;}
+
+  /* ---------- 通用按钮 ---------- */
+  .icon-btn{
+    width:34px;height:34px;border-radius:50%;
+    border:1px solid rgba(167,176,214,.20);
+    background:rgba(8,12,29,.42);
+    color:#c3c9e2;font-size:14px;line-height:1;
+    display:grid;place-items:center;cursor:pointer;
+    backdrop-filter:blur(8px);
+    transition:.25s var(--ease);
+  }
+  .icon-btn:hover{color:#fff3d1;border-color:rgba(232,199,126,.55);box-shadow:0 0 18px rgba(232,199,126,.18);transform:translateY(-1px);}
+  .icon-btn.off{opacity:.42;}
+  .corner-actions{position:fixed;right:22px;bottom:20px;z-index:60;display:flex;gap:9px;}
+  .history-entry{
+    position:fixed;right:24px;top:22px;z-index:61;
+    display:inline-flex;align-items:center;gap:8px;
+    padding:8px 13px;border-radius:999px;
+    border:1px solid rgba(232,199,126,.25);
+    background:rgba(7,11,28,.48);
+    color:#c9bfa0;text-decoration:none;
+    font-size:9px;letter-spacing:.16em;
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.025);
+    transition:.28s var(--ease);
+  }
+  .history-entry .h-star{color:var(--gold);font-size:11px;text-shadow:0 0 12px rgba(232,199,126,.58);}
+  .history-entry .h-arrow{color:#77718a;font-size:10px;letter-spacing:0;transition:.28s var(--ease);}
+  .history-entry:hover{
+    color:#fff0cc;border-color:rgba(232,199,126,.58);
+    background:rgba(22,23,49,.72);
+    box-shadow:0 0 24px rgba(232,199,126,.10),inset 0 1px 0 rgba(255,255,255,.045);
+    transform:translateY(-1px);
+  }
+  .history-entry:hover .h-arrow{color:var(--gold-2);transform:translateX(2px);}
+
+  /* ---------- 开场 ---------- */
+  #intro{
+    overflow-x:hidden;overflow-y:auto;
+    scrollbar-width:none;
+  }
+  #intro::-webkit-scrollbar{display:none;}
+  .intro-inner{
+    position:relative;width:min(740px,90vw);min-height:100%;
+    margin:0 auto;padding:clamp(24px,5.5vh,58px) 0 clamp(24px,5vh,46px);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;
+  }
+  .intro-kicker{
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:8.5px;letter-spacing:.48em;color:rgba(197,203,230,.46);
+    margin-bottom:15px;opacity:0;
+    animation:riseIn 1s var(--ease) .15s forwards;
+  }
+  .intro-title{
+    font-size:clamp(28px,4vw,42px);
+    font-weight:500;letter-spacing:.34em;color:#f3ecdb;
+    text-shadow:0 0 30px rgba(207,187,255,.20), 0 0 80px rgba(80,110,220,.16);
+    opacity:0;animation:riseIn 1.1s var(--ease) .25s forwards;
+  }
+  .intro-title .dot{
+    font-size:.42em;color:var(--gold);opacity:.86;
+    vertical-align:.34em;letter-spacing:0;margin:0 .14em;
+  }
+  .intro-lead{
+    width:min(510px,92%);margin:13px auto 0;
+    font-size:clamp(11.5px,1.15vw,13px);line-height:1.85;
+    letter-spacing:.10em;color:#9fa7c8;
+    opacity:0;animation:riseIn 1.1s var(--ease) .42s forwards;
+  }
+  .intro-lead em{font-style:normal;color:#d8c79e;}
+  .setup-form{
+    width:100%;margin-top:clamp(17px,3.2vh,27px);
+    padding:clamp(16px,2.6vh,23px) clamp(16px,3vw,27px) clamp(16px,2.4vh,21px);
+    border:1px solid rgba(188,179,230,.18);border-radius:18px;
+    background:
+      radial-gradient(ellipse 82% 74% at 50% 0%,rgba(112,88,196,.09),transparent 68%),
+      linear-gradient(155deg,rgba(14,19,45,.82),rgba(6,9,24,.88));
+    box-shadow:
+      0 28px 74px rgba(0,0,0,.36),
+      inset 0 1px 0 rgba(255,255,255,.035),
+      inset 0 0 46px rgba(107,86,197,.035);
+    backdrop-filter:blur(12px);
+    text-align:left;opacity:0;
+    animation:riseIn 1s var(--ease) .52s forwards;
+  }
+  .field-head{
+    display:flex;align-items:center;justify-content:space-between;gap:14px;
+    margin-bottom:8px;
+  }
+  .field-label{
+    display:flex;align-items:center;gap:9px;
+    font-size:9px;letter-spacing:.28em;color:#c9c4db;
+  }
+  .field-label::before{
+    content:"";width:14px;height:1px;
+    background:linear-gradient(90deg,transparent,rgba(232,199,126,.74));
+  }
+  .field-index{
+    color:rgba(232,199,126,.52);font-family:Georgia,serif;
+    font-size:8px;letter-spacing:.12em;
+  }
+  .char-count{font-size:8px;letter-spacing:.12em;color:#66708f;}
+  .question-shell{
+    position:relative;border:1px solid rgba(172,181,222,.24);border-radius:11px;
+    background:rgba(4,8,23,.64);
+    transition:border-color .28s ease,box-shadow .28s ease,background .28s ease;
+  }
+  .question-shell:focus-within{
+    border-color:rgba(232,199,126,.62);
+    background:rgba(6,10,28,.84);
+    box-shadow:0 0 0 3px rgba(232,199,126,.055),0 0 30px rgba(148,112,244,.12);
+  }
+  .question-shell.invalid{
+    border-color:rgba(244,153,153,.72);
+    box-shadow:0 0 0 3px rgba(244,153,153,.06),0 0 26px rgba(217,94,94,.10);
+  }
+  .question-sigil{
+    position:absolute;left:15px;top:15px;
+    color:rgba(232,199,126,.74);font-size:12px;line-height:1;
+    pointer-events:none;
+  }
+  .question-input{
+    display:block;width:100%;min-height:66px;max-height:118px;
+    padding:14px 16px 13px 42px;border:0;outline:0;resize:none;
+    background:transparent;color:#eee9dc;
+    font-family:inherit;font-size:13px;line-height:1.75;letter-spacing:.055em;
+    user-select:text;-webkit-user-select:text;
+  }
+  .question-input::placeholder{color:#5e6889;opacity:.86;}
+  .question-hint{
+    min-height:17px;margin-top:6px;padding-left:2px;
+    font-size:8.5px;letter-spacing:.11em;color:#697391;
+    transition:color .25s ease;
+  }
+  .question-hint.error{color:#e7a0a0;}
+  .spread-section{margin-top:18px;}
+  .spread-head{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:10px;}
+  .spread-summary{
+    max-width:58%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+    font-size:8px;letter-spacing:.12em;color:#8c93ae;
+  }
+  .spread-summary b{color:#e9d3a0;font-weight:500;}
+  .spread-groups{display:flex;flex-direction:column;gap:13px;}
+  .spread-group-head{
+    display:flex;align-items:center;gap:9px;margin-bottom:6px;
+    font-size:7.5px;letter-spacing:.24em;color:#747d9c;
+  }
+  .spread-group-head::after{
+    content:"";flex:1;height:1px;
+    background:linear-gradient(90deg,rgba(155,165,204,.18),transparent);
+  }
+  .spread-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;}
+  .spread-opt{
+    position:relative;display:flex;align-items:flex-start;gap:10px;
+    min-width:0;min-height:72px;padding:10px 11px;
+    border:1px solid rgba(157,167,211,.18);border-radius:10px;
+    background:linear-gradient(150deg,rgba(23,30,63,.45),rgba(8,11,29,.58));
+    color:#aeb4cf;text-align:left;cursor:pointer;overflow:hidden;
+    transition:border-color .24s var(--ease),background .24s var(--ease),
+      box-shadow .24s var(--ease),transform .24s var(--ease);
+  }
+  .spread-opt::after{
+    content:"";position:absolute;inset:0;pointer-events:none;opacity:0;
+    background:linear-gradient(112deg,rgba(255,241,201,.075),transparent 42%,transparent 70%,rgba(194,157,255,.05));
+    transition:opacity .26s ease;
+  }
+  .spread-opt:hover{
+    transform:translateY(-1px);
+    border-color:rgba(209,193,243,.42);
+    background:linear-gradient(150deg,rgba(32,39,78,.64),rgba(10,13,32,.74));
+    box-shadow:0 10px 26px rgba(0,0,0,.22),0 0 18px rgba(150,116,240,.07);
+  }
+  .spread-opt:hover::after{opacity:1;}
+  .spread-opt.is-selected{
+    border-color:rgba(232,199,126,.76);
+    background:
+      radial-gradient(circle at 90% 8%,rgba(189,147,255,.15),transparent 38%),
+      linear-gradient(150deg,rgba(54,47,96,.73),rgba(13,15,37,.84));
+    box-shadow:0 0 0 1px rgba(232,199,126,.10) inset,0 0 22px rgba(171,132,255,.12);
+  }
+  .spread-index{
+    flex:none;width:25px;height:25px;border-radius:50%;
+    display:grid;place-items:center;
+    border:1px solid rgba(182,178,218,.22);
+    background:rgba(4,8,22,.32);
+    color:#9da6c7;font-family:Georgia,serif;font-size:8px;
+    transition:.24s ease;
+  }
+  .spread-opt.is-selected .spread-index{
+    border-color:rgba(232,199,126,.58);color:#f2dca8;
+    background:rgba(232,199,126,.075);box-shadow:0 0 14px rgba(232,199,126,.10);
+  }
+  .spread-meta{display:flex;flex-direction:column;gap:4px;min-width:0;flex:1;}
+  .spread-title-row{display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0;}
+  .spread-title-row b{
+    min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+    color:#ddd8e8;font-size:12px;font-weight:500;letter-spacing:.07em;
+  }
+  .spread-count{
+    flex:none;padding:2px 6px;border-radius:999px;
+    border:1px solid rgba(173,183,219,.20);color:#9099b6;
+    font-size:7px;letter-spacing:.08em;
+  }
+  .spread-opt.is-selected .spread-title-row b{color:#fff0ce;}
+  .spread-opt.is-selected .spread-count{
+    border-color:rgba(232,199,126,.35);color:#d9c493;
+  }
+  .spread-fit{
+    color:#6f7898;font-size:8px;line-height:1.55;letter-spacing:.02em;
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  }
+  .spread-opt.is-selected .spread-fit{color:#a99cb9;}
+  .spread-check{
+    position:absolute;right:7px;bottom:5px;color:#f2dca8;
+    font-size:7px;opacity:0;transform:scale(.65);transition:.2s var(--ease);
+  }
+  .spread-opt.is-selected .spread-check{opacity:.9;transform:none;}
+  .spread-detail{
+    position:relative;margin-top:11px;padding:13px 14px 14px;
+    border:1px solid rgba(190,179,231,.20);border-radius:12px;
+    background:
+      radial-gradient(ellipse 76% 90% at 0% 0%,rgba(117,91,197,.09),transparent 70%),
+      rgba(6,10,27,.48);
+    text-align:left;
+  }
+  .spread-detail-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:7px;}
+  .spread-detail-title{font-size:12px;letter-spacing:.10em;color:#f0dfba;}
+  .spread-detail-title small{display:block;margin-top:4px;color:#727c9c;font-size:7px;letter-spacing:.18em;}
+  .spread-detail-badge{
+    flex:none;padding:3px 8px;border-radius:999px;
+    border:1px solid rgba(232,199,126,.28);color:#bca986;
+    font-size:7px;letter-spacing:.10em;
+  }
+  .spread-detail-summary{margin:0;color:#a8abc0;font-size:9px;line-height:1.72;letter-spacing:.035em;}
+  .spread-use{margin-top:9px;display:flex;flex-wrap:wrap;gap:5px;align-items:center;}
+  .spread-use-label{color:#7e87a5;font-size:7px;letter-spacing:.14em;margin-right:2px;}
+  .spread-use-tag{
+    padding:3px 7px;border-radius:999px;border:1px solid rgba(169,178,218,.17);
+    color:#949db8;background:rgba(13,18,40,.45);font-size:7px;letter-spacing:.03em;
+  }
+  .spread-positions{
+    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px 12px;
+    margin-top:10px;padding-top:9px;border-top:1px solid rgba(174,182,217,.10);
+  }
+  .spread-position{display:grid;grid-template-columns:18px minmax(0,1fr);gap:5px;align-items:start;}
+  .spread-position i{color:rgba(232,199,126,.65);font-family:Georgia,serif;font-size:7px;font-style:normal;line-height:1.6;}
+  .spread-position b{display:block;color:#c7c6d8;font-size:8.5px;font-weight:500;letter-spacing:.04em;}
+  .spread-position span{display:block;margin-top:1px;color:#747e9b;font-size:7.5px;line-height:1.5;}
+  .spread-tip{
+    display:flex;gap:7px;margin-top:9px;padding-top:8px;
+    border-top:1px solid rgba(174,182,217,.10);
+    color:#858da7;font-size:7.5px;line-height:1.6;
+  }
+  .spread-tip::before{content:"✦";flex:none;color:rgba(232,199,126,.62);}
+  .spread-loading,.spread-error{
+    padding:16px 14px;border:1px dashed rgba(172,181,219,.20);border-radius:10px;
+    color:#8590ae;font-size:8.5px;line-height:1.7;letter-spacing:.06em;text-align:center;
+  }
+  .spread-error{color:#d5a1a1;border-color:rgba(219,137,137,.26);}
+  .intro-actions{
+    display:flex;flex-direction:column;align-items:center;gap:0;
+    margin-top:clamp(15px,2.5vh,21px);
+  }
+  .enter-btn{
+    position:relative;margin-top:0;
+    display:inline-flex;align-items:center;justify-content:center;gap:12px;
+    min-width:286px;padding:13px 30px;
+    border:1px solid rgba(246,227,179,.86);border-radius:999px;
+    background:linear-gradient(180deg,rgba(49,43,94,.82),rgba(12,12,31,.94));
+    color:#fff1cf;font-size:13px;letter-spacing:.15em;cursor:pointer;
+    box-shadow:0 0 0 3px rgba(143,102,230,.09), 0 0 38px rgba(165,122,255,.20), inset 0 0 24px rgba(232,199,126,.075);
+    transition:.35s var(--ease);opacity:0;
+    animation:riseIn .9s var(--ease) .92s forwards;
+  }
+  .enter-btn::after{
+    content:"";position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;
+    background:linear-gradient(100deg,transparent 20%,rgba(255,238,196,.16) 48%,transparent 74%);
+    background-size:220% 100%;animation:sheen 5s linear infinite;
+  }
+  .enter-btn:hover{
+    transform:translateY(-2px);
+    border-color:#fff0c8;
+    box-shadow:0 0 0 3px rgba(143,102,230,.16), 0 0 56px rgba(185,145,255,.34), inset 0 0 28px rgba(232,199,126,.11);
+  }
+  .enter-btn:active{transform:translateY(0);}
+  .enter-btn .b-star{color:var(--gold-2);font-size:13px;text-shadow:0 0 12px rgba(246,227,179,.8);}
+  .enter-btn .b-arrow{color:rgba(230,217,193,.72);font-size:14px;letter-spacing:0;}
+  .mouse-hint{
+    margin-top:12px;display:flex;flex-direction:row;align-items:center;gap:8px;
+    color:#66708f;font-size:7.5px;letter-spacing:.20em;opacity:0;
+    animation:riseIn 1.1s var(--ease) 1.1s forwards;
+  }
+  .mouse-icon{
+    width:13px;height:19px;border:1px solid rgba(174,184,222,.48);
+    border-radius:7px;position:relative;
+  }
+  .mouse-icon::after{
+    content:"";position:absolute;left:50%;top:4px;width:1.5px;height:5px;margin-left:-.75px;
+    border-radius:2px;background:rgba(232,199,126,.85);
+    animation:wheel 1.9s ease-in-out infinite;
+  }
+  .side-mark{
+    position:fixed;left:24px;top:50%;transform:translateY(-50%);
+    writing-mode:vertical-rl;text-orientation:mixed;
+    font-size:9px;letter-spacing:.46em;color:rgba(170,180,214,.28);
+    z-index:60;pointer-events:none;
+  }
+  @keyframes riseIn{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes wheel{0%,100%{opacity:.25;transform:translateY(0);}45%{opacity:1;transform:translateY(5px);}70%{opacity:.6;transform:translateY(2px);}}
+  @keyframes sheen{0%{background-position:180% 0;}65%,100%{background-position:-80% 0;}}
+
+  /* ---------- 抽牌页 ---------- */
+  .draw-top{
+    position:fixed;left:50%;top:4.6vh;transform:translateX(-50%);
+    z-index:25;display:flex;flex-direction:column;align-items:center;
+    pointer-events:none;
+  }
+  .draw-question{
+    display:none;align-items:center;gap:8px;
+    max-width:min(560px,76vw);margin-bottom:9px;padding:5px 12px;
+    border:1px solid rgba(180,184,222,.14);border-radius:999px;
+    background:rgba(7,11,29,.50);backdrop-filter:blur(7px);
+    color:#8e97b8;font-size:8.5px;letter-spacing:.08em;
+  }
+  .draw-question.show{display:flex;}
+  .draw-question .q-mark{
+    flex:none;width:17px;height:17px;border-radius:50%;
+    display:grid;place-items:center;
+    border:1px solid rgba(232,199,126,.36);color:rgba(232,199,126,.88);
+    font-size:8px;letter-spacing:0;
+  }
+  #drawQuestion{
+    min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  }
+  .progress-label{
+    font-size:8.5px;letter-spacing:.42em;color:#737c9e;
+    margin-bottom:10px;opacity:.70;transition:.4s;
+  }
+  .progress{display:flex;align-items:center;justify-content:center;gap:12px;min-height:70px;}
+  .thumb{
+    position:relative;width:38px;flex:none;
+    opacity:0;transform:translateY(-12px) scale(.62);
+    transition:.55s var(--ease);
+  }
+  .thumb.in{opacity:1;transform:none;}
+  .thumb img{
+    width:100%;display:block;border-radius:5px;
+    border:1px solid rgba(232,199,126,.48);
+    box-shadow:0 8px 20px rgba(0,0,0,.55), 0 0 16px rgba(232,199,126,.12);
+  }
+  .thumb span{
+    position:absolute;left:50%;top:calc(100% + 5px);transform:translateX(-50%);
+    width:86px;text-align:center;white-space:nowrap;
+    font-size:8px;letter-spacing:.12em;color:#a8a4c1;
+  }
+
+  #stage{
+    position:absolute;left:50%;top:47%;transform:translate(-50%,-50%);
+    width:min(900px,92vw);height:calc(var(--card-h) + 120px);
+    perspective:1700px;perspective-origin:50% 46%;
+    z-index:15;touch-action:none;
+  }
+  #rays{
+    position:absolute;left:50%;top:50%;width:min(820px,84vw);height:min(820px,84vw);
+    transform:translate(-50%,-50%);
+    background:repeating-conic-gradient(from 0deg, rgba(214,196,255,.10) 0deg .32deg, transparent .32deg 6.6deg);
+    -webkit-mask-image:radial-gradient(circle, rgba(0,0,0,.95) 0%, rgba(0,0,0,.45) 32%, transparent 67%);
+    mask-image:radial-gradient(circle, rgba(0,0,0,.95) 0%, rgba(0,0,0,.45) 32%, transparent 67%);
+    opacity:.34;pointer-events:none;
+    animation:spin 150s linear infinite;
+  }
+  #floorGlow{
+    position:absolute;left:50%;top:72%;width:calc(var(--card-w)*5.2);height:calc(var(--card-w)*.70);
+    transform:translate(-50%,-50%);
+    background:radial-gradient(ellipse,rgba(138,92,228,.30) 0%,rgba(84,72,180,.12) 45%,transparent 72%);
+    filter:blur(14px);pointer-events:none;
+  }
+  #fan{
+    position:absolute;left:50%;top:50%;width:0;height:0;
+    transform-style:preserve-3d;
+    transform:rotateX(-2.2deg) rotateY(var(--ring-angle,0deg));
+    opacity:0;
+    transition:opacity .42s ease;
+    will-change:transform;
+  }
+  #fan.open{opacity:1;}
+  .card{
+    position:absolute;left:0;top:0;
+    width:var(--card-w);height:var(--card-h);
+    margin-left:calc(var(--card-w) / -2);margin-top:calc(var(--card-h) / -2);
+    transform-style:preserve-3d;
+    transform:
+      rotateY(var(--slot-angle,0deg))
+      translate3d(0,var(--rear-lift,0px),var(--ring-radius));
+    transition:none;
+    cursor:pointer;opacity:0;
+  }
+  .card-float{
+    position:absolute;inset:0;
+    --sway-l:-3.2deg;
+    --sway-r:3.2deg;
+    transform-style:preserve-3d;
+    animation:levitate 8s ease-in-out infinite;
+    will-change:transform;
+  }
+  /* 六张牌错开节奏，让悬浮与转动不同步 */
+  #fan .card:nth-child(1) .card-float{--sway-l:-3.4deg;--sway-r:3.8deg;animation-duration:8.4s;animation-delay:-1.1s;}
+  #fan .card:nth-child(2) .card-float{--sway-l:-4.6deg;--sway-r:4.9deg;animation-duration:7.7s;animation-delay:-3.8s;}
+  #fan .card:nth-child(3) .card-float{--sway-l:-2.8deg;--sway-r:3.2deg;animation-duration:9.1s;animation-delay:-5.6s;}
+  #fan .card:nth-child(4) .card-float{--sway-l:-4.2deg;--sway-r:4.4deg;animation-duration:8.8s;animation-delay:-2.3s;}
+  #fan .card:nth-child(5) .card-float{--sway-l:-3.1deg;--sway-r:3.6deg;animation-duration:7.3s;animation-delay:-6.4s;}
+  #fan .card:nth-child(6) .card-float{--sway-l:-4.8deg;--sway-r:4.6deg;animation-duration:9.5s;animation-delay:-4.5s;}
+  @keyframes levitate{
+    0%,100%{transform:translate3d(0,0,0) rotateX(-.9deg) rotateY(var(--sway-l)) rotateZ(-.55deg);}
+    34%{transform:translate3d(-2px,-10px,15px) rotateX(.45deg) rotateY(0deg) rotateZ(.2deg);}
+    68%{transform:translate3d(2px,-17px,24px) rotateX(1.1deg) rotateY(var(--sway-r)) rotateZ(.7deg);}
+  }
+  .card-inner{
+    position:absolute;inset:0;transform-style:preserve-3d;
+    transition:transform .5s cubic-bezier(.22,.75,.2,1), opacity .32s ease;
+  }
+  .face{
+    position:absolute;inset:0;border-radius:9px;overflow:hidden;
+    backface-visibility:hidden;-webkit-backface-visibility:hidden;
+    background:#071023;
+  }
+  .face img{
+    width:100%;height:100%;object-fit:cover;display:block;
+  }
+  .face.back{
+    border:1px solid rgba(214,210,240,.50);
+    box-shadow:0 28px 55px rgba(0,0,0,.66), 0 0 34px rgba(114,144,255,.16);
+    background:#071023 url("back.jpg") center/cover no-repeat;
+  }
+  .face.back::after{
+    content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+    background:linear-gradient(112deg,rgba(255,255,255,.08) 0%,transparent 34%,transparent 66%,rgba(173,150,255,.08) 100%);
+  }
+  .face.front{
+    transform:rotateY(180deg);
+    border:1px solid rgba(232,199,126,.82);
+    box-shadow:0 0 34px rgba(232,199,126,.22);
+  }
+  .card.flipped .card-inner{transform:rotateY(180deg);}
+  .card.flipped .face.back{opacity:0;visibility:hidden;}
+  .card.focused .face.back{
+    border-color:rgba(232,199,126,.95);
+    box-shadow:0 0 0 1px rgba(232,199,126,.68), 0 0 36px rgba(203,146,255,.46), 0 0 92px rgba(164,104,255,.28), 0 28px 60px rgba(0,0,0,.68);
+  }
+  .card.focused:not(.chosen) .card-inner{transform:translateY(-8px) scale(1.055);}
+  .card.hot:not(.focused) .card-inner{transform:translateY(-5px) scale(1.025);}
+  .card.hot:not(.focused) .face.back{
+    border-color:rgba(214,188,255,.82);
+    box-shadow:0 0 28px rgba(183,146,255,.25),0 24px 46px rgba(0,0,0,.65);
+  }
+  .card.chosen .card-inner{transform:translateY(-16px) scale(1.12);}
+  .card.chosen.flipped .card-inner{transform:rotateY(180deg) translateY(-16px) scale(1.12);}
+  .card.chosen .card-float{animation-play-state:paused;}
+  .card.dim .card-inner{opacity:.10;}
+  .card.dim{visibility:hidden;}
+  .card.vanish .card-inner,.card.chosen.vanish .card-inner{
+    opacity:0;transform:rotateY(180deg) translateY(-38vh) scale(.28);
+    transition:transform .85s cubic-bezier(.35,.9,.3,1), opacity .8s ease;
+  }
+  #singleCard{
+    position:absolute;left:50%;top:50%;
+    width:var(--card-w);height:var(--card-h);
+    margin-left:calc(var(--card-w) / -2);margin-top:calc(var(--card-h) / -2);
+    border-radius:9px;overflow:hidden;
+    border:1px solid rgba(214,210,240,.58);
+    box-shadow:0 30px 60px rgba(0,0,0,.72), 0 0 44px rgba(135,125,255,.24);
+    opacity:0;transform:translateY(18px) scale(.92);
+    transition:opacity .8s ease, transform .8s var(--ease);
+    z-index:4;cursor:pointer;
+  }
+  #singleCard.show{opacity:1;transform:translateY(0) scale(1);animation:cardFloat 6.5s ease-in-out infinite;}
+  #singleCard.hide{opacity:0;transform:translateY(-12px) scale(.78);pointer-events:none;}
+  #singleCard img{width:100%;height:100%;object-fit:cover;display:block;}
+  #singleCard::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(112deg,rgba(255,255,255,.07),transparent 34%,transparent 66%,rgba(189,160,255,.10));
+  }
+  @keyframes cardFloat{0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-9px) scale(1);}}
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  /* 魔法阵 */
+  #astral{
+    position:absolute;left:50%;top:80%;transform:translate(-50%,-50%);
+    width:min(880px,92vw);height:380px;z-index:6;pointer-events:none;
+    opacity:.95;
+  }
+  .astral-tilt{
+    position:absolute;left:50%;top:50%;width:100%;
+    transform:translate(-50%,-50%) perspective(920px) rotateX(63deg);
+    transform-style:preserve-3d;
+  }
+  .astral-svg{display:block;width:100%;height:auto;overflow:visible;
+  }
+  .astral-svg .rot-a{animation:spin 90s linear infinite;transform-origin:400px 400px;}
+  .astral-svg .rot-b{animation:spin 150s linear infinite reverse;transform-origin:400px 400px;}
+  .astral-svg .rot-c{animation:spin 230s linear infinite;transform-origin:400px 400px;}
+  .astral-core{
+    position:absolute;left:50%;top:50%;width:220px;height:220px;
+    transform:translate(-50%,-50%);border-radius:50%;
+    background:radial-gradient(circle, rgba(205,166,255,.22) 0%, rgba(108,74,190,.15) 34%, rgba(47,37,98,.06) 60%, transparent 72%);
+    filter:blur(8px);
+  }
+  .astral-core::after{
+    content:"";position:absolute;left:50%;top:50%;width:7px;height:7px;
+    transform:translate(-50%,-50%);border-radius:50%;
+    background:#f4e8c5;box-shadow:0 0 12px #f4e8c5,0 0 40px rgba(225,180,255,.8);
+    animation:pulse 3.2s ease-in-out infinite;
+  }
+  @keyframes pulse{0%,100%{opacity:.55;transform:translate(-50%,-50%) scale(.75);}50%{opacity:1;transform:translate(-50%,-50%) scale(1.25);}}
+  .control-bar{
+    position:fixed;left:50%;bottom:3.2vh;transform:translateX(-50%);
+    width:min(460px,86vw);display:flex;align-items:center;gap:10px;
+    z-index:62;pointer-events:none;
+  }
+  .bar-line{position:relative;flex:1;height:1px;background:linear-gradient(90deg,rgba(170,180,235,.06),rgba(194,202,244,.44),rgba(170,180,235,.06));}
+  .bar-line::before,.bar-line::after{content:"";position:absolute;top:-2px;width:5px;height:5px;border-radius:50%;background:rgba(255,240,190,.9);box-shadow:0 0 10px rgba(255,230,160,.8);}
+  .bar-line::before{left:0;}.bar-line::after{right:0;opacity:.55;}
+  .bar-dot{
+    position:absolute;left:50%;top:50%;width:7px;height:7px;border-radius:50%;
+    background:#ffe6a5;box-shadow:0 0 12px #ffe6a5,0 0 28px rgba(255,220,140,.7);
+    transform:translate(-50%,-50%);transition:none;
+  }
+  .control-pill{
+    display:flex;align-items:center;gap:7px;
+    padding:5px 12px;border-radius:999px;
+    border:1px solid rgba(172,182,225,.18);
+    background:rgba(8,12,32,.66);backdrop-filter:blur(8px);
+    color:#aaafce;font-size:8.5px;letter-spacing:.18em;white-space:nowrap;
+  }
+  .mini-dot{width:4px;height:4px;border-radius:50%;background:var(--gold);box-shadow:0 0 7px rgba(232,199,126,.9);}
+
+  /* 状态与操作 */
+  #status{
+    position:fixed;left:24px;top:22px;z-index:60;
+    display:flex;align-items:center;gap:8px;
+    font-size:9px;letter-spacing:.20em;color:#7c86a9;
+    transition:.3s;
+  }
+  #status .s-dot{width:6px;height:6px;border-radius:50%;background:#6e7594;box-shadow:none;transition:.3s;}
+  #status.live .s-dot{background:#82ffb8;box-shadow:0 0 10px rgba(130,255,184,.9);}
+  #status.loading .s-dot{background:#e8c77e;box-shadow:0 0 10px rgba(232,199,126,.9);animation:pulse 1.2s infinite;}
+  .draw-actions{position:fixed;right:22px;bottom:20px;z-index:60;display:flex;gap:9px;}
+
+  /* 轻提示 */
+  #toast{
+    position:fixed;left:50%;bottom:24px;z-index:90;transform:translate(-50%,10px);
+    padding:8px 17px;border-radius:999px;
+    border:1px solid rgba(174,184,225,.22);background:rgba(7,10,28,.78);
+    backdrop-filter:blur(10px);color:#bcc1db;font-size:10px;letter-spacing:.16em;
+    opacity:0;pointer-events:none;transition:.4s var(--ease);white-space:nowrap;
+  }
+  #toast.show{opacity:1;transform:translate(-50%,0);}
+
+  /* ---------- 结果页 ---------- */
+  #result{
+    overflow-x:hidden;overflow-y:auto;
+    scrollbar-width:thin;
+    scrollbar-color:rgba(232,199,126,.26) transparent;
+  }
+  #result::-webkit-scrollbar{width:6px;}
+  #result::-webkit-scrollbar-track{background:transparent;}
+  #result::-webkit-scrollbar-thumb{
+    border-radius:999px;background:rgba(232,199,126,.22);
+  }
+  .result-inner{
+    position:relative;min-height:100%;display:flex;flex-direction:column;
+    align-items:center;justify-content:flex-start;
+    padding:clamp(34px,6vh,58px) 4vw 64px;
+  }
+  .result-halo{
+    position:absolute;left:50%;top:57%;width:min(1120px,96vw);height:min(460px,48vh);
+    transform:translate(-50%,-50%);border-radius:50%;
+    background:radial-gradient(ellipse,rgba(95,104,170,.13) 0%,rgba(46,54,110,.06) 46%,transparent 72%);
+    filter:blur(24px);pointer-events:none;
+  }
+  .result-title{
+    position:relative;z-index:2;
+    font-size:clamp(19px,2.5vw,29px);font-weight:500;
+    letter-spacing:.36em;color:#f1ebdc;
+    text-shadow:0 0 28px rgba(210,190,255,.18);
+    opacity:0;transform:translateY(12px);transition:1s var(--ease) .1s;
+  }
+  .result-sub{
+    position:relative;z-index:2;margin-top:14px;
+    font-size:9px;letter-spacing:.42em;color:#818bad;
+    opacity:0;transform:translateY(10px);transition:1s var(--ease) .3s;
+  }
+  .result-context{
+    position:relative;z-index:2;width:min(680px,82vw);margin-top:15px;
+    display:flex;flex-direction:column;align-items:center;gap:8px;
+    opacity:0;transform:translateY(10px);
+    transition:1s var(--ease) .42s;
+  }
+  .result-deck{
+    display:inline-flex;align-items:center;gap:7px;padding:4px 11px;
+    border:1px solid rgba(232,199,126,.28);border-radius:999px;
+    color:#bfb09c;font-size:7.5px;letter-spacing:.20em;
+    background:rgba(10,13,31,.46);
+  }
+  .result-deck::before{
+    content:"✦";color:rgba(232,199,126,.88);font-size:7px;letter-spacing:0;
+  }
+  .result-question{
+    max-width:100%;color:#b5b4c8;font-size:11.5px;line-height:1.75;
+    letter-spacing:.075em;text-align:center;
+  }
+  #result.ready .result-title,#result.ready .result-sub,
+  #result.ready .result-context{opacity:1;transform:none;}
+  .result-cards{
+    position:relative;z-index:2;
+    --cols:3;--rw:clamp(112px,15.5vw,218px);
+    display:grid;
+    grid-template-columns:repeat(var(--cols),minmax(0,var(--rw)));
+    align-items:flex-start;justify-content:center;
+    gap:clamp(13px,2.3vw,32px);
+    width:min(1040px,92vw);
+    margin-top:clamp(23px,3.8vh,40px);
+    perspective:1500px;
+  }
+  .result-cards.medium{--cols:4;--rw:clamp(96px,11.5vw,166px);gap:clamp(11px,1.8vw,25px);}
+  .result-cards.dense{--cols:5;--rw:clamp(84px,9.6vw,146px);gap:clamp(9px,1.5vw,22px);}
+  .rcard{
+    width:100%;min-width:0;display:flex;flex-direction:column;align-items:center;
+    opacity:0;transform:translateY(34px) rotateY(26deg) scale(.94);
+    transition:opacity .9s var(--ease), transform .9s var(--ease);
+    transition-delay:calc(var(--i) * .17s + .35s);
+  }
+  #result.ready .rcard{opacity:1;transform:none;}
+  .rcard .pos{
+    min-height:2.6em;margin-bottom:9px;font-size:8px;line-height:1.45;
+    letter-spacing:.16em;text-align:center;color:var(--gold);opacity:.88;
+  }
+  .rcard .frame{
+    position:relative;width:100%;border-radius:8px;overflow:hidden;
+    border:1px solid rgba(232,199,126,.48);
+    background:#071023;
+    box-shadow:0 28px 55px rgba(0,0,0,.68),0 0 34px rgba(155,132,255,.14);
+    transition:.45s var(--ease);cursor:pointer;
+  }
+  .rcard .frame img{width:100%;display:block;}
+  .rcard .frame::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(118deg,rgba(255,255,255,.075),transparent 30%,transparent 70%,rgba(203,170,255,.055));
+  }
+  .rcard .frame:hover{
+    transform:translateY(-8px) scale(1.02);
+    border-color:rgba(246,227,179,.85);
+    box-shadow:0 34px 64px rgba(0,0,0,.72),0 0 52px rgba(183,148,255,.30);
+  }
+  .rcard .name{
+    margin-top:12px;font-size:12px;letter-spacing:.10em;color:#ece5d1;
+    text-align:center;
+  }
+  .rcard .orien{
+    margin-top:5px;font-size:8px;letter-spacing:.20em;color:#7c86a8;
+    white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis;
+  }
+  .reading-panel{
+    position:relative;z-index:2;width:min(1040px,92vw);
+    margin:clamp(28px,4.5vh,46px) auto 0;padding:clamp(21px,3vw,36px);
+    border:1px solid rgba(192,183,231,.20);border-radius:20px;
+    background:
+      radial-gradient(ellipse 68% 44% at 28% 0%,rgba(126,100,210,.12),transparent 72%),
+      radial-gradient(ellipse 48% 54% at 100% 70%,rgba(50,93,161,.08),transparent 74%),
+      linear-gradient(155deg,rgba(17,22,51,.90),rgba(5,8,23,.95));
+    box-shadow:
+      0 34px 84px rgba(0,0,0,.46),
+      inset 0 1px 0 rgba(255,255,255,.045),
+      inset 0 0 60px rgba(123,97,211,.035);
+    backdrop-filter:blur(14px);
+    text-align:left;opacity:0;transform:translateY(30px);
+    transition:opacity 1s var(--ease) .92s,transform 1s var(--ease) .92s;
+  }
+  #result.ready .reading-panel{opacity:1;transform:none;}
+  .reading-head{
+    display:flex;align-items:flex-start;justify-content:space-between;
+    gap:22px;
+  }
+  .reading-kicker{
+    margin-bottom:9px;color:#8c92b0;
+    font-size:8px;letter-spacing:.38em;font-family:Georgia,serif;
+  }
+  .reading-title{
+    color:#f2ead8;font-size:clamp(19px,2.2vw,27px);font-weight:500;
+    line-height:1.5;letter-spacing:.10em;
+    text-shadow:0 0 28px rgba(206,185,255,.12);
+  }
+  .reading-badges{
+    flex:none;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:7px;
+    max-width:42%;
+  }
+  .reading-domain,.reading-kb{
+    display:inline-flex;align-items:center;min-height:27px;padding:5px 11px;
+    border-radius:999px;font-size:8px;letter-spacing:.14em;white-space:nowrap;
+  }
+  .reading-domain{
+    border:1px solid rgba(232,199,126,.38);color:#e8c77e;
+    background:rgba(232,199,126,.055);
+  }
+  .reading-kb{
+    border:1px solid rgba(169,177,216,.18);color:#9099b9;
+    background:rgba(8,12,30,.42);
+  }
+  .reading-summary{
+    margin-top:19px;color:#c6c3d4;
+    font-size:13px;line-height:2.02;letter-spacing:.055em;
+  }
+  .reading-answer{
+    position:relative;margin-top:19px;padding:22px 24px 20px;
+    border:1px solid rgba(128,186,255,.18);border-left:2px solid rgba(137,204,255,.72);
+    border-radius:14px;
+    background:
+      radial-gradient(ellipse 75% 120% at 0% 0%,rgba(86,155,224,.15),transparent 68%),
+      linear-gradient(145deg,rgba(22,42,75,.64),rgba(9,17,40,.70));
+    box-shadow:inset 0 1px 0 rgba(188,224,255,.035),0 16px 38px rgba(0,0,0,.16);
+  }
+  .reading-verdict-label{
+    color:#8dcdff;font-size:8px;letter-spacing:.28em;
+  }
+  .reading-verdict{
+    margin-top:12px;color:#edf4ff;
+    font-size:14px;font-weight:400;line-height:2.02;letter-spacing:.045em;
+    text-shadow:0 0 26px rgba(128,186,255,.08);
+  }
+  .reading-reason{
+    margin-top:15px;padding-top:14px;
+    border-top:1px solid rgba(139,196,248,.13);
+    color:#b9c4d8;font-size:11.5px;line-height:1.95;letter-spacing:.04em;
+  }
+  .reading-keyline{
+    display:flex;align-items:flex-start;gap:13px;flex-wrap:wrap;
+    margin-top:17px;padding-top:14px;border-top:1px solid rgba(139,196,248,.13);
+  }
+  .reading-keyline-label{
+    flex:none;padding-top:1px;color:#8dcdff;
+    font-size:8px;letter-spacing:.22em;
+  }
+  .reading-keypoints{
+    display:flex;align-items:center;flex-wrap:wrap;gap:7px 0;min-width:0;
+  }
+  .reading-keypoint{
+    color:#dce9f7;font-size:10px;line-height:1.6;letter-spacing:.04em;
+    white-space:nowrap;
+  }
+  .reading-keypoint + .reading-keypoint::before{
+    content:"｜";margin:0 8px;color:rgba(141,205,255,.38);
+  }
+  .reading-brief{
+    margin-top:11px;border:1px solid rgba(169,178,218,.13);border-radius:12px;
+    overflow:hidden;background:rgba(7,11,28,.34);
+  }
+  .reading-brief-row{
+    display:grid;grid-template-columns:58px 116px minmax(0,1fr);
+    gap:13px;align-items:start;padding:13px 16px;
+    border-bottom:1px solid rgba(169,178,218,.09);
+  }
+  .reading-brief-row:last-child{border-bottom:none;}
+  .reading-brief-pos{
+    color:#8dcdff;font-size:8px;letter-spacing:.18em;line-height:1.8;
+  }
+  .reading-brief-name{
+    color:#e6deca;font-size:10.5px;font-weight:500;line-height:1.65;letter-spacing:.06em;
+  }
+  .reading-brief-name small{
+    margin-left:6px;color:#7f89a7;font-size:7.5px;font-weight:400;letter-spacing:.08em;
+  }
+  .reading-brief-note{
+    color:#969db4;font-size:9.5px;line-height:1.75;letter-spacing:.025em;
+  }
+  .reading-detail-toggle{
+    width:100%;display:flex;align-items:center;gap:12px;margin-top:13px;
+    padding:13px 16px;border:1px solid rgba(169,178,218,.15);border-radius:10px;
+    background:linear-gradient(135deg,rgba(28,37,77,.62),rgba(8,12,29,.48));
+    color:#d9d6e5;font:inherit;font-size:10px;letter-spacing:.12em;
+    cursor:pointer;text-align:left;transition:.3s var(--ease);
+  }
+  .reading-detail-toggle:hover{
+    border-color:rgba(141,205,255,.33);background:rgba(27,44,82,.62);
+  }
+  .reading-detail-toggle span{flex:none;color:#e5e9f3;font-size:10px;}
+  .reading-detail-toggle small{
+    flex:1;color:#6f7a99;font-size:8px;letter-spacing:.05em;
+  }
+  .reading-detail-toggle i{
+    flex:none;color:#8dcdff;font-style:normal;font-size:12px;transition:transform .3s;
+  }
+  .reading-detail-toggle[aria-expanded="true"] i{transform:rotate(180deg);}
+  .reading-details{padding-top:2px;}
+  .reading-stats{
+    display:flex;flex-wrap:wrap;gap:8px;margin-top:17px;
+  }
+  .reading-stat{
+    display:inline-flex;align-items:baseline;gap:7px;padding:7px 11px;
+    border:1px solid rgba(170,178,218,.14);border-radius:8px;
+    background:rgba(5,9,24,.42);color:#858eae;
+    font-size:8px;letter-spacing:.13em;
+  }
+  .reading-stat b{color:#d7d3e7;font-size:10px;font-weight:500;letter-spacing:.08em;}
+  .reading-signals{
+    display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:10px;margin-top:18px;
+  }
+  .reading-signal{
+    min-width:0;padding:14px 15px;border-radius:10px;
+    border:1px solid rgba(169,178,218,.13);
+    background:linear-gradient(155deg,rgba(23,29,64,.50),rgba(7,11,28,.42));
+  }
+  .reading-signal-label{
+    color:#7f88a8;font-size:7px;letter-spacing:.20em;
+  }
+  .reading-signal b{
+    display:block;margin-top:7px;color:#d9d2bf;
+    font-size:11px;font-weight:500;line-height:1.6;letter-spacing:.05em;
+  }
+  .reading-signal p{
+    margin-top:7px;color:#8e95af;
+    font-size:9px;line-height:1.75;letter-spacing:.025em;
+  }
+  .reading-deep-section{margin-top:23px;}
+  .reading-deep-head{
+    display:flex;align-items:flex-end;justify-content:space-between;gap:18px;
+    margin-bottom:13px;
+  }
+  .reading-deep-head h4{
+    color:#c9c5d9;font-size:9px;font-weight:500;letter-spacing:.26em;
+  }
+  .reading-deep-head span{
+    color:#68718f;font-size:8px;letter-spacing:.08em;
+  }
+  .reading-deep-grid{
+    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px;
+  }
+  .reading-deep-card{
+    position:relative;min-width:0;padding:17px 18px 16px;
+    border:1px solid rgba(169,178,218,.14);border-radius:11px;
+    background:
+      radial-gradient(ellipse 65% 90% at 100% 0%,rgba(116,90,192,.065),transparent 70%),
+      linear-gradient(155deg,rgba(21,27,60,.55),rgba(6,10,26,.48));
+  }
+  .reading-deep-card:first-child,
+  .reading-deep-card:last-child{grid-column:1/-1;}
+  .reading-deep-index{
+    position:absolute;right:15px;top:13px;
+    color:rgba(232,199,126,.34);font-family:Georgia,serif;
+    font-size:18px;line-height:1;letter-spacing:.03em;
+  }
+  .reading-deep-card h5{
+    padding-right:34px;color:#e4dcc9;
+    font-size:12px;font-weight:500;line-height:1.55;letter-spacing:.07em;
+  }
+  .reading-deep-card p{
+    margin-top:10px;color:#aeb0c3;
+    font-size:10.5px;line-height:1.9;letter-spacing:.035em;
+  }
+  .reading-divider{
+    height:1px;margin:26px 0 22px;
+    background:linear-gradient(90deg,rgba(232,199,126,.24),rgba(175,165,227,.10) 38%,transparent);
+  }
+  .reading-subhead{
+    display:flex;align-items:center;justify-content:space-between;gap:18px;
+    margin-bottom:13px;
+  }
+  .reading-subhead h4{
+    color:#c9c5d9;font-size:9px;font-weight:500;letter-spacing:.26em;
+  }
+  .reading-match{
+    color:#697392;font-size:8px;letter-spacing:.10em;
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  }
+  .reading-timeline{
+    display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:clamp(10px,1.5vw,17px);
+  }
+  .reading-insight{
+    position:relative;min-width:0;padding:17px 17px 16px;
+    border:1px solid rgba(169,178,218,.15);border-radius:12px;
+    background:
+      linear-gradient(160deg,rgba(22,28,62,.63),rgba(6,10,27,.55));
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.025);
+  }
+  .reading-insight::before{
+    content:"";position:absolute;left:17px;right:17px;top:0;height:1px;
+    background:linear-gradient(90deg,rgba(232,199,126,.42),transparent 78%);
+  }
+  .reading-insight-head{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    margin-bottom:11px;
+  }
+  .reading-insight-pos{
+    color:#e8c77e;font-size:8px;letter-spacing:.28em;
+  }
+  .reading-insight-tag{
+    color:#66708f;font-size:7px;letter-spacing:.06em;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+  .reading-insight-title{
+    color:#eee8d8;font-size:15px;font-weight:500;letter-spacing:.12em;
+  }
+  .reading-insight-key{
+    margin-top:6px;color:#9b90c1;
+    font-size:8px;letter-spacing:.13em;
+  }
+  .reading-insight-body{
+    margin-top:13px;color:#b7b7c9;
+    font-size:11px;line-height:1.92;letter-spacing:.04em;
+  }
+  .reading-insight-advice{
+    margin-top:13px;padding-top:11px;
+    border-top:1px solid rgba(166,174,213,.10);
+    color:#868eac;font-size:9px;line-height:1.72;letter-spacing:.035em;
+  }
+  .reading-insight-advice::before{
+    content:"行动提示 · ";color:#aa9bc8;letter-spacing:.10em;
+  }
+  .reading-insight-relation,
+  .reading-insight-prompt{
+    margin-top:11px;padding-top:10px;
+    border-top:1px solid rgba(166,174,213,.09);
+    color:#9298b0;font-size:9px;line-height:1.78;letter-spacing:.025em;
+  }
+  .reading-insight-relation::before,
+  .reading-insight-prompt::before{
+    display:block;margin-bottom:4px;color:#8f80b7;
+    font-size:7px;letter-spacing:.18em;
+  }
+  .reading-insight-relation::before{content:"牌 阵 关 系";}
+  .reading-insight-prompt::before{content:"带 着 这 个 问 题 看";}
+  .reading-paths-wrap{
+    margin-top:22px;padding:20px 22px 19px;
+    border:1px solid rgba(151,160,210,.14);border-radius:13px;
+    background:
+      radial-gradient(ellipse 65% 100% at 0% 0%,rgba(76,113,180,.07),transparent 70%),
+      rgba(7,11,28,.34);
+  }
+  .reading-paths-title{
+    color:#cbc5d8;font-size:9px;letter-spacing:.24em;
+  }
+  .reading-paths{
+    display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:10px;margin-top:14px;
+  }
+  .reading-path{
+    min-width:0;padding:13px 13px 12px;border-radius:9px;
+    border:1px solid rgba(169,178,218,.11);
+    background:rgba(7,11,28,.46);
+  }
+  .reading-path-label{
+    color:#8e80b3;font-size:7px;letter-spacing:.16em;
+  }
+  .reading-path h5{
+    margin-top:7px;color:#d9d2c0;
+    font-size:10.5px;font-weight:500;line-height:1.6;letter-spacing:.04em;
+  }
+  .reading-path p{
+    margin-top:7px;color:#9298af;
+    font-size:9px;line-height:1.78;letter-spacing:.025em;
+  }
+  .reading-advice{
+    margin-top:22px;padding:20px 22px 19px;
+    border:1px solid rgba(232,199,126,.16);border-radius:13px;
+    background:
+      linear-gradient(135deg,rgba(232,199,126,.048),rgba(111,87,188,.035));
+  }
+  .reading-advice-title{
+    display:flex;align-items:center;gap:10px;
+    color:#e5d7b7;font-size:10px;letter-spacing:.25em;
+  }
+  .reading-advice-title::before{
+    content:"✦";color:#e8c77e;font-size:9px;letter-spacing:0;
+  }
+  .reading-advice-list{
+    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:9px 24px;margin:15px 0 0;padding:0;list-style:none;
+  }
+  .reading-advice-list li{
+    position:relative;padding-left:15px;
+    color:#bebdcc;font-size:10.5px;line-height:1.78;letter-spacing:.035em;
+  }
+  .reading-advice-list li::before{
+    content:"◇";position:absolute;left:0;top:.12em;
+    color:rgba(232,199,126,.66);font-size:8px;
+  }
+  .reading-now{
+    display:flex;align-items:flex-start;gap:13px;margin-top:17px;padding-top:16px;
+    border-top:1px solid rgba(232,199,126,.13);
+  }
+  .reading-now-label{
+    flex:none;padding:4px 8px;border-radius:999px;
+    border:1px solid rgba(232,199,126,.25);color:#dbc58f;
+    font-size:7px;letter-spacing:.18em;line-height:1.4;
+  }
+  .reading-now p{
+    color:#d4cbb9;font-size:10.5px;line-height:1.78;letter-spacing:.04em;
+  }
+  .reading-reflection-box{
+    margin-top:21px;padding:19px 21px 18px;
+    border:1px solid rgba(173,159,220,.15);border-radius:12px;
+    background:linear-gradient(145deg,rgba(95,76,160,.055),rgba(8,11,29,.34));
+  }
+  .reading-reflection-title{
+    color:#cfc7da;font-size:9px;letter-spacing:.23em;
+  }
+  .reading-reflections{
+    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:9px 22px;margin:13px 0 0;padding:0;list-style:none;counter-reset:reflection;
+  }
+  .reading-reflections li{
+    position:relative;counter-increment:reflection;padding-left:25px;
+    color:#a8aabf;font-size:9.5px;line-height:1.78;letter-spacing:.025em;
+  }
+  .reading-reflections li::before{
+    content:counter(reflection,decimal-leading-zero);
+    position:absolute;left:0;top:.02em;color:rgba(232,199,126,.52);
+    font-family:Georgia,serif;font-size:9px;letter-spacing:.04em;
+  }
+  .reading-disclaimer{
+    margin-top:17px;color:#626b88;
+    font-size:8.5px;line-height:1.75;letter-spacing:.06em;
+  }
+  .result-note{
+    position:relative;z-index:2;margin-top:clamp(22px,4vh,40px);
+    font-size:10px;letter-spacing:.15em;color:#717a9c;
+    opacity:0;transition:1s var(--ease) 1s;
+  }
+  #result.ready .result-note{opacity:.88;}
+  .again-btn{
+    position:relative;z-index:2;margin-top:clamp(19px,3vh,30px);
+    padding:10px 24px;border-radius:999px;
+    border:1px solid rgba(232,199,126,.44);
+    background:rgba(9,12,30,.54);color:#e7dcc2;
+    font-size:11px;letter-spacing:.22em;cursor:pointer;
+    opacity:0;transition:.35s var(--ease), opacity 1s var(--ease) 1.15s;
+  }
+  #result.ready .again-btn{opacity:.92;}
+  .again-btn:hover{border-color:var(--gold);box-shadow:0 0 26px rgba(232,199,126,.18);transform:translateY(-1px);}
+  .result-home{
+    position:fixed;left:24px;top:22px;z-index:60;
+    border:none;background:none;color:#707a9c;font-size:9px;letter-spacing:.22em;
+    cursor:pointer;padding:6px;transition:.3s;
+  }
+  .result-home:hover{color:#e8c77e;}
+
+  /* ---------- 牌义弹窗 ---------- */
+  #modal{
+    position:fixed;inset:0;z-index:120;display:flex;align-items:center;justify-content:center;
+    background:rgba(2,4,12,.82);backdrop-filter:blur(16px);
+    opacity:0;visibility:hidden;transition:.4s ease;
+  }
+  #modal.open{opacity:1;visibility:visible;}
+  .modal-box{
+    position:relative;display:flex;gap:34px;align-items:center;
+    width:min(790px,88vw);max-height:86vh;overflow:auto;
+    padding:34px 38px;border-radius:18px;
+    border:1px solid rgba(232,199,126,.26);
+    background:linear-gradient(155deg,rgba(23,29,62,.94),rgba(7,9,25,.98));
+    box-shadow:0 40px 90px rgba(0,0,0,.6),inset 0 0 40px rgba(140,112,255,.045);
+    transform:translateY(18px) scale(.98);transition:.45s var(--ease);
+  }
+  #modal.open .modal-box{transform:none;}
+  .modal-card{
+    flex:none;width:min(195px,28vw);border-radius:9px;overflow:hidden;
+    border:1px solid rgba(232,199,126,.55);
+    box-shadow:0 20px 45px rgba(0,0,0,.65),0 0 32px rgba(232,199,126,.10);
+  }
+  .modal-card img{width:100%;display:block;}
+  .modal-text{flex:1;min-width:0;}
+  .modal-kicker{font-size:8px;letter-spacing:.42em;color:#7f88aa;margin-bottom:12px;}
+  .modal-pos{
+    display:inline-block;margin-bottom:10px;padding:4px 11px;border-radius:999px;
+    border:1px solid rgba(232,199,126,.38);color:var(--gold);
+    font-size:8.5px;letter-spacing:.22em;
+  }
+  .modal-title{font-size:clamp(20px,2.4vw,27px);letter-spacing:.16em;color:#f3ecdb;font-weight:500;}
+  .modal-en{margin-top:6px;font-size:10px;letter-spacing:.22em;color:#848dab;}
+  .modal-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:13px;}
+  .modal-tag{
+    display:inline-flex;align-items:center;padding:3px 8px;border-radius:999px;
+    border:1px solid rgba(169,178,218,.18);background:rgba(8,12,30,.38);
+    color:#8992af;font-size:7px;letter-spacing:.12em;
+  }
+  .modal-divider{height:1px;margin:19px 0;background:linear-gradient(90deg,rgba(232,199,126,.30),rgba(232,199,126,.04));}
+  .modal-label{font-size:8px;letter-spacing:.30em;color:#8c93b0;margin-bottom:8px;}
+  .modal-desc{font-size:12.5px;line-height:1.95;letter-spacing:.06em;color:#c8c4d8;}
+  .modal-advice{margin-top:14px;font-size:11px;line-height:1.85;letter-spacing:.05em;color:#9ba1bf;}
+  .modal-close{
+    position:absolute;right:16px;top:14px;width:32px;height:32px;
+    border:none;background:none;color:#8c93b0;font-size:22px;cursor:pointer;
+    transition:.3s;
+  }
+  .modal-close:hover{color:#e8c77e;transform:rotate(90deg);}
+
+  #fx{position:fixed;inset:0;z-index:110;pointer-events:none;}
+
+  /* ---------- 自适应 ---------- */
+  @media (max-width:720px){
+    :root{--card-w:clamp(92px,27vw,124px);}
+    .intro-inner{width:92vw;padding:22px 0 62px;}
+    .intro-kicker{font-size:7.5px;letter-spacing:.34em;margin-bottom:12px;}
+    .intro-title{font-size:clamp(25px,6.2vw,34px);letter-spacing:.23em;}
+    .intro-lead{width:94%;margin-top:9px;font-size:11px;line-height:1.72;letter-spacing:.055em;}
+    .setup-form{margin-top:15px;padding:14px 14px 16px;border-radius:15px;}
+    .field-label{font-size:8px;letter-spacing:.20em;}
+    .question-input{min-height:62px;padding:12px 12px 11px 38px;font-size:12px;line-height:1.65;}
+    .question-sigil{left:13px;top:13px;}
+    .question-hint{font-size:8px;}
+    .spread-section{margin-top:15px;}
+    .spread-summary{max-width:62%;font-size:7px;}
+    .spread-groups{gap:10px;}
+    .spread-grid{grid-template-columns:1fr;gap:6px;}
+    .spread-opt{min-height:66px;padding:9px 10px;gap:8px;border-radius:8px;}
+    .spread-index{width:22px;height:22px;font-size:7px;}
+    .spread-title-row b{font-size:11px;letter-spacing:.04em;}
+    .spread-fit{font-size:7.5px;}
+    .spread-detail{padding:12px 12px 13px;}
+    .spread-positions{grid-template-columns:1fr;gap:6px;}
+    .intro-actions{margin-top:14px;}
+    .enter-btn{min-width:min(286px,82vw);padding:12px 22px;font-size:12px;letter-spacing:.10em;}
+    .mouse-hint{margin-top:9px;}
+    .side-mark{display:none;}
+    .draw-top{top:3.2vh;}
+    .draw-question{max-width:78vw;margin-bottom:6px;padding:4px 10px;font-size:7.5px;}
+    .draw-question .q-mark{width:15px;height:15px;font-size:7px;}
+    .progress-label{font-size:7.5px;margin-bottom:7px;}
+    .progress{min-height:58px;gap:8px;}
+    .thumb{width:30px;}
+    .thumb span{font-size:7px;width:66px;}
+    #stage{width:96vw;top:45%;}
+    #astral{top:79%;width:112vw;height:310px;}
+    #status{left:14px;top:14px;font-size:8px;}
+    .draw-actions{right:14px;bottom:14px;}
+    .corner-actions{right:14px;bottom:14px;}
+    .history-entry{right:14px;top:14px;padding:7px 10px;font-size:8px;letter-spacing:.10em;}
+    .history-entry .h-arrow{display:none;}
+    .result-inner{padding:3vh 3vw 56px;}
+    .result-title{letter-spacing:.24em;}
+    .result-sub{letter-spacing:.26em;font-size:8px;}
+    .result-context{width:88vw;margin-top:10px;gap:6px;}
+    .result-question{font-size:9.5px;line-height:1.6;}
+    .result-deck{font-size:7px;padding:3px 9px;}
+    .result-cards,
+    .result-cards.medium,
+    .result-cards.dense{--cols:3;--rw:min(27vw,132px);gap:9px;margin-top:21px;width:94vw;}
+    .rcard .pos{font-size:7.5px;letter-spacing:.2em;margin-bottom:8px;}
+    .rcard .name{font-size:10.5px;letter-spacing:.08em;}
+    .rcard .orien{font-size:7px;}
+    .reading-panel{width:94vw;margin-top:26px;padding:18px 15px 20px;border-radius:16px;}
+    .reading-head{flex-direction:column;gap:13px;}
+    .reading-badges{max-width:none;justify-content:flex-start;}
+    .reading-title{font-size:19px;letter-spacing:.06em;}
+    .reading-summary{margin-top:15px;font-size:11.5px;line-height:1.9;}
+    .reading-answer{margin-top:16px;padding:17px 15px 16px;border-radius:12px;}
+    .reading-verdict{font-size:12.5px;line-height:1.95;letter-spacing:.035em;}
+    .reading-reason{font-size:10.5px;line-height:1.9;}
+    .reading-keyline{gap:7px;margin-top:14px;padding-top:12px;}
+    .reading-keyline-label{width:100%;}
+    .reading-keypoints{flex-direction:column;align-items:flex-start;gap:4px;}
+    .reading-keypoint{white-space:normal;font-size:9.5px;}
+    .reading-keypoint + .reading-keypoint::before{display:none;}
+    .reading-brief-row{grid-template-columns:52px minmax(0,1fr);gap:4px 10px;padding:12px 13px;}
+    .reading-brief-note{grid-column:1/-1;padding-left:0;font-size:9px;}
+    .reading-detail-toggle{align-items:flex-start;flex-wrap:wrap;padding:12px 13px;}
+    .reading-detail-toggle span{width:calc(100% - 24px);}
+    .reading-detail-toggle small{order:3;width:100%;font-size:7.5px;}
+    .reading-detail-toggle i{order:2;margin-left:auto;}
+    .reading-stats{gap:6px;margin-top:13px;}
+    .reading-stat{padding:6px 8px;font-size:7px;}
+    .reading-stat b{font-size:9px;}
+    .reading-signals{grid-template-columns:1fr;gap:7px;margin-top:14px;}
+    .reading-signal{padding:12px 13px;}
+    .reading-signal b{font-size:10.5px;}
+    .reading-signal p{font-size:9px;}
+    .reading-deep-section{margin-top:19px;}
+    .reading-deep-head{align-items:flex-start;flex-direction:column;gap:4px;}
+    .reading-deep-grid{grid-template-columns:1fr;gap:7px;}
+    .reading-deep-card:first-child,
+    .reading-deep-card:last-child{grid-column:auto;}
+    .reading-deep-card{padding:15px 14px 14px;}
+    .reading-deep-card h5{font-size:11.5px;}
+    .reading-deep-card p{font-size:10px;}
+    .reading-divider{margin:20px 0 18px;}
+    .reading-subhead{align-items:flex-start;flex-direction:column;gap:5px;}
+    .reading-match{white-space:normal;line-height:1.5;}
+    .reading-timeline{grid-template-columns:1fr;gap:9px;}
+    .reading-insight{padding:15px 14px 15px;}
+    .reading-insight-body{font-size:10.5px;}
+    .reading-insight-relation,
+    .reading-insight-prompt{font-size:9.3px;}
+    .reading-paths-wrap{margin-top:17px;padding:16px 14px 15px;}
+    .reading-paths{grid-template-columns:1fr;gap:7px;}
+    .reading-path p{font-size:9.2px;}
+    .reading-advice{margin-top:16px;padding:17px 15px;}
+    .reading-advice-list{grid-template-columns:1fr;gap:8px;}
+    .reading-advice-list li{font-size:10px;}
+    .reading-now{gap:9px;}
+    .reading-now p{font-size:10px;}
+    .reading-reflection-box{margin-top:16px;padding:16px 14px;}
+    .reading-reflections{grid-template-columns:1fr;gap:8px;}
+    .reading-reflections li{font-size:9.5px;}
+    .reading-disclaimer{font-size:8px;}
+    .result-note{font-size:9px;text-align:center;line-height:1.8;padding:0 12px;}
+    .modal-box{flex-direction:column;gap:20px;padding:26px 22px;text-align:center;}
+    .modal-card{width:min(150px,46vw);}
+    .modal-text{width:100%;}
+    .modal-divider{margin:14px 0;}
+  }
+  @media (max-width:520px){
+    .spread-grid{grid-template-columns:1fr;}
+    .intro-inner{padding-bottom:68px;}
+    .spread-opt{min-height:64px;padding:9px 10px;}
+    .spread-title-row b{font-size:11.5px;}
+    .spread-fit{font-size:7.8px;}
+  }
+  @media (max-height:760px){
+    .intro-inner{padding-top:18px;padding-bottom:48px;}
+    .intro-kicker{margin-bottom:10px;}
+    .intro-lead{margin-top:7px;line-height:1.62;}
+    .setup-form{margin-top:12px;}
+    .spread-section{margin-top:13px;}
+    .intro-actions{margin-top:12px;}
+  }
+  @media (max-height:700px) and (min-width:721px){
+    :root{--card-w:clamp(100px, min(12.5vw, 19vh), 155px);}
+    .intro-title{font-size:32px;}
+    .setup-form{padding:15px 22px 16px;}
+    .question-input{min-height:58px;}
+    .spread-opt{min-height:62px;}
+    .enter-btn{padding:11px 26px;}
+    .result-cards{margin-top:20px;}
+    .result-title{font-size:22px;}
+  }
+</style>
+</head>
+<body data-screen="intro">
+  <canvas id="stars"></canvas>
+  <div class="nebula"></div>
+  <div class="grain"></div>
+  <div class="vignette"></div>
+  <canvas id="fx"></canvas>
+
+  <!-- ============ 开场：命运之扉 ============ -->
+  <section id="intro" class="screen active">
+    <div class="side-mark">TAROT · 命运之扉 · ORACLE</div>
+    <a class="history-entry" href="history.html" target="_blank" rel="noopener" title="在新标签页查看星轨历史记录">
+      <span class="h-star">✦</span><span>星轨历史</span><span class="h-arrow">→</span>
+    </a>
+    <div class="intro-inner">
+      <header class="intro-head">
+        <div class="intro-kicker">A QUESTION FOR THE UNKNOWN</div>
+        <h1 class="intro-title"><span class="dot">✦</span>命运之扉<span class="dot">✦</span></h1>
+        <p class="intro-lead">写下此刻最想厘清的事，选定一个牌阵。<em>让牌面映照方向，而不是替你做决定。</em></p>
+      </header>
+
+      <form id="setupForm" class="setup-form" novalidate>
+        <div class="setup-section">
+          <div class="field-head">
+            <label class="field-label" for="questionInput">你的问题 <span class="field-index">YOUR QUESTION</span></label>
+            <span class="char-count" id="questionCount">0 / 120</span>
+          </div>
+          <div class="question-shell" id="questionShell">
+            <span class="question-sigil">✦</span>
+            <textarea
+              id="questionInput"
+              class="question-input"
+              rows="2"
+              maxlength="120"
+              aria-describedby="questionHint"
+              placeholder="例如：接下来三个月，我该如何面对工作中的选择？"
+            ></textarea>
+          </div>
+          <div class="question-hint" id="questionHint">问题越具体，牌面的回应越清晰。</div>
+        </div>
+
+        <div class="spread-section">
+          <div class="spread-head">
+            <div class="field-label" id="spreadLabel">选择牌阵 <span class="field-index">10 SPREADS · KNOWLEDGE BASE</span></div>
+            <span class="spread-summary" id="spreadSummary">正在读取牌阵…</span>
+          </div>
+          <div class="spread-groups" id="spreadGroups" role="group" aria-labelledby="spreadLabel">
+            <div class="spread-loading">正在读取知识库中的牌阵与适用问题…</div>
+          </div>
+          <div class="spread-detail" id="spreadDetail" aria-live="polite"></div>
+        </div>
+
+        <div class="intro-actions">
+          <button id="enterBtn" class="enter-btn" type="submit">
+            <span class="b-star">✦</span>
+            <span>静心，开始抽牌</span>
+            <span class="b-arrow">→</span>
+          </button>
+          <div class="mouse-hint">
+            <span class="mouse-icon"></span>
+            <span>键鼠操作 · 无需摄像头</span>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="corner-actions">
+      <button class="icon-btn" id="soundBtnIntro" title="声音">♪</button>
+      <button class="icon-btn" id="fsBtnIntro" title="全屏">⛶</button>
+    </div>
+  </section>
+
+  <!-- ============ 抽牌 ============ -->
+  <section id="draw" class="screen">
+    <div id="status"><i class="s-dot"></i><span id="statusText">键鼠模式 · 六张牌环</span></div>
+
+    <div class="draw-top">
+      <div class="draw-question" id="drawQuestionWrap">
+        <span class="q-mark">问</span>
+        <span id="drawQuestion"></span>
+      </div>
+      <div class="progress-label" id="progressLabel">命运的轨迹 · 0 / 3</div>
+      <div class="progress" id="progress"></div>
+    </div>
+
+    <div id="stage">
+      <div id="rays"></div>
+      <div id="floorGlow"></div>
+      <div id="fan">
+        <div class="card" data-pos="0">
+          <div class="card-float">
+            <div class="card-inner">
+              <div class="face back"></div>
+              <div class="face front"><img src="cards/major-00.jpg" alt="" draggable="false" loading="eager" decoding="async"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card" data-pos="1">
+          <div class="card-float">
+            <div class="card-inner">
+              <div class="face back"></div>
+              <div class="face front"><img src="cards/major-00.jpg" alt="" draggable="false" loading="eager" decoding="async"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card" data-pos="2">
+          <div class="card-float">
+            <div class="card-inner">
+              <div class="face back"></div>
+              <div class="face front"><img src="cards/major-00.jpg" alt="" draggable="false" loading="eager" decoding="async"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card" data-pos="3">
+          <div class="card-float">
+            <div class="card-inner">
+              <div class="face back"></div>
+              <div class="face front"><img src="cards/major-00.jpg" alt="" draggable="false" loading="eager" decoding="async"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card" data-pos="4">
+          <div class="card-float">
+            <div class="card-inner">
+              <div class="face back"></div>
+              <div class="face front"><img src="cards/major-00.jpg" alt="" draggable="false" loading="eager" decoding="async"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card" data-pos="5">
+          <div class="card-float">
+            <div class="card-inner">
+              <div class="face back"></div>
+              <div class="face front"><img src="cards/major-00.jpg" alt="" draggable="false" loading="eager" decoding="async"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="singleCard" class="show"><img src="back.jpg" alt="" draggable="false"></div>
+    </div>
+
+    <div id="astral">
+      <div class="astral-tilt">
+        <svg class="astral-svg" viewBox="0 0 800 800" aria-hidden="true">
+          <defs>
+            <linearGradient id="ringGold" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#bda6ff" stop-opacity=".10"/>
+              <stop offset=".45" stop-color="#f2dfb0" stop-opacity=".50"/>
+              <stop offset="1" stop-color="#a88cff" stop-opacity=".12"/>
+            </linearGradient>
+            <path id="ringPath" d="M400,400 m-332,0 a332,332 0 1,1 664,0 a332,332 0 1,1 -664,0"/>
+          </defs>
+          <g class="rot-a">
+            <circle cx="400" cy="400" r="386" fill="none" stroke="url(#ringGold)" stroke-width="1" opacity=".70"/>
+            <circle cx="400" cy="400" r="376" fill="none" stroke="rgba(209,195,255,.22)" stroke-width="1" stroke-dasharray="1 9"/>
+            <g id="astralTicks"></g>
+          </g>
+          <g class="rot-b">
+            <circle cx="400" cy="400" r="312" fill="none" stroke="rgba(203,188,255,.30)" stroke-width="1"/>
+            <circle cx="400" cy="400" r="300" fill="none" stroke="rgba(203,188,255,.16)" stroke-width="1" stroke-dasharray="18 7 2 7"/>
+            <circle cx="400" cy="400" r="228" fill="none" stroke="rgba(228,215,255,.16)" stroke-width="1"/>
+            <path d="M400,72 L432,368 L728,400 L432,432 L400,728 L368,432 L72,400 L368,368 Z" fill="none" stroke="rgba(220,202,255,.12)" stroke-width="1"/>
+          </g>
+          <g class="rot-c">
+            <circle cx="400" cy="400" r="352" fill="none" stroke="rgba(214,197,255,.13)" stroke-width="1" stroke-dasharray="2 14"/>
+            <g id="astralGlyphs"></g>
+          </g>
+          <g opacity=".48">
+            <text class="ring-text" font-size="10.5" letter-spacing="3.8" fill="rgba(211,202,242,.55)">
+              <textPath href="#ringPath" startOffset="1%">THE WHEEL OF FORTUNE · 命运之轮 · PAST · PRESENT · FUTURE · THE WHEEL OF FORTUNE · 命运之轮 · </textPath>
+            </text>
+          </g>
+          <g fill="none" stroke="rgba(224,209,255,.18)" stroke-width="1">
+            <ellipse cx="400" cy="400" rx="190" ry="72" transform="rotate(-14 400 400)"/>
+            <ellipse cx="400" cy="400" rx="152" ry="48" transform="rotate(22 400 400)"/>
+            <circle cx="400" cy="400" r="72"/>
+          </g>
+        </svg>
+      </div>
+      <div class="astral-core"></div>
+    </div>
+
+    <div class="control-bar">
+      <div class="bar-line"><i class="bar-dot" id="barDot"></i></div>
+      <div class="control-pill"><span class="mini-dot"></span><span>拖动 / 滚轮 / ← → 转动 · 点击 / 空格抽牌</span></div>
+    </div>
+
+    <div class="draw-actions">
+      <button class="icon-btn" id="soundBtn" title="声音">♪</button>
+      <button class="icon-btn" id="fsBtn" title="全屏">⛶</button>
+    </div>
+    <div id="toast"></div>
+  </section>
+
+  <!-- ============ 结果 ============ -->
+  <section id="result" class="screen">
+    <button class="result-home" id="homeBtn">← 回到命运之扉</button>
+    <a class="history-entry" href="history.html" target="_blank" rel="noopener" title="在新标签页查看本次与过往抽牌记录">
+      <span class="h-star">✦</span><span>星轨历史</span><span class="h-arrow">→</span>
+    </a>
+    <div class="result-halo"></div>
+    <div class="result-inner">
+      <h2 class="result-title">命运的轨迹已显现</h2>
+      <div class="result-sub" id="resultSub">正在展开牌阵</div>
+      <div class="result-context">
+        <div class="result-deck" id="resultDeck">牌阵知识库</div>
+        <p class="result-question" id="resultQuestion"></p>
+      </div>
+      <div class="result-cards" id="resultCards"></div>
+      <section class="reading-panel" id="readingPanel" aria-live="polite" aria-labelledby="readingTheme">
+        <div class="reading-head">
+          <div>
+            <div class="reading-kicker">TAROT READING · 直接回答</div>
+            <h3 class="reading-title" id="readingTheme">正在读取牌面线索</h3>
+          </div>
+          <div class="reading-badges">
+            <span class="reading-domain" id="readingDomain">综合议题</span>
+            <span class="reading-kb" id="readingKb">78 张牌义 · 本地知识库</span>
+          </div>
+        </div>
+        <div class="reading-answer" id="readingAnswer">
+          <div class="reading-verdict-label">给 你 的 答 案</div>
+          <p class="reading-verdict" id="readingVerdict"></p>
+          <p class="reading-reason" id="readingReason"></p>
+          <div class="reading-keyline">
+            <span class="reading-keyline-label">关键启示</span>
+            <div class="reading-keypoints" id="readingKeypoints"></div>
+          </div>
+        </div>
+        <div class="reading-brief" id="readingBrief"></div>
+        <button class="reading-detail-toggle" id="readingDetailToggle" type="button"
+          aria-expanded="false" aria-controls="readingDetails">
+          <span>展开完整牌阵解读</span>
+          <small>牌与牌的关系 · 三种走向 · 行动清单</small>
+          <i>↓</i>
+        </button>
+        <div class="reading-details" id="readingDetails" hidden>
+          <p class="reading-summary" id="readingSummary"></p>
+          <div class="reading-stats" id="readingStats"></div>
+          <div class="reading-signals" id="readingSignals"></div>
+          <div class="reading-deep-section">
+            <div class="reading-deep-head">
+              <h4 id="readingDeepTitle">牌阵深读 · 牌与牌如何共同回答</h4>
+              <span>牌义 · 元素 · 牌阶 · 位置</span>
+            </div>
+            <div class="reading-deep-grid" id="readingDeep"></div>
+          </div>
+          <div class="reading-divider"></div>
+          <div class="reading-subhead">
+            <h4 id="readingInsightTitle">牌阵位置 · 逐张解读</h4>
+            <span class="reading-match" id="readingMatch"></span>
+          </div>
+          <div class="reading-timeline" id="readingInsights"></div>
+          <div class="reading-paths-wrap">
+            <div class="reading-paths-title">三 种 可 能 的 走 向</div>
+            <div class="reading-paths" id="readingPaths"></div>
+          </div>
+          <div class="reading-reflection-box">
+            <div class="reading-reflection-title">带 着 这 些 问 题 再 看 一 遍</div>
+            <ol class="reading-reflections" id="readingReflections"></ol>
+          </div>
+          <p class="reading-disclaimer" id="readingDisclaimer"></p>
+        </div>
+      </section>
+      <div class="result-note">牌面只是映照，答案始终在你心中。</div>
+      <button class="again-btn" id="againBtn">↻ &nbsp;重新抽牌</button>
+    </div>
+    <div class="corner-actions">
+      <button class="icon-btn" id="soundBtnResult" title="声音">♪</button>
+      <button class="icon-btn" id="fsBtnResult" title="全屏">⛶</button>
+    </div>
+  </section>
+
+  <!-- ============ 牌义弹窗 ============ -->
+  <div id="modal">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose">✕</button>
+      <div class="modal-card"><img id="modalImg" src="cards/major-00.jpg" alt=""></div>
+      <div class="modal-text">
+        <div class="modal-kicker">TAROT INTERPRETATION</div>
+        <span class="modal-pos" id="modalPos">过去 · 正位</span>
+        <h3 class="modal-title" id="modalTitle">愚者</h3>
+        <div class="modal-en" id="modalEn">The Fool</div>
+        <div class="modal-tags" id="modalTags"></div>
+        <div class="modal-divider"></div>
+        <div class="modal-label">牌 义 解 读</div>
+        <p class="modal-desc" id="modalDesc"></p>
+        <p class="modal-advice" id="modalAdvice"></p>
+      </div>
+    </div>
+  </div>
+
+<script src="history-store.js?v=2"></script>
+<script src="tarot-knowledge.js?v=advice2"></script>
+<script>
+/* =========================================================
+   牌库
+   ========================================================= */
+const MAJOR = [
+  ["major-00","愚者","The Fool","新的开始，冒险，纯真，无限可能"],
+  ["major-01","魔术师","The Magician","创造力，意志，将想法化为现实"],
+  ["major-02","女祭司","The High Priestess","直觉，潜意识，静默中的智慧"],
+  ["major-03","女皇","The Empress","丰盛，母性，美与滋养"],
+  ["major-04","皇帝","The Emperor","权威，秩序，稳固的掌控"],
+  ["major-05","教皇","The Hierophant","传统，信仰，精神导师的指引"],
+  ["major-06","恋人","The Lovers","爱情，结合，价值观的选择"],
+  ["major-07","战车","The Chariot","意志力，胜利，勇往直前"],
+  ["major-08","力量","Strength","勇气，温柔的力量，自我驯服"],
+  ["major-09","隐士","The Hermit","内省，智慧，独自寻光"],
+  ["major-10","命运之轮","Wheel of Fortune","转折点，命运循环，时来运转"],
+  ["major-11","正义","Justice","公正，真相，因果平衡"],
+  ["major-12","倒吊人","The Hanged Man","换位思考，甘愿的等待，牺牲"],
+  ["major-13","死神","Death","结束与重生，蜕变，放下旧我"],
+  ["major-14","节制","Temperance","平衡，调和，耐心与适度"],
+  ["major-15","恶魔","The Devil","束缚，欲望，诱惑的锁链"],
+  ["major-16","高塔","The Tower","剧变，旧结构崩塌，突然觉醒"],
+  ["major-17","星星","The Star","希望，疗愈，灵感与指引"],
+  ["major-18","月亮","The Moon","幻象，不安，潜意识的暗流"],
+  ["major-19","太阳","The Sun","成功，喜悦，活力与温暖"],
+  ["major-20","审判","Judgement","觉醒，重生，回应内心的召唤"],
+  ["major-21","世界","The World","完成，圆满，整合与达成"]
+];
+const SUITS = {
+  wands:{zh:"权杖", en:"Wands", kw:["灵感的火花，新的行动","规划与远见，布局未来","扩张，远航，等待回报","庆祝，安定，稳固根基","竞争，摩擦，争夺立场","胜利，赞誉，凯旋而归","坚守立场，抵御压力","讯息，速度，迅速行动","最后的坚持，负重前行","沉重的责任，使命达成"]},
+  cups:{zh:"圣杯", en:"Cups", kw:["新的情感，心灵的开端","结合，共鸣，关系升温","欢庆，友情，分享喜悦","倦怠，反思，重新评估","失落，遗憾，看见残存","怀旧，纯真，旧日重现","幻梦，众多选择，聚焦","放下，追寻更高的召唤","愿望成真，满足与喜悦","圆满的喜悦，情感归宿"]},
+  swords:{zh:"宝剑", en:"Swords", kw:["清晰的洞见，突破迷雾","僵持，抉择，左右为难","心碎，真相，痛苦清醒","休整，平静，恢复思考","冲突，胜负，明争暗斗","过渡，前行，放下包袱","策略，隐瞒，迂回达成","束缚，限制，自我设限","焦虑，梦魇，过度担忧","终结，低谷，黎明之前"]},
+  pentacles:{zh:"星币", en:"Pentacles", kw:["机遇的种子，务实开始","平衡，兼顾，灵活调度","技艺，协作，精益求精","守成，吝啬，紧握不放","困顿，扶持，患难与共","给予，收获，资源流动","耕耘，等待，耐心积累","精进，专注，磨练技艺","丰盛，独立，自给自足","传承，圆满，家族馈赠"]}
+};
+const RANK_ZH = ["一","二","三","四","五","六","七","八","九","十"];
+const RANK_EN = ["Ace","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten"];
+const COURT = [
+  ["侍从","Page","讯息，学习，好奇探索"],
+  ["骑士","Knight","行动，追求，向目标进发"],
+  ["王后","Queen","滋养，掌控，温柔而坚定"],
+  ["国王","King","领导，成熟，稳坐全局"]
+];
+
+const cards = [];
+MAJOR.forEach(a=>cards.push({
+  file:a[0], zh:a[1], en:a[2], up:a[3],
+  arcana:"major", suit:null
+}));
+Object.keys(SUITS).forEach(suit=>{
+  const s = SUITS[suit];
+  for(let i=0;i<10;i++){
+    cards.push({
+      file: suit+"-"+String(i+1).padStart(2,"0"),
+      zh: s.zh+RANK_ZH[i],
+      en: RANK_EN[i]+" of "+s.en,
+      up: s.kw[i],
+      arcana:"minor", suit
+    });
+  }
+  COURT.forEach((c,j)=>{
+    cards.push({
+      file: suit+"-"+String(11+j).padStart(2,"0"),
+      zh: s.zh+c[0], en: c[1]+" of "+s.en, up: c[2]+"（"+s.zh+"）",
+      arcana:"minor", suit
+    });
+  });
+});
+const N = cards.length;
+const DECKS = {
+  full:      {name:"全牌组",   count:78, filter:()=>true},
+  major:     {name:"大阿卡纳", count:22, filter:c=>c.arcana==="major"},
+  minor:     {name:"小阿卡纳", count:56, filter:c=>c.arcana==="minor"},
+  wands:     {name:"权杖",     count:14, filter:c=>c.suit==="wands"},
+  cups:      {name:"圣杯",     count:14, filter:c=>c.suit==="cups"},
+  swords:    {name:"宝剑",     count:14, filter:c=>c.suit==="swords"},
+  pentacles: {name:"星币",     count:14, filter:c=>c.suit==="pentacles"}
+};
+const SPREAD_GROUPS = [
+  {label:"基础观察", ids:["three-card-open","past-present-future","open-five"]},
+  {label:"选择 · 事业 · 时间", ids:["either-or-five","zeus-career","timing-six"]},
+  {label:"关系与情感", ids:["relationship-cross","venus-love","reunion-nine"]},
+  {label:"自我与成因", ids:["five-element"]}
+];
+
+/* =========================================================
+   DOM
+   ========================================================= */
+const $ = s=>document.querySelector(s);
+const introScreen = $("#intro");
+const drawScreen = $("#draw");
+const resultScreen = $("#result");
+const stage = $("#stage");
+const fanEl = $("#fan");
+const fanEls = [...fanEl.querySelectorAll(".card")];
+const singleCard = $("#singleCard");
+const progressEl = $("#progress");
+const progressLabel = $("#progressLabel");
+const resultCardsEl = $("#resultCards");
+const statusEl = $("#status");
+const statusText = $("#statusText");
+const barDot = $("#barDot");
+const toastEl = $("#toast");
+const modal = $("#modal");
+const setupForm = $("#setupForm");
+const questionInput = $("#questionInput");
+const questionShell = $("#questionShell");
+const questionHint = $("#questionHint");
+const questionCount = $("#questionCount");
+const spreadGroups = $("#spreadGroups");
+const spreadSummary = $("#spreadSummary");
+const spreadDetail = $("#spreadDetail");
+const drawQuestionWrap = $("#drawQuestionWrap");
+const drawQuestion = $("#drawQuestion");
+const resultDeck = $("#resultDeck");
+const resultSub = $("#resultSub");
+const resultQuestion = $("#resultQuestion");
+const readingPanel = $("#readingPanel");
+const readingTheme = $("#readingTheme");
+const readingDomain = $("#readingDomain");
+const readingKb = $("#readingKb");
+const readingVerdict = $("#readingVerdict");
+const readingReason = $("#readingReason");
+const readingKeypoints = $("#readingKeypoints");
+const readingBrief = $("#readingBrief");
+const readingDetailToggle = $("#readingDetailToggle");
+const readingDetails = $("#readingDetails");
+const readingSummary = $("#readingSummary");
+const readingStats = $("#readingStats");
+const readingSignals = $("#readingSignals");
+const readingDeep = $("#readingDeep");
+const readingDeepTitle = $("#readingDeepTitle");
+const readingMatch = $("#readingMatch");
+const readingInsightTitle = $("#readingInsightTitle");
+const readingInsights = $("#readingInsights");
+const readingPaths = $("#readingPaths");
+const readingReflections = $("#readingReflections");
+const readingDisclaimer = $("#readingDisclaimer");
+
+const state = {
+  screen:"intro",
+  question:"",
+  deckId:"full",
+  spreadId:"three-card-open",
+  spreadName:"三张万能牌阵",
+  spreads:[],
+  spread:null,
+  needCount:3,
+  spreadPositions:[],
+  pool:[],
+  center:0,
+  fanCards:[],
+  focus:0,
+  draws:0,
+  drawn:[],
+  busy:false,
+  cycling:false,
+  cyclingTimer:0,
+  entering:false,
+  selectionTimers:[],
+  readingId:null,
+  currentAnalysis:null
+};
+
+const RING_COUNT = 6;
+const RING_STEP = 360 / RING_COUNT;
+const RING_VIEW_TILT = 0;
+const RING_AUTO_SPEED = 8.5;
+let ringAngle = RING_VIEW_TILT;
+let ringTarget = RING_VIEW_TILT;
+let ringDrag = null;
+let hoverIndex = -1;
+let suppressCardClickUntil = 0;
+let ringAutoPauseUntil = 0;
+let lastRingFrame = 0;
+let ringLoopRunning = false;
+let ringVisualState = {angle:"",cards:[]};
+let wheelStepLockedUntil = 0;
+let barDotFrame = 0;
+let barDotX = 0;
+let warmWindowHandle = 0;
+const imageWarmCache = new Map();
+const DRAW_TIMING = Object.freeze({
+  focusDelay:90,
+  flip:300,
+  commit:1100,
+  advance:2000
+});
+
+/* =========================================================
+   基础工具
+   ========================================================= */
+function shuffle(arr){
+  const a = arr.slice();
+  for(let i=a.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]] = [a[j],a[i]];
+  }
+  return a;
+}
+function showScreen(id){
+  document.querySelectorAll(".screen").forEach(s=>{
+    s.classList.toggle("active", s.id===id);
+  });
+  state.screen = id;
+  document.body.dataset.screen = id;
+}
+function toast(msg, ms=2600){
+  toastEl.textContent = msg;
+  toastEl.classList.add("show");
+  clearTimeout(toast._t);
+  toast._t = setTimeout(()=>toastEl.classList.remove("show"), ms);
+}
+function setStatus(text, mode=""){
+  statusText.textContent = text;
+  statusEl.className = mode;
+}
+function applyReadingContext(){
+  const q = state.question.trim();
+  const spread = state.spread;
+  const spreadName = spread ? spread.name : state.spreadName;
+  const count = spread ? spread.cards : state.needCount;
+  drawQuestionWrap.classList.toggle("show", !!q);
+  drawQuestion.textContent = q;
+  drawQuestionWrap.title = q;
+  resultDeck.textContent = spreadName + " · " + count + " 张";
+  resultSub.textContent = spreadName + " · " + count + " 张牌";
+  resultQuestion.textContent = q ? "“"+q+"”" : "";
+  resultQuestion.hidden = !q;
+  spreadSummary.textContent = spread
+    ? "已选 · " + spreadName + " · " + count + " 张"
+    : "正在读取牌阵…";
+}
+
+function renderSpreadDetail(){
+  spreadDetail.replaceChildren();
+  if(!state.spread){
+    const loading = document.createElement("div");
+    loading.className = "spread-loading";
+    loading.textContent = "牌阵知识库正在加载，请稍候…";
+    spreadDetail.appendChild(loading);
+    return;
+  }
+  const spread = state.spread;
+  const head = document.createElement("div");
+  head.className = "spread-detail-head";
+  const titleWrap = document.createElement("div");
+  const title = document.createElement("div");
+  title.className = "spread-detail-title";
+  title.textContent = spread.name;
+  const sub = document.createElement("small");
+  sub.textContent = "本牌阵位置说明 · 来自知识库";
+  title.appendChild(sub);
+  const badge = document.createElement("span");
+  badge.className = "spread-detail-badge";
+  badge.textContent = spread.cards + " 张牌";
+  titleWrap.appendChild(title);
+  head.append(titleWrap,badge);
+
+  const summary = document.createElement("p");
+  summary.className = "spread-detail-summary";
+  summary.textContent = spread.summary || "知识库未提供牌阵摘要。";
+
+  const use = document.createElement("div");
+  use.className = "spread-use";
+  const useLabel = document.createElement("span");
+  useLabel.className = "spread-use-label";
+  useLabel.textContent = "适合问题";
+  use.appendChild(useLabel);
+  (spread.useCases || []).forEach(text=>{
+    const tag = document.createElement("span");
+    tag.className = "spread-use-tag";
+    tag.textContent = text;
+    use.appendChild(tag);
+  });
+
+  const positions = document.createElement("div");
+  positions.className = "spread-positions";
+  (spread.positions || []).forEach((position,index)=>{
+    const row = document.createElement("div");
+    row.className = "spread-position";
+    const number = document.createElement("i");
+    number.textContent = String(index + 1).padStart(2,"0");
+    const body = document.createElement("div");
+    const name = document.createElement("b");
+    name.textContent = position.name;
+    const meaning = document.createElement("span");
+    meaning.textContent = position.meaning;
+    body.append(name,meaning);
+    row.append(number,body);
+    positions.appendChild(row);
+  });
+
+  spreadDetail.append(head,summary,use,positions);
+  const tips = (spread.tips && spread.tips.length) ? spread.tips : (spread.steps || []);
+  tips.slice(0,2).forEach(text=>{
+    const tip = document.createElement("div");
+    tip.className = "spread-tip";
+    tip.textContent = text;
+    spreadDetail.appendChild(tip);
+  });
+}
+
+function renderSpreadCatalog(){
+  spreadGroups.replaceChildren();
+  if(!state.spreads.length){
+    const error = document.createElement("div");
+    error.className = "spread-error";
+    error.textContent = "牌阵知识库未加载。请确认本地服务正在运行，然后刷新页面。";
+    spreadGroups.appendChild(error);
+    return;
+  }
+  const byId = new Map(state.spreads.map(spread=>[spread.id,spread]));
+  const used = new Set();
+  let order = 0;
+  const appendGroup = (label,spreads)=>{
+    if(!spreads.length) return;
+    const group = document.createElement("section");
+    group.className = "spread-group";
+    const groupHead = document.createElement("div");
+    groupHead.className = "spread-group-head";
+    groupHead.textContent = label;
+    const grid = document.createElement("div");
+    grid.className = "spread-grid";
+    spreads.forEach(spread=>{
+      order += 1;
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "spread-opt";
+      btn.dataset.spread = spread.id;
+      btn.setAttribute("aria-pressed", String(spread.id === state.spreadId));
+      btn.classList.toggle("is-selected", spread.id === state.spreadId);
+
+      const index = document.createElement("span");
+      index.className = "spread-index";
+      index.textContent = String(order).padStart(2,"0");
+      const meta = document.createElement("span");
+      meta.className = "spread-meta";
+      const titleRow = document.createElement("span");
+      titleRow.className = "spread-title-row";
+      const name = document.createElement("b");
+      name.textContent = spread.name;
+      const count = document.createElement("span");
+      count.className = "spread-count";
+      count.textContent = spread.cards + " 张";
+      titleRow.append(name,count);
+      const fit = document.createElement("span");
+      fit.className = "spread-fit";
+      const fitText = (spread.useCases && spread.useCases.length)
+        ? "适合：" + spread.useCases.join(" · ")
+        : "适合：" + spread.summary;
+      fit.textContent = fitText;
+      fit.title = fitText;
+      const check = document.createElement("span");
+      check.className = "spread-check";
+      check.textContent = spread.id === state.spreadId ? "✓ 已选" : "";
+      meta.append(titleRow,fit);
+      btn.append(index,meta,check);
+      grid.appendChild(btn);
+    });
+    group.append(groupHead,grid);
+    spreadGroups.appendChild(group);
+  };
+
+  SPREAD_GROUPS.forEach(group=>{
+    const spreads = group.ids.map(id=>byId.get(id)).filter(Boolean);
+    spreads.forEach(spread=>used.add(spread.id));
+    appendGroup(group.label,spreads);
+  });
+  const extras = state.spreads.filter(spread=>!used.has(spread.id));
+  appendGroup("更多牌阵",extras);
+}
+
+function selectSpread(id){
+  const spread = state.spreads.find(item=>item.id===id);
+  if(!spread) return;
+  state.spreadId = spread.id;
+  state.spreadName = spread.name;
+  state.spread = spread;
+  state.needCount = spread.cards;
+  state.spreadPositions = spread.positions.slice();
+  spreadGroups.querySelectorAll(".spread-opt").forEach(btn=>{
+    const on = btn.dataset.spread === id;
+    btn.classList.toggle("is-selected", on);
+    btn.setAttribute("aria-pressed", String(on));
+    const check = btn.querySelector(".spread-check");
+    if(check) check.textContent = on ? "✓ 已选" : "";
+  });
+  renderSpreadDetail();
+  applyReadingContext();
+}
+
+let spreadsReadyResolve;
+const spreadsReady = new Promise(resolve=>{ spreadsReadyResolve = resolve; });
+async function loadSpreadCatalog(){
+  try{
+    const response = await fetch("/api/spreads",{cache:"no-store"});
+    const data = await response.json().catch(()=>({}));
+    if(!response.ok || !data.ok || !Array.isArray(data.spreads) || !data.spreads.length){
+      throw new Error(data.error || ("牌阵接口异常（HTTP "+response.status+"）"));
+    }
+    state.spreads = data.spreads;
+    const requested = new URLSearchParams(location.search).get("spread");
+    if(requested && state.spreads.some(spread=>spread.id===requested)) state.spreadId = requested;
+    if(!state.spreads.some(spread=>spread.id===state.spreadId)) state.spreadId = state.spreads[0].id;
+    renderSpreadCatalog();
+    selectSpread(state.spreadId);
+  }catch(err){
+    console.warn("牌阵知识库加载失败：",err);
+    state.spreads = [];
+    state.spread = null;
+    renderSpreadCatalog();
+    renderSpreadDetail();
+    spreadSummary.textContent = "牌阵读取失败";
+  }finally{
+    spreadsReadyResolve();
+  }
+}
+
+function syncIntroForm(){
+  questionInput.value = state.question;
+  questionCount.textContent = questionInput.value.length + " / 120";
+  questionShell.classList.remove("invalid");
+  questionHint.classList.remove("error");
+  questionHint.textContent = "问题越具体，牌面的回应越清晰。";
+  if(state.spreads.length) selectSpread(state.spreadId);
+  else applyReadingContext();
+}
+function reportQuestionError(message){
+  questionShell.classList.add("invalid");
+  questionHint.classList.add("error");
+  questionHint.textContent = message;
+  questionInput.focus();
+}
+function clearSelectionTimers(){
+  state.selectionTimers.forEach(id=>clearTimeout(id));
+  state.selectionTimers.length = 0;
+}
+function scheduleSelection(fn,delay){
+  const id = setTimeout(fn,delay);
+  state.selectionTimers.push(id);
+  return id;
+}
+function decorativeDpr(){
+  const area = Math.max(1,innerWidth*innerHeight);
+  const budget = Math.sqrt(2400000/area);
+  return Math.max(.7,Math.min(1.5,window.devicePixelRatio||1,budget));
+}
+function warmCardFile(file){
+  if(!file || imageWarmCache.has(file)) return;
+  const img = new Image();
+  img.decoding = "async";
+  img.src = "cards/"+file+".jpg";
+  imageWarmCache.set(file,img);
+  img.decode?.().catch(()=>{});
+}
+function cancelWarmWindow(){
+  if(!warmWindowHandle) return;
+  if(window.cancelIdleCallback) window.cancelIdleCallback(warmWindowHandle);
+  else clearTimeout(warmWindowHandle);
+  warmWindowHandle = 0;
+}
+function scheduleNextFanWindow(){
+  cancelWarmWindow();
+  const size = state.pool.length;
+  if(!size) return;
+  const files = Array.from(
+    {length:Math.min(RING_COUNT,size)},
+    (_,i)=>state.pool[(state.center+RING_COUNT+i)%size].file
+  );
+  const run = ()=>{
+    warmWindowHandle = 0;
+    files.forEach(warmCardFile);
+  };
+  warmWindowHandle = window.requestIdleCallback
+    ? window.requestIdleCallback(run,{timeout:900})
+    : setTimeout(run,180);
+}
+
+/* =========================================================
+   星空
+   ========================================================= */
+const starCanvas = $("#stars");
+const sctx = starCanvas.getContext("2d");
+let stars = [], meteors = [];
+
+function resizeStars(){
+  const dpr = decorativeDpr();
+  starCanvas.width = innerWidth * dpr;
+  starCanvas.height = innerHeight * dpr;
+  starCanvas.style.width = innerWidth + "px";
+  starCanvas.style.height = innerHeight + "px";
+  sctx.setTransform(dpr,0,0,dpr,0,0);
+  const count = Math.min(240, Math.floor(innerWidth*innerHeight/6200));
+  stars = Array.from({length:count}, ()=>({
+    x:Math.random()*innerWidth,
+    y:Math.random()*innerHeight,
+    r:Math.random()*1.25+.25,
+    ph:Math.random()*Math.PI*2,
+    sp:.4+Math.random()*1.1,
+    drift:.005+Math.random()*.012,
+    gold:Math.random()<.13,
+    blue:Math.random()<.22
+  }));
+}
+let lastStarDraw = 0;
+function spawnMeteor(){
+  if(meteors.length>1) return;
+  meteors.push({
+    x:Math.random()*innerWidth*.8,
+    y:Math.random()*innerHeight*.32,
+    vx:4.6+Math.random()*4.2,
+    vy:2.2+Math.random()*2.2,
+    life:1
+  });
+}
+function drawStars(t){
+  requestAnimationFrame(drawStars);
+  if(document.hidden) return;
+  const frameInterval = state.screen === "draw" ? 32 : 48;
+  if(t-lastStarDraw < frameInterval) return;
+  lastStarDraw = t;
+  sctx.clearRect(0,0,innerWidth,innerHeight);
+  for(const s of stars){
+    s.x += s.drift;
+    if(s.x > innerWidth+2) s.x = -2;
+    const tw = .52+.48*Math.sin(t*.0011*s.sp+s.ph);
+    const color = s.gold ? "255,226,160" : s.blue ? "168,196,255" : "226,232,255";
+    sctx.beginPath();
+    sctx.arc(s.x,s.y,s.r*tw+.12,0,Math.PI*2);
+    sctx.fillStyle = "rgba("+color+","+(.16+.68*tw)+")";
+    sctx.fill();
+    if(s.r>1.02){
+      sctx.strokeStyle = "rgba("+color+","+(.10*tw)+")";
+      sctx.lineWidth = .55;
+      sctx.beginPath();
+      sctx.moveTo(s.x-s.r*3.4,s.y); sctx.lineTo(s.x+s.r*3.4,s.y);
+      sctx.moveTo(s.x,s.y-s.r*3.4); sctx.lineTo(s.x,s.y+s.r*3.4);
+      sctx.stroke();
+    }
+  }
+  if(Math.random()<.0022) spawnMeteor();
+  meteors = meteors.filter(m=>m.life>0);
+  for(const m of meteors){
+    m.x += m.vx; m.y += m.vy; m.life -= .011;
+    const g = sctx.createLinearGradient(m.x,m.y,m.x-m.vx*16,m.y-m.vy*16);
+    g.addColorStop(0,"rgba(255,245,220,"+(.8*m.life)+")");
+    g.addColorStop(1,"rgba(255,245,220,0)");
+    sctx.strokeStyle = g; sctx.lineWidth = 1.2;
+    sctx.beginPath();
+    sctx.moveTo(m.x,m.y); sctx.lineTo(m.x-m.vx*16,m.y-m.vy*16);
+    sctx.stroke();
+  }
+}
+
+/* =========================================================
+   粒子特效
+   ========================================================= */
+const fxCanvas = $("#fx");
+const fctx = fxCanvas.getContext("2d");
+let particles = [];
+let fxRunning = false;
+let lastFxFrame = 0;
+
+function resizeFx(){
+  const dpr = decorativeDpr();
+  fxCanvas.width = innerWidth * dpr;
+  fxCanvas.height = innerHeight * dpr;
+  fxCanvas.style.width = innerWidth + "px";
+  fxCanvas.style.height = innerHeight + "px";
+  fctx.setTransform(dpr,0,0,dpr,0,0);
+}
+function ensureFxLoop(){
+  if(fxRunning || document.hidden) return;
+  fxRunning = true;
+  lastFxFrame = 0;
+  requestAnimationFrame(drawFx);
+}
+function burst(x,y,count=26,power=1){
+  for(let i=0;i<count;i++){
+    const a = Math.random()*Math.PI*2;
+    const sp = (1.4+Math.random()*5.2)*power;
+    particles.push({
+      x, y,
+      vx:Math.cos(a)*sp,
+      vy:Math.sin(a)*sp - .6*power,
+      g:.015+Math.random()*.02,
+      life:1,
+      decay:.011+Math.random()*.016,
+      size:.8+Math.random()*2.2*power,
+      gold:Math.random()<.78
+    });
+  }
+  ensureFxLoop();
+}
+function drawFx(now){
+  fxRunning = false;
+  fctx.clearRect(0,0,innerWidth,innerHeight);
+  if(!particles.length){
+    lastFxFrame = 0;
+    return;
+  }
+  const dt = Math.min(2.5,lastFxFrame ? (now-lastFxFrame)/16.667 : 1);
+  lastFxFrame = now;
+  const dragX = Math.pow(.992,dt);
+  const dragY = Math.pow(.994,dt);
+  fctx.globalCompositeOperation = "lighter";
+  for(let i=particles.length-1;i>=0;i--){
+    const p = particles[i];
+    p.x += p.vx*dt; p.y += p.vy*dt; p.vy += p.g*dt;
+    p.vx *= dragX; p.vy *= dragY;
+    p.life -= p.decay*dt;
+    if(p.life <= 0){
+      particles.splice(i,1);
+      continue;
+    }
+    const c = p.gold ? "255,224,158" : "203,170,255";
+    fctx.globalAlpha = Math.max(0,p.life*.95);
+    fctx.fillStyle = "rgba("+c+",1)";
+    fctx.beginPath();
+    fctx.arc(p.x,p.y,Math.max(.1,p.size*p.life),0,Math.PI*2);
+    fctx.fill();
+    fctx.globalAlpha = Math.max(0,p.life*.10);
+    fctx.beginPath();
+    fctx.arc(p.x,p.y,Math.max(.1,p.size*p.life*2.6),0,Math.PI*2);
+    fctx.fill();
+  }
+  fctx.globalAlpha = 1;
+  fctx.globalCompositeOperation = "source-over";
+  if(particles.length){
+    fxRunning = true;
+    requestAnimationFrame(drawFx);
+  }else{
+    lastFxFrame = 0;
+    fctx.clearRect(0,0,innerWidth,innerHeight);
+  }
+}
+
+/* =========================================================
+   音效（WebAudio，无外部文件）
+   ========================================================= */
+let audioCtx = null, masterGain = null, muted = false, ambientStarted = false;
+function initAudio(){
+  if(audioCtx) return;
+  try{
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if(!AC) return;
+    audioCtx = new AC();
+    masterGain = audioCtx.createGain();
+    masterGain.gain.value = muted ? 0 : .032;
+    masterGain.connect(audioCtx.destination);
+    const freqs = [55, 82.5, 110, 164.8];
+    freqs.forEach((f,i)=>{
+      const o = audioCtx.createOscillator();
+      const g = audioCtx.createGain();
+      o.type = "sine"; o.frequency.value = f;
+      g.gain.value = [ .30, .16, .10, .045 ][i];
+      const lfo = audioCtx.createOscillator();
+      const lg = audioCtx.createGain();
+      lfo.frequency.value = .06 + i*.023;
+      lg.gain.value = g.gain.value * .35;
+      lfo.connect(lg); lg.connect(g.gain);
+      o.connect(g); g.connect(masterGain);
+      o.start(); lfo.start();
+    });
+    ambientStarted = true;
+  }catch(e){}
+}
+function tone(freq=880, dur=.8, vol=.05, type="sine", delay=0){
+  if(!audioCtx || muted) return;
+  try{
+    const t = audioCtx.currentTime + delay;
+    const o = audioCtx.createOscillator();
+    const g = audioCtx.createGain();
+    o.type = type; o.frequency.setValueAtTime(freq,t);
+    g.gain.setValueAtTime(0,t);
+    g.gain.linearRampToValueAtTime(vol,t+.03);
+    g.gain.exponentialRampToValueAtTime(.0001,t+dur);
+    o.connect(g); g.connect(masterGain);
+    o.start(t); o.stop(t+dur+.05);
+  }catch(e){}
+}
+function soundSelect(){ tone(740,.55,.035,"sine"); tone(1108,.9,.022,"triangle",.06); }
+function soundReveal(){ tone(523.25,1.2,.036,"sine"); tone(659.25,1.3,.028,"sine",.05); tone(783.99,1.5,.022,"sine",.1); }
+function soundFinal(){ [392,493.9,587.3,784].forEach((f,i)=>tone(f,2.2,.024,"sine",i*.13)); }
+function soundCycle(){ tone(320,.16,.012,"triangle"); }
+function toggleSound(){
+  muted = !muted;
+  if(masterGain){
+    try{ masterGain.gain.linearRampToValueAtTime(muted?0:.032, audioCtx.currentTime+.25); }catch(e){}
+  }
+  document.querySelectorAll("#soundBtn,#soundBtnIntro,#soundBtnResult").forEach(b=>{
+    b.classList.toggle("off",muted);
+    b.textContent = muted ? "♪̸" : "♪";
+  });
+}
+document.querySelectorAll("#soundBtn,#soundBtnIntro,#soundBtnResult").forEach(b=>b.addEventListener("click",toggleSound));
+function toggleFullscreen(){
+  if(!document.fullscreenElement){
+    document.documentElement.requestFullscreen?.().catch(()=>{});
+  }else{
+    document.exitFullscreen?.().catch(()=>{});
+  }
+}
+["#fsBtn","#fsBtnIntro","#fsBtnResult"].forEach(id=>$(id).addEventListener("click",toggleFullscreen));
+
+/* =========================================================
+   魔法阵装饰
+   ========================================================= */
+function buildAstral(){
+  const svgNS = "http://www.w3.org/2000/svg";
+  const ticks = $("#astralTicks");
+  for(let i=0;i<72;i++){
+    const a = i*5*Math.PI/180;
+    const major = i%6===0;
+    const r1 = major ? 344 : 360;
+    const r2 = 372;
+    const l = document.createElementNS(svgNS,"line");
+    l.setAttribute("x1",400+Math.cos(a)*r1);
+    l.setAttribute("y1",400+Math.sin(a)*r1);
+    l.setAttribute("x2",400+Math.cos(a)*r2);
+    l.setAttribute("y2",400+Math.sin(a)*r2);
+    l.setAttribute("stroke","rgba(214,201,255,"+(major?".38":".20")+")");
+    l.setAttribute("stroke-width",major?"1.2":".8");
+    ticks.appendChild(l);
+  }
+  const glyphs = ["♈","♉","♊","♋","♌","♍","♎","♏","♐","♑","♒","♓"];
+  const gwrap = $("#astralGlyphs");
+  glyphs.forEach((g,i)=>{
+    const a = (i*30-90)*Math.PI/180;
+    const txt = document.createElementNS(svgNS,"text");
+    txt.setAttribute("x",400+Math.cos(a)*338);
+    txt.setAttribute("y",400+Math.sin(a)*338+4);
+    txt.setAttribute("text-anchor","middle");
+    txt.setAttribute("font-size","16");
+    txt.setAttribute("fill","rgba(217,204,255,.30)");
+    txt.textContent = g;
+    gwrap.appendChild(txt);
+  });
+}
+
+/* =========================================================
+   牌局
+   ========================================================= */
+function newDeck(){
+  clearSelectionTimers();
+  cancelWarmWindow();
+  clearTimeout(state.cyclingTimer);
+  const deck = DECKS[state.deckId] || DECKS.full;
+  state.pool = shuffle(cards.filter(deck.filter));
+  state.center = 0;
+  state.focus = 0;
+  state.draws = 0;
+  state.drawn = [];
+  state.readingId = null;
+  state.currentAnalysis = null;
+  state.busy = false;
+  state.cycling = false;
+  state.cyclingTimer = 0;
+  ringAngle = RING_VIEW_TILT;
+  ringTarget = RING_VIEW_TILT;
+  ringDrag = null;
+  progressEl.innerHTML = "";
+  progressLabel.textContent = "命运的轨迹 · 0 / " + state.needCount;
+  progressLabel.title = state.spreadName;
+  setFanCards();
+  setFocus(0);
+}
+function setFanCards(){
+  const size = state.pool.length;
+  state.fanCards = Array.from(
+    {length:RING_COUNT},
+    (_,i)=>state.pool[(state.center+i+size)%size]
+  );
+  fanEls.forEach((el,i)=>{
+    const img = el.querySelector(".face.front img");
+    const src = "cards/"+state.fanCards[i].file+".jpg";
+    if(img.getAttribute("src") !== src){
+      img.src = src;
+      img.decode?.().catch(()=>{});
+    }
+  });
+  scheduleNextFanWindow();
+}
+function normalizeDeg(deg){
+  return ((deg % 360) + 360) % 360;
+}
+function nearestAngle(value, reference){
+  return value + Math.round((reference-value)/360) * 360;
+}
+function setFocus(pos){
+  pos = ((pos % RING_COUNT) + RING_COUNT) % RING_COUNT;
+  state.focus = pos;
+  fanEls.forEach((el,i)=>el.classList.toggle("focused", i===pos));
+  ringTarget = nearestAngle(-pos * RING_STEP + RING_VIEW_TILT, ringTarget);
+}
+function syncFocusToFront(){
+  const pos = ((Math.round((RING_VIEW_TILT - ringTarget) / RING_STEP) % RING_COUNT) + RING_COUNT) % RING_COUNT;
+  if(pos === state.focus) return;
+  state.focus = pos;
+  fanEls.forEach((el,i)=>el.classList.toggle("focused", i===pos));
+}
+function openFan(){
+  if(state.screen!=="draw") return;
+  singleCard.classList.remove("show");
+  singleCard.classList.add("hide");
+  fanEl.classList.add("open");
+  setFocus(0);
+  ensureRingLoop();
+}
+function showSingle(){
+  fanEl.classList.remove("open");
+  fanEls.forEach(el=>{
+    el.classList.remove("focused","hot","flipped","chosen","dim","vanish");
+  });
+  singleCard.classList.remove("hide");
+  singleCard.classList.add("show");
+  scheduleSelection(openFan, 900);
+}
+function restartDraw(){
+  newDeck();
+  showSingle();
+  setStatus("键鼠操作 · 自动旋转 · "+state.spreadName,"");
+}
+function cycleFan(dir){
+  if(state.busy || state.cycling || !fanEl.classList.contains("open")) return;
+  state.cycling = true;
+  ringAutoPauseUntil = performance.now() + 1400;
+  soundCycle();
+  setFocus(state.focus + dir);
+  clearTimeout(state.cyclingTimer);
+  state.cyclingTimer = setTimeout(()=>{
+    state.cycling = false;
+  }, 75);
+}
+
+function addProgress(card,index){
+  const d = document.createElement("div");
+  d.className = "thumb";
+  d.innerHTML = '<img src="cards/'+card.file+'.jpg" alt=""><span>'+card.zh+'</span>';
+  progressEl.appendChild(d);
+  requestAnimationFrame(()=>requestAnimationFrame(()=>d.classList.add("in")));
+  progressLabel.textContent = "命运的轨迹 · "+(index+1)+" / "+state.needCount;
+}
+
+function selectCard(pos){
+  if(state.busy || state.draws>=state.needCount || !fanEl.classList.contains("open")) return;
+  state.busy = true;
+  ringAutoPauseUntil = performance.now() + 4000;
+  pos = ((pos % RING_COUNT) + RING_COUNT) % RING_COUNT;
+  const el = fanEls[pos];
+  const card = state.fanCards[pos];
+  fanEls.forEach(o=>o.classList.remove("hot"));
+  if(state.focus!==pos){
+    setFocus(pos);
+    scheduleSelection(()=>beginSelectCard(pos,el,card), DRAW_TIMING.focusDelay);
+  }else{
+    beginSelectCard(pos,el,card);
+  }
+}
+function beginSelectCard(pos,el,card){
+  if(!card || state.screen!=="draw") return;
+  el.classList.add("chosen");
+  fanEls.forEach((o,i)=>{ if(i!==pos) o.classList.add("dim"); });
+  soundSelect();
+  const r = el.getBoundingClientRect();
+  const cx = r.left + r.width/2;
+  const cy = r.top + r.height/2;
+  burst(cx, cy, 24, .8);
+  scheduleSelection(()=>{
+    el.classList.add("flipped");
+    soundReveal();
+    burst(cx, cy, 30, 1.1);
+  }, DRAW_TIMING.flip);
+  scheduleSelection(()=>{
+    addProgress(card,state.draws);
+    const position = state.spreadPositions[state.draws];
+    state.drawn.push({
+      card,
+      pos:position ? position.name : "位置 "+(state.draws+1),
+      posMeaning:position ? position.meaning : ""
+    });
+    state.draws++;
+    el.classList.add("vanish");
+    burst(cx, cy, 46, 1.6);
+  }, DRAW_TIMING.commit);
+  scheduleSelection(()=>{
+    if(state.draws>=state.needCount){
+      showResult();
+    }else{
+      resetFanAfterDraw();
+    }
+  }, DRAW_TIMING.advance);
+}
+function resetFanAfterDraw(){
+  state.center = (state.center + RING_COUNT) % state.pool.length;
+  setFanCards();
+  fanEls.forEach(el=>el.classList.remove("focused","hot","flipped","chosen","dim","vanish"));
+  state.focus = 0;
+  setFocus(0);
+  state.busy = false;
+  ringAutoPauseUntil = performance.now() + 700;
+}
+
+function ensureRingLoop(){
+  if(ringLoopRunning || state.screen!=="draw" || !fanEl.classList.contains("open") || document.hidden) return;
+  ringLoopRunning = true;
+  lastRingFrame = 0;
+  requestAnimationFrame(tickRing);
+}
+function tickRing(now){
+  if(state.screen!=="draw" || !fanEl.classList.contains("open") || document.hidden){
+    ringLoopRunning = false;
+    lastRingFrame = 0;
+    return;
+  }
+  const frameDelta = lastRingFrame ? Math.min(now - lastRingFrame, 64) : 0;
+  lastRingFrame = now;
+  const dt = frameDelta / 1000;
+  const autoRotate =
+    !ringDrag &&
+    !state.busy &&
+    !state.cycling &&
+    !modal.classList.contains("open") &&
+    now >= ringAutoPauseUntil;
+  if(autoRotate && dt > 0){
+    const spin = RING_AUTO_SPEED * dt;
+    ringAngle += spin;
+    ringTarget += spin;
+    syncFocusToFront();
+  }
+  if(!ringDrag){
+    const diff = ringTarget - ringAngle;
+    const lambda = Math.abs(diff) > 90 ? 18 : 13;
+    const easing = frameDelta ? 1 - Math.exp(-lambda*dt) : 1;
+    ringAngle += diff * easing;
+    if(Math.abs(diff) < .01) ringAngle = ringTarget;
+  }
+  const idle = ringDrag ? 0 : Math.sin(now*.00055)*.65 + Math.sin(now*.00019+1.3)*.20;
+  const displayAngle = ringAngle + idle;
+  const angleValue = displayAngle.toFixed(2)+"deg";
+  if(ringVisualState.angle !== angleValue){
+    fanEl.style.setProperty("--ring-angle", angleValue);
+    ringVisualState.angle = angleValue;
+  }
+  if(ringVisualState.cards.length !== fanEls.length) ringVisualState.cards = [];
+  fanEls.forEach((el,i)=>{
+    const rel = normalizeDeg(i*RING_STEP + displayAngle);
+    const facing = Math.cos(rel * Math.PI / 180);
+    const front = (facing + 1) / 2;
+    const lift = (-Math.max(0, -facing) * 62).toFixed(1)+"px";
+    const opacity = (0.74 + front * 0.26).toFixed(3);
+    const cached = ringVisualState.cards[i] || (ringVisualState.cards[i] = {});
+    if(cached.lift !== lift){
+      el.style.setProperty("--rear-lift", lift);
+      cached.lift = lift;
+    }
+    if(cached.opacity !== opacity){
+      el.style.opacity = opacity;
+      cached.opacity = opacity;
+    }
+  });
+  requestAnimationFrame(tickRing);
+}
+
+/* =========================================================
+   结果
+   ========================================================= */
+function getCardKnowledge(card){
+  const kbCard = window.TAROT_KB && TAROT_KB.getCard ? TAROT_KB.getCard(card.file) : null;
+  if(kbCard) return kbCard;
+  return {
+    keywords:String(card.up||"").split("，").filter(Boolean),
+    meaning:card.up || "这张牌提醒你观察当前的能量与选择。",
+    advice:"把牌义转成一个今天可以完成的小动作。",
+    arcana:card.arcana,
+    suit:card.suit
+  };
+}
+
+function cardKnowledgeTag(card, knowledge){
+  if(knowledge.arcana === "major") return "大阿卡纳";
+  const suit = knowledge.suitInfo || (window.TAROT_KB && TAROT_KB.suits[card.suit]);
+  const rank = knowledge.rankInfo || (window.TAROT_KB && TAROT_KB.ranks[knowledge.number]);
+  if(suit && rank) return suit.element+"元素 · "+suit.name+" · "+rank.stage;
+  return suit ? suit.element+"元素 · "+suit.name : "小阿卡纳";
+}
+
+function appendReadingStat(label,value){
+  const item = document.createElement("span");
+  item.className = "reading-stat";
+  const k = document.createElement("span");
+  k.textContent = label;
+  const v = document.createElement("b");
+  v.textContent = value;
+  item.append(k,v);
+  readingStats.appendChild(item);
+}
+
+function classifyLocalQuestion(question){
+  const rules = [
+    {
+      label:"事业与成长",
+      words:["工作","事业","职场","面试","求职","跳槽","升职","项目","创业","公司","客户","合作","团队","学业","学习","考试","考研","毕业","转行","副业","辞职"],
+      lens:"先核对岗位现实、可投入的资源与长期价值，而不是只被短期结果牵着走。",
+      actions:["把现状写成“可控 / 不可控”两栏，只处理可控项。","为最关键的下一步设定一个近期可验证的小结果。","在决定前核对实际职责、时间成本与长期收益。"]
+    },
+    {
+      label:"关系与情感",
+      words:["感情","爱情","恋爱","喜欢","暗恋","对象","前任","分手","复合","暧昧","婚姻","结婚","伴侣","男朋友","女朋友","关系","相处","约会","表白","沟通","家庭","家人","朋友"],
+      lens:"只观察双方已经表达和实际做出的行为，不替对方猜测动机，也不把期待当成事实。",
+      actions:["用一次具体、非指责的对话确认双方的需要与边界。","把“我希望对方怎样”改写成“我能清楚表达什么、接受什么”。","给关系设一个观察期，以持续行动而不是单次表态作判断。"]
+    },
+    {
+      label:"金钱与资源",
+      words:["钱","金钱","财务","财富","收入","工资","奖金","投资","理财","股票","基金","债务","贷款","买房","消费","预算","经济","生意","盈利","成本","存款","现金流"],
+      lens:"先核对现金流、风险承受力和时间期限，不把情绪当成财务判断的依据。",
+      actions:["把必要支出、可用现金与最坏情况下的底线列清楚。","给决定设置冷静期，避免在焦虑或兴奋时一次性下注。","把大决定拆成低成本、可撤回的步骤，并记录真实数据。"]
+    },
+    {
+      label:"自我与方向",
+      words:["选择","方向","人生","未来","改变","成长","自我","迷茫","决定","坚持","放下","离开","搬家","旅行","价值","意义","目标","习惯","勇气","内耗","纠结"],
+      lens:"问题更像是在辨认价值排序与愿意承担的代价，而不是寻找一个毫无风险的完美选项。",
+      actions:["写下两个选项各自最值得与最舍不得的部分。","用一个七天小实验获取现实反馈，而不是继续空想。","先承诺一个可承担的方向，再允许过程中修正。"]
+    },
+    {
+      label:"身心与状态",
+      words:["健康","身体","睡眠","失眠","疲惫","焦虑","压力","情绪","生病","疾病","健身","饮食","作息","心理","抑郁","疼痛","恢复","精力","倦怠","放松","疗愈"],
+      lens:"先看压力来源、作息与可获得的现实支持，不用一张牌替代专业检查或诊断。",
+      actions:["记录最近一周的睡眠、精力和压力触发点。","先减少一个持续消耗的环节，增加一个可持续的恢复动作。","若不适持续或明显影响生活，及时寻求医生或心理专业人士帮助。"]
+    }
+  ];
+  let best = null;
+  let bestScore = 0;
+  for(const rule of rules){
+    const score = rule.words.reduce((sum,word)=>sum + (question.includes(word) ? Math.min(4,word.length) : 0),0);
+    if(score > bestScore){ best = rule; bestScore = score; }
+  }
+  return best || {
+    label:"综合议题",
+    lens:"先分清事实、感受与猜测，再把注意力放回当下能够影响的环节。",
+    actions:["把事实、感受和猜测分别写下来。","选一个低成本、可撤回的下一步验证现实。","设一个复盘时间点，再根据反馈调整。"]
+  };
+}
+
+function fallbackReading(){
+  const spread = state.spread || {name:state.spreadName,summary:"",positions:[]};
+  const domain = classifyLocalQuestion(state.question);
+  const entries = state.drawn.map((d,index)=>{
+    const knowledge = getCardKnowledge(d.card);
+    return {
+      d,
+      index,
+      knowledge,
+      position:d.pos || "位置 "+(index+1),
+      positionMeaning:d.posMeaning || "",
+      keywords:(knowledge.keywords || []).slice(0,3),
+      tag:cardKnowledgeTag(d.card,knowledge)
+    };
+  });
+  const count = entries.length;
+  const majorCount = entries.filter(entry=>entry.knowledge.arcana === "major").length;
+  const suitCounts = {};
+  entries.forEach(entry=>{
+    const suit = entry.knowledge.suit;
+    if(suit) suitCounts[suit] = (suitCounts[suit] || 0) + 1;
+  });
+  const dominantSuit = Object.keys(suitCounts).sort((a,b)=>suitCounts[b]-suitCounts[a])[0];
+  const suitInfo = dominantSuit && window.TAROT_KB ? TAROT_KB.suits[dominantSuit] : null;
+  const elementText = ["wands","cups","swords","pentacles"]
+    .filter(key=>suitCounts[key])
+    .map(key=>{
+      const info = window.TAROT_KB && TAROT_KB.suits[key];
+      return (info ? info.element : key)+" × "+suitCounts[key];
+    }).join(" · ") || "无";
+  const pathText = entries.map(entry=>entry.d.card.zh+"（"+entry.keywords.join("、")+"）").join(" → ");
+  const insightCards = entries.map(entry=>{
+    const next = entries[entry.index+1];
+    const previous = entries[entry.index-1];
+    const keyword = entry.keywords.join("、") || "当前课题";
+    const positionBridge = entry.positionMeaning
+      ? "在这个位置，它要回答的是“"+entry.positionMeaning+"”。"
+      : "";
+    const relation = next
+      ? "它把线索交给下一位置的「"+next.d.card.zh+"」：先关注两者的共同主题，而不是孤立理解单张牌。"
+      : previous
+        ? "它与前一位置的「"+previous.d.card.zh+"」共同收束整个牌阵，观察这条线索是否已在现实中留下可验证的迹象。"
+        : "";
+    return {
+      position:entry.position,
+      positionMeaning:entry.positionMeaning,
+      cardName:entry.d.card.zh,
+      cardEn:entry.d.card.en,
+      keyword,
+      tag:entry.tag,
+      body:"针对“"+state.question+"”，"+positionBridge+"「"+entry.d.card.zh+"」把注意力带到“"+keyword+"”："+entry.knowledge.meaning+" "+domain.lens,
+      advice:entry.knowledge.advice,
+      relation,
+      prompt:"回看“"+entry.position+"”这个位置：如果不急着猜结果，你现在能确认的事实或需要是什么？"
+    };
+  });
+  const takeawayCards = insightCards.map(insight=>({
+    position:insight.position,
+    name:insight.cardName,
+    orientation:"正位",
+    note:"在“"+insight.position+"”位置，"+insight.cardName+"提示“"+insight.keyword+"”。先把它转成一个可观察的事实或行动，再判断下一步。"
+  }));
+  return {
+    theme:spread.name+" · 牌面线索已展开",
+    headline:"把问题放回牌阵结构，先处理能验证的下一步",
+    directAnswer:{
+      verdict:"针对你的问题，这组牌更像是在提示一条需要被逐层核对的路径，而不是给出一个不可改变的结论。先按照牌阵位置辨认处境、资源和阻力，再用一个成本可控的行动换取现实反馈。",
+      reason:"牌阵以“"+pathText+"”展开；它把问题放在"+domain.label+"的语境里。"+domain.lens,
+      keyPoints:[
+        entries[0] ? "先看「"+entries[0].position+"」给出的起点" : "先核对事实",
+        entries[Math.floor(count/2)] ? "留意「"+entries[Math.floor(count/2)].keywords[0]+"」这条中心线索" : "只改一个环节",
+        "用现实反馈而不是反复猜测作判断"
+      ],
+      cards:takeawayCards
+    },
+    domainLabel:domain.label,
+    modeLabel:"本地知识库 · "+spread.name,
+    matchedKeywords:[],
+    summary:"你问的是“"+state.question+"”。"+spread.name+"包含"+count+"个位置："+entries.map(entry=>entry.position+"—"+entry.d.card.zh).join("；")+"。合起来看，牌阵的主线是“"+pathText+"”。"+(spread.summary || "")+" 本地解读先按位置与牌义整理线索；AI 深读会进一步结合你的具体提问。",
+    stats:[
+      {label:"牌阵",value:spread.name+" · "+count+" 张"},
+      {label:"大阿卡纳",value:majorCount+" / "+count},
+      {label:"元素分布",value:elementText},
+      {label:"解读方式",value:"本地知识库"}
+    ],
+    signals:[
+      {
+        label:"现实处境",
+        title:entries[0] ? entries[0].position+"位的核心线索" : "先核对现状",
+        body:entries[0] ? entries[0].d.card.zh+"的“"+entries[0].keywords.join("、")+"”首先落在“"+entries[0].position+"”位置。不要把一个感觉直接当成结论，先确认这个位置在现实中对应的事实。" : domain.lens
+      },
+      {
+        label:"可用资源",
+        title:suitInfo ? "调用「"+suitInfo.element+"」元素的力量" : "从长线主线寻找稳定资源",
+        body:suitInfo ? suitInfo.gift+"是这组牌里较集中的力量。"+suitInfo.focus+"可以帮助你把抽象问题落到具体行动。" : "大阿卡纳较多时，优先看长期价值与角色转变，而不是短期输赢。"
+      },
+      {
+        label:"关键阻力",
+        title:entries[count-1] ? "别让最后的线索停在想象里" : "避免一次解决全部问题",
+        body:entries[count-1] ? entries[count-1].d.card.zh+"落在“"+entries[count-1].position+"”，提醒你观察趋势和条件，不把单张牌当成固定结局。" : "把大问题缩小到今天能执行的一步，减少反复思考带来的消耗。"
+      }
+    ],
+    deepSections:[
+      {
+        index:"01",
+        title:"这个牌阵如何拆开你的问题",
+        body:"你这次选择的是"+spread.name+"，位置顺序为"+entries.map(entry=>entry.position).join(" → ")+"。它不是在回答“会不会”，而是在分别观察不同层面的条件。"+domain.lens
+      },
+      {
+        index:"02",
+        title:"位置之间怎样互相影响",
+        body:"这组牌的主线是“"+pathText+"”。重点不只是每张牌的关键词，而是它们在同一牌阵里形成的连续关系：前一个位置提供背景，中间位置显示当下作用力，后面的位置提示可能延续的方向。"
+      },
+      {
+        index:"03",
+        title:"哪些条件会改变走向",
+        body:"需要观察的不是情绪是否突然变好，而是现实信号有没有变化：相关的人是否给出持续行动、资源条件是否更清楚、你是否完成了原本一直回避的那一步。这些变化比一次抽牌更可靠。"
+      },
+      {
+        index:"04",
+        title:"接下来可以怎么做",
+        body:domain.actions.join("；")+"。每完成一步，都记录一个可以复核的结果，再决定是否加码。"
+      }
+    ],
+    insights:insightCards,
+    paths:[
+      {
+        label:"若维持惯性",
+        title:entries[count-1] ? "“"+entries[count-1].keywords[0]+"”可能继续放大" : "同一反应可能重复",
+        body:"如果仍用原来的方式回应，这个牌阵里最需要被看见的线索容易继续以相似方式出现。"+domain.lens
+      },
+      {
+        label:"若主动调整",
+        title:"从最可执行的位置打开缺口",
+        body:"先选择牌阵里最贴近现实、最可控的一个位置行动。"+domain.actions[0]+" 小行动的反馈会比继续猜测更快缩小不确定性。"
+      },
+      {
+        label:"关键观察点",
+        title:"用持续行为核对变化",
+        body:"接下来给自己一个明确观察期。到期后只回答三个问题：发生了什么事实变化？我做了什么不同的事？下一步是否仍值得继续投入？"
+      }
+    ],
+    reflections:[
+      "这件事里，哪些是事实，哪些只是担忧或期待？",
+      "牌阵的哪个位置最触动我？它对应现实中的哪一个具体场景？",
+      "如果只做一个低成本、可撤回的改变，我会先改哪里？",
+      "我希望在什么时间点回来复盘，并依据哪些信号判断是否有变化？"
+    ],
+    disclaimer:"塔罗用于自我觉察与整理思路，不构成医疗、法律、投资或其他专业建议。未来会因你的选择而改变。"
+  };
+}
+
+function setReadingDetailsOpen(open){
+  readingDetails.hidden = !open;
+  readingDetailToggle.setAttribute("aria-expanded", open ? "true" : "false");
+  const label = readingDetailToggle.querySelector("span");
+  if(label) label.textContent = open ? "收起完整牌阵解读" : "展开完整牌阵解读";
+}
+
+readingDetailToggle.addEventListener("click",()=>{
+  setReadingDetailsOpen(readingDetailToggle.getAttribute("aria-expanded") !== "true");
+});
+
+let aiReadingController = null;
+let aiReadingSequence = 0;
+
+function saveReadingToHistory(analysis, source="local"){
+  if(!state.readingId || !window.TarotHistory) return;
+  try{
+    window.TarotHistory.save({
+      id:state.readingId,
+      question:state.question,
+      spreadId:state.spreadId,
+      spreadName:state.spread ? state.spread.name : state.spreadName,
+      cards:state.drawn.map(item=>({
+        file:item.card.file,
+        zh:item.card.zh,
+        en:item.card.en,
+        pos:item.pos,
+        posMeaning:item.posMeaning,
+        orientation:"正位"
+      })),
+      analysis,
+      source
+    });
+    state.currentAnalysis = analysis;
+  }catch(err){
+    console.warn("历史记录保存失败：",err);
+  }
+}
+
+function cancelAiReading(){
+  aiReadingSequence += 1;
+  if(aiReadingController){
+    aiReadingController.abort("cancelled");
+    aiReadingController = null;
+  }
+}
+
+function mergeAiReading(local, ai){
+  if(!ai || typeof ai !== "object") return local;
+  const merged = Object.assign({}, local, ai);
+  merged.directAnswer = Object.assign({}, local.directAnswer || {}, ai.directAnswer || {});
+  if(!Array.isArray(ai.directAnswer && ai.directAnswer.cards) || !ai.directAnswer.cards.length){
+    merged.directAnswer.cards = (local.directAnswer && local.directAnswer.cards) || [];
+  }
+  if(!Array.isArray(ai.stats) || !ai.stats.length) merged.stats = local.stats;
+  if(Array.isArray(ai.insights) && ai.insights.length){
+    merged.insights = ai.insights.map((item,index)=>Object.assign({}, (local.insights||[])[index] || {}, item));
+  }else{
+    merged.insights = local.insights;
+  }
+  ["signals","deepSections","paths","reflections"].forEach(key=>{
+    if(!Array.isArray(ai[key]) || !ai[key].length) merged[key] = local[key];
+  });
+  return merged;
+}
+
+async function loadAiReading(localAnalysis, sequence){
+  const controller = new AbortController();
+  aiReadingController = controller;
+  let timedOut = false;
+  const timeout = setTimeout(()=>{
+    timedOut = true;
+    controller.abort("timeout");
+  }, 120000);
+  readingKb.textContent = "本地知识库 · AI 深读生成中…";
+  readingKb.title = "AI 正在按本次牌阵位置读取对应的 Markdown 知识页";
+
+  try{
+    const response = await fetch("/api/reading", {
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      cache:"no-store",
+      signal:controller.signal,
+      body:JSON.stringify({
+        question:state.question,
+        deckId:state.deckId,
+        spreadId:state.spreadId,
+        drawn:state.drawn.map(item=>({
+          id:item.card.file,
+          position:item.pos
+        }))
+      })
+    });
+    const data = await response.json().catch(()=>({}));
+    if(!response.ok || !data.ok || !data.reading){
+      throw new Error(data.error || ("AI 请求失败（HTTP "+response.status+"）"));
+    }
+    if(sequence !== aiReadingSequence || state.screen !== "result") return;
+    const merged = mergeAiReading(localAnalysis, data.reading);
+    renderReadingAnalysis(merged, "ai");
+    saveReadingToHistory(merged, "ai");
+    readingKb.title = "由 AI 基于本次"+state.needCount+"张牌及牌阵位置的知识库内容生成";
+  }catch(err){
+    if(sequence !== aiReadingSequence || state.screen !== "result") return;
+    readingKb.textContent = timedOut ? "本地知识库 · AI 响应超时" : "本地知识库 · AI 暂未连接";
+    readingKb.title = timedOut ? "AI 响应超时，已保留本地知识库解读" : String(err && err.message || "已保留本地知识库解读");
+  }finally{
+    clearTimeout(timeout);
+    if(aiReadingController === controller) aiReadingController = null;
+  }
+}
+
+function buildReadingAnalysis(){
+  let analysis = null;
+  try{
+    if(state.spreadId === "past-present-future" && window.TAROT_KB && TAROT_KB.analyze){
+      analysis = TAROT_KB.analyze({
+        question:state.question,
+        deckId:state.deckId,
+        drawn:state.drawn
+      });
+    }
+  }catch(err){
+    console.warn("知识库解读生成失败：",err);
+  }
+  if(!analysis) analysis = fallbackReading();
+  cancelAiReading();
+  const sequence = aiReadingSequence;
+  renderReadingAnalysis(analysis, "local");
+  saveReadingToHistory(analysis, "local");
+  loadAiReading(analysis, sequence);
+  return analysis;
+}
+
+function renderReadingAnalysis(analysis, source="local"){
+  const keepDetailsOpen = source === "ai" &&
+    readingDetailToggle.getAttribute("aria-expanded") === "true";
+  const cardCount = state.needCount;
+  readingTheme.textContent = analysis.headline || analysis.theme;
+  readingDomain.textContent = analysis.domainLabel;
+  readingKb.textContent = source === "ai"
+    ? "AI × Markdown 知识库"
+    : (window.TAROT_KB ? "78 张牌义 · 本地知识库" : "基础牌义 · 本地解读");
+  readingSummary.textContent = analysis.summary;
+  readingDeepTitle.textContent = "牌阵深读 · "+cardCount+" 张牌如何共同回答";
+  readingInsightTitle.textContent = cardCount+" 张牌 · 按牌阵位置解读";
+  readingMatch.textContent = analysis.matchedKeywords && analysis.matchedKeywords.length
+    ? "识别到问题线索："+analysis.matchedKeywords.slice(0,4).join(" / ")+" · "+analysis.modeLabel
+    : "按开放问题解读 · "+analysis.modeLabel;
+
+  const directAnswer = analysis.directAnswer || {
+    verdict: analysis.summary,
+    reason: "",
+    keyPoints: [],
+    cards: []
+  };
+  readingVerdict.textContent = directAnswer.verdict || analysis.summary;
+  readingReason.textContent = directAnswer.reason || "";
+  readingReason.hidden = !directAnswer.reason;
+
+  readingKeypoints.innerHTML = "";
+  (directAnswer.keyPoints || []).forEach(text=>{
+    const item = document.createElement("span");
+    item.className = "reading-keypoint";
+    item.textContent = text;
+    readingKeypoints.appendChild(item);
+  });
+  const keyline = readingKeypoints.closest(".reading-keyline");
+  if(keyline) keyline.hidden = !readingKeypoints.children.length;
+
+  readingBrief.innerHTML = "";
+  (directAnswer.cards || []).forEach(card=>{
+    const item = document.createElement("div");
+    item.className = "reading-brief-row";
+    const pos = document.createElement("span");
+    pos.className = "reading-brief-pos";
+    pos.textContent = card.position || "";
+    const name = document.createElement("span");
+    name.className = "reading-brief-name";
+    name.textContent = card.name || "";
+    if(card.orientation){
+      const orientation = document.createElement("small");
+      orientation.textContent = card.orientation;
+      name.appendChild(orientation);
+    }
+    const note = document.createElement("p");
+    note.className = "reading-brief-note";
+    note.textContent = card.note || "";
+    item.append(pos,name,note);
+    readingBrief.appendChild(item);
+  });
+  readingBrief.hidden = !readingBrief.children.length;
+  setReadingDetailsOpen(keepDetailsOpen);
+
+  readingStats.innerHTML = "";
+  (analysis.stats||[]).forEach(s=>appendReadingStat(s.label,s.value));
+
+  readingInsights.innerHTML = "";
+  (analysis.insights||[]).forEach(insight=>{
+    const item = document.createElement("article");
+    item.className = "reading-insight";
+
+    const head = document.createElement("div");
+    head.className = "reading-insight-head";
+    const pos = document.createElement("span");
+    pos.className = "reading-insight-pos";
+    pos.textContent = insight.position;
+    const tag = document.createElement("span");
+    tag.className = "reading-insight-tag";
+    tag.textContent = insight.tag || "";
+    head.append(pos,tag);
+
+    const title = document.createElement("div");
+    title.className = "reading-insight-title";
+    title.textContent = insight.cardName;
+
+    const keyword = document.createElement("div");
+    keyword.className = "reading-insight-key";
+    keyword.textContent = "关键词 · "+(insight.keyword || "观察当下");
+
+    const body = document.createElement("p");
+    body.className = "reading-insight-body";
+    body.textContent = insight.body;
+
+    const advice = document.createElement("div");
+    advice.className = "reading-insight-advice";
+    advice.textContent = insight.advice || "先留意这张牌最触动你的部分。";
+
+    item.append(head,title,keyword,body);
+    if(insight.relation){
+      const relation = document.createElement("div");
+      relation.className = "reading-insight-relation";
+      relation.textContent = insight.relation;
+      item.appendChild(relation);
+    }
+    if(insight.prompt){
+      const prompt = document.createElement("div");
+      prompt.className = "reading-insight-prompt";
+      prompt.textContent = insight.prompt;
+      item.appendChild(prompt);
+    }
+    item.appendChild(advice);
+    readingInsights.appendChild(item);
+  });
+
+  readingSignals.innerHTML = "";
+  (analysis.signals||[]).forEach(signal=>{
+    const item = document.createElement("div");
+    item.className = "reading-signal";
+    const label = document.createElement("div");
+    label.className = "reading-signal-label";
+    label.textContent = signal.label || "牌阵线索";
+    const title = document.createElement("b");
+    title.textContent = signal.title || "";
+    const body = document.createElement("p");
+    body.textContent = signal.body || "";
+    item.append(label,title,body);
+    readingSignals.appendChild(item);
+  });
+  readingSignals.hidden = !readingSignals.children.length;
+
+  readingDeep.innerHTML = "";
+  (analysis.deepSections||[]).forEach(section=>{
+    const item = document.createElement("article");
+    item.className = "reading-deep-card";
+    const index = document.createElement("span");
+    index.className = "reading-deep-index";
+    index.textContent = section.index || "";
+    const title = document.createElement("h5");
+    title.textContent = section.title || "";
+    const body = document.createElement("p");
+    body.textContent = section.body || "";
+    item.append(index,title,body);
+    readingDeep.appendChild(item);
+  });
+  const readingDeepSection = readingDeep.closest(".reading-deep-section");
+  if(readingDeepSection) readingDeepSection.hidden = !readingDeep.children.length;
+
+  readingPaths.innerHTML = "";
+  (analysis.paths||[]).forEach(path=>{
+    const item = document.createElement("div");
+    item.className = "reading-path";
+    const label = document.createElement("div");
+    label.className = "reading-path-label";
+    label.textContent = path.label || "可能走向";
+    const title = document.createElement("h5");
+    title.textContent = path.title || "";
+    const body = document.createElement("p");
+    body.textContent = path.body || "";
+    item.append(label,title,body);
+    readingPaths.appendChild(item);
+  });
+  const readingPathsWrap = readingPaths.closest(".reading-paths-wrap");
+  if(readingPathsWrap) readingPathsWrap.hidden = !readingPaths.children.length;
+
+  readingReflections.innerHTML = "";
+  (analysis.reflections||[]).forEach(text=>{
+    const li = document.createElement("li");
+    li.textContent = text;
+    readingReflections.appendChild(li);
+  });
+  const readingReflectionBox = readingReflections.closest(".reading-reflection-box");
+  if(readingReflectionBox) readingReflectionBox.hidden = !readingReflections.children.length;
+
+  readingDisclaimer.textContent = analysis.disclaimer || "塔罗用于自我觉察，不构成专业建议。";
+}
+
+function buildResult(){
+  resultCardsEl.innerHTML = "";
+  const count = state.drawn.length;
+  resultCardsEl.classList.toggle("medium", count >= 4 && count <= 7 && count !== 5);
+  resultCardsEl.classList.toggle("dense", count === 5 || count >= 8);
+  resultCardsEl.style.setProperty("--cols", count <= 3 ? String(Math.max(1,count)) : "");
+  state.drawn.forEach((d,i)=>{
+    const el = document.createElement("div");
+    el.className = "rcard";
+    el.style.setProperty("--i",i);
+    el.title = d.posMeaning || d.pos;
+    el.innerHTML =
+      '<div class="pos">'+d.pos+'</div>'+
+      '<div class="frame"><img src="cards/'+d.card.file+'.jpg" alt="'+d.card.zh+'"></div>'+
+      '<div class="name">'+d.card.zh+'</div>'+
+      '<div class="orien">'+d.card.en+' · 正位</div>';
+    el.querySelector(".frame").addEventListener("click",()=>openModal(d));
+    resultCardsEl.appendChild(el);
+  });
+}
+function showResult(){
+  applyReadingContext();
+  buildResult();
+  state.readingId = window.TarotHistory
+    ? window.TarotHistory.createId()
+    : "reading-"+Date.now().toString(36);
+  buildReadingAnalysis();
+  resultScreen.classList.remove("ready");
+  resultScreen.scrollTop = 0;
+  showScreen("result");
+  requestAnimationFrame(()=>requestAnimationFrame(()=>resultScreen.classList.add("ready")));
+  soundFinal();
+  state.busy = false;
+}
+function openModal(d){
+  const knowledge = getCardKnowledge(d.card);
+  modal.querySelector("#modalImg").src = "cards/"+d.card.file+".jpg";
+  $("#modalPos").textContent = d.pos+" · 正位";
+  $("#modalTitle").textContent = d.card.zh;
+  $("#modalEn").textContent = d.card.en;
+  $("#modalDesc").textContent = knowledge.meaning+
+    (knowledge.keywords && knowledge.keywords.length ? " 关键词："+knowledge.keywords.join("、")+"。" : "");
+  $("#modalAdvice").textContent = (d.posMeaning || "")+
+    (knowledge.advice ? " 行动提示："+knowledge.advice : "");
+  const tags = $("#modalTags");
+  tags.innerHTML = "";
+  ["正位",cardKnowledgeTag(d.card,knowledge)].forEach(text=>{
+    if(!text) return;
+    const tag = document.createElement("span");
+    tag.className = "modal-tag";
+    tag.textContent = text;
+    tags.appendChild(tag);
+  });
+  modal.classList.add("open");
+}
+function closeModal(){ modal.classList.remove("open"); }
+$("#modalClose").addEventListener("click",closeModal);
+modal.addEventListener("click",e=>{ if(e.target===modal) closeModal(); });
+
+/* =========================================================
+   交互：鼠标 / 触屏
+   ========================================================= */
+function finishRingDrag(){
+  if(!ringDrag) return;
+  const moved = ringDrag.moved;
+  ringDrag = null;
+  ringAutoPauseUntil = performance.now() + 1200;
+  fanEl.classList.remove("dragging");
+  if(moved){
+    suppressCardClickUntil = performance.now() + 140;
+    let index = Math.round((RING_VIEW_TILT - ringAngle) / RING_STEP) % RING_COUNT;
+    index = (index + RING_COUNT) % RING_COUNT;
+    setFocus(index);
+    soundCycle();
+  }
+}
+function moveBarDot(clientX){
+  barDotX = Math.max(4,Math.min(96,(clientX/innerWidth)*100))+"%";
+  if(barDotFrame) return;
+  barDotFrame = requestAnimationFrame(()=>{
+    barDotFrame = 0;
+    barDot.style.left = barDotX;
+  });
+}
+
+stage.addEventListener("pointerdown", e=>{
+  if(state.screen!=="draw" || !fanEl.classList.contains("open") || state.busy) return;
+  if(e.pointerType==="mouse" && e.button!==0) return;
+  ringDrag = {
+    id:e.pointerId,
+    startX:e.clientX,
+    startAngle:ringAngle,
+    moved:false,
+    captured:false
+  };
+});
+
+stage.addEventListener("pointermove", e=>{
+  if(state.screen!=="draw" || !fanEl.classList.contains("open")) return;
+  moveBarDot(e.clientX);
+  if(ringDrag && e.pointerId===ringDrag.id){
+    const dx = e.clientX - ringDrag.startX;
+    if(Math.abs(dx) > 7) ringDrag.moved = true;
+    if(ringDrag.moved){
+      if(!ringDrag.captured){
+        try{ stage.setPointerCapture(e.pointerId); ringDrag.captured = true; }catch(err){}
+      }
+      fanEl.classList.add("dragging");
+      ringAngle = ringDrag.startAngle + dx * .42;
+      ringTarget = ringAngle;
+    }
+  }
+});
+
+function releaseRingDrag(e){
+  if(!ringDrag || (e && e.pointerId!==ringDrag.id)) return;
+  try{ stage.releasePointerCapture(ringDrag.id); }catch(err){}
+  finishRingDrag();
+}
+stage.addEventListener("pointerup", releaseRingDrag);
+stage.addEventListener("pointercancel", releaseRingDrag);
+
+stage.addEventListener("wheel", e=>{
+  if(state.screen!=="draw" || !fanEl.classList.contains("open")) return;
+  e.preventDefault();
+  const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+  const now = performance.now();
+  if(!delta || now < wheelStepLockedUntil) return;
+  wheelStepLockedUntil = now + 90;
+  cycleFan(delta>0 ? 1 : -1);
+},{passive:false});
+
+fanEls.forEach((el,i)=>{
+  el.addEventListener("pointerenter",()=>{
+    if(state.busy || !fanEl.classList.contains("open")) return;
+    if(hoverIndex>=0 && fanEls[hoverIndex]) fanEls[hoverIndex].classList.remove("hot");
+    hoverIndex = i;
+    el.classList.add("hot");
+  });
+  el.addEventListener("pointerleave",()=>{
+    if(hoverIndex===i){
+      el.classList.remove("hot");
+      hoverIndex = -1;
+    }
+  });
+  el.addEventListener("click",e=>{
+    e.stopPropagation();
+    if(!fanEl.classList.contains("open")) return;
+    if(performance.now() < suppressCardClickUntil) return;
+    selectCard(i);
+  });
+});
+singleCard.addEventListener("click",()=>{ openFan(); });
+
+document.addEventListener("keydown", e=>{
+  if(e.key==="Escape") closeModal();
+  if(state.screen==="draw" && !modal.classList.contains("open")){
+    if(e.key==="ArrowLeft"){ e.preventDefault(); cycleFan(-1); }
+    if(e.key==="ArrowRight"){ e.preventDefault(); cycleFan(1); }
+    if(e.key===" " || e.key==="Enter"){ e.preventDefault(); selectCard(state.focus); }
+  }
+});
+
+/* =========================================================
+   按钮
+   ========================================================= */
+spreadGroups.addEventListener("click",e=>{
+  const btn = e.target.closest(".spread-opt");
+  if(!btn) return;
+  selectSpread(btn.dataset.spread);
+});
+questionInput.addEventListener("input",()=>{
+  questionCount.textContent = questionInput.value.length + " / 120";
+  if(questionInput.value.trim()){
+    questionShell.classList.remove("invalid");
+    questionHint.classList.remove("error");
+    questionHint.textContent = "问题越具体，牌面的回应越清晰。";
+  }
+});
+questionInput.addEventListener("keydown",e=>{
+  if(e.key==="Enter" && (e.ctrlKey || e.metaKey)){
+    e.preventDefault();
+    setupForm.requestSubmit();
+  }
+});
+setupForm.addEventListener("submit",e=>{
+  e.preventDefault();
+  if(state.entering) return;
+  const question = questionInput.value.trim().replace(/\s+/g," ");
+  if(!question){
+    reportQuestionError("请先写下你想问的问题，再打开命运之扉。");
+    return;
+  }
+  if(!state.spread){
+    reportQuestionError("牌阵知识库仍在读取，请稍候再试。");
+    return;
+  }
+  state.entering = true;
+  state.question = question;
+  questionInput.value = question;
+  questionCount.textContent = question.length + " / 120";
+  initAudio();
+  tone(523.25,1.4,.03,"sine");
+  showScreen("draw");
+  restartDraw();
+  applyReadingContext();
+  setTimeout(()=>{ state.entering=false; },1000);
+});
+$("#againBtn").addEventListener("click",()=>{
+  cancelAiReading();
+  resultScreen.classList.remove("ready");
+  showScreen("draw");
+  restartDraw();
+  applyReadingContext();
+});
+$("#homeBtn").addEventListener("click",()=>{
+  cancelAiReading();
+  resultScreen.classList.remove("ready");
+  showScreen("intro");
+  syncIntroForm();
+  introScreen.scrollTop = 0;
+});
+
+/* =========================================================
+   初始化
+   ========================================================= */
+let resizeFrame = 0;
+function queueResize(){
+  if(resizeFrame) return;
+  resizeFrame = requestAnimationFrame(()=>{
+    resizeFrame = 0;
+    resizeStars();
+    resizeFx();
+  });
+}
+function init(){
+  buildAstral();
+  fanEls.forEach((el,i)=>{
+    el.dataset.slot = i;
+    el.style.setProperty("--slot-angle", (i*RING_STEP)+"deg");
+  });
+  resizeStars(); resizeFx();
+  requestAnimationFrame(drawStars);
+  setFocus(0);
+  syncIntroForm();
+  loadSpreadCatalog();
+  window.addEventListener("resize",queueResize,{passive:true});
+  document.addEventListener("visibilitychange",()=>{
+    if(document.hidden) return;
+    lastStarDraw = 0;
+    ensureRingLoop();
+    if(particles.length) ensureFxLoop();
+  });
+}
+init();
+
+/* ---------- 调试 / 截图模式：?screen=draw / ?screen=result&spread=... ---------- */
+async function initDebugMode(){
+  const qp = new URLSearchParams(location.search);
+  const screen = qp.get("screen");
+  if(screen !== "draw" && screen !== "result") return;
+  await spreadsReady;
+  if(!state.spread) return;
+  if(screen === "draw"){
+    showScreen("draw");
+    newDeck();
+    singleCard.classList.remove("show");
+    singleCard.classList.add("hide");
+    fanEl.classList.add("open");
+    setFocus(0);
+    ensureRingLoop();
+    setStatus("键鼠操作 · 自动旋转 · "+state.spreadName,"");
+    document.querySelector("#soundBtnIntro")?.classList.add("off");
+    return;
+  }
+  if(screen === "result"){
+    const demoFiles = [
+      "major-00","pentacles-12","wands-13","cups-02","swords-08",
+      "major-17","pentacles-06","major-10","cups-07","swords-04",
+      "wands-07","major-21"
+    ];
+    state.question = "接下来三个月，我该如何面对工作中的选择？";
+    state.drawn = state.spread.positions.map((position,i)=>({
+      card: cards.find(c=>c.file===demoFiles[i % demoFiles.length]),
+      pos: position.name,
+      posMeaning: position.meaning
+    }));
+    applyReadingContext();
+    buildResult();
+    buildReadingAnalysis();
+    showScreen("result");
+    requestAnimationFrame(()=>requestAnimationFrame(()=>resultScreen.classList.add("ready")));
+  }
+}
+initDebugMode();
+</script>
+</body>
+</html>
