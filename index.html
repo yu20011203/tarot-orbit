@@ -2003,7 +2003,7 @@ let spreadsReadyResolve;
 const spreadsReady = new Promise(resolve=>{ spreadsReadyResolve = resolve; });
 async function loadSpreadCatalog(){
   try{
-    const response = await fetch("/api/spreads",{cache:"no-store"});
+    const response = await fetch("spreads.json",{cache:"no-store"});
     const data = await response.json().catch(()=>({}));
     if(!response.ok || !data.ok || !Array.isArray(data.spreads) || !data.spreads.length){
       throw new Error(data.error || ("牌阵接口异常（HTTP "+response.status+"）"));
